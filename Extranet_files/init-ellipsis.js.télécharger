@@ -1,0 +1,17 @@
+function initEllipsis() {
+    Ellipsis({
+      class: '[data-vdp-ellipsis]',
+      lines: 3
+    });
+    Ellipsis({
+        class: '.elfinder-cwd-wrapper-list > .elfinder-cwd-view-list .elfinder-cwd-filename',
+        lines: 1
+    });
+    Ellipsis({
+      class: '[data-vdp-ellipsis-title]',
+      lines: 1
+    });
+}
+
+$(document).ready(initEllipsis);
+$(document).ajaxComplete(initEllipsis);

@@ -1,0 +1,278 @@
+const ENABLE_PROVINCE_DRILLDOWN = false;
+
+const webAppName = "moovapps"
+const REGIONS_API = "/" + webAppName + "/navigation/regions";
+const PROVINCES_API = "/" + webAppName + "/navigation/provinces";
+
+const REGION_PARAMS = {
+  projectName: "ReferentielsExtranet",
+  catalogName: "ReferentielsExtranet",
+  tableName: "Regions"
+};
+
+const PROVINCE_PARAMS = {
+  projectName: "ReferentielsExtranet",
+  catalogName: "ReferentielsExtranet",
+  tableName: "Regions"
+};
+
+function qs(params) {
+  const sp = new URLSearchParams();
+  Object.entries(params || {}).forEach(([k, v]) => sp.append(k, v));
+  return sp.toString();
+}
+
+function esc(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function getName(f) {
+  return "";
+}
+
+function unwrapDollar(obj) {
+  return obj && typeof obj === "object" && obj.$ && typeof obj.$ === "object" ? obj.$ : obj;
+}
+
+function extractMap(payload, key) {
+  const root = unwrapDollar(payload);
+  let val =
+    root?.[key] ??
+    root?.$?.[key] ??
+    root?.data?.[key] ??
+    root?.data?.$?.[key] ??
+    root?.result?.[key] ??
+    root?.result?.$?.[key];
+
+  val = unwrapDollar(val);
+  return val && typeof val === "object" ? val : {};
+}
+
+async function getJson(url) {
+  const res = await fetch(url, {
+    method: "GET",
+    headers: { Accept: "application/json" },
+    credentials: "include",
+    cache: "no-store"
+  });
+  if (!res.ok) throw new Error("HTTP" + res.status);
+  return res.json();
+}
+
+let regionsCache = null;
+let provincesCache = null;
+
+async function loadRegionsOnce() {
+  if (regionsCache) return regionsCache;
+
+  const url = REGIONS_API + "?" + qs(REGION_PARAMS);
+  const data = unwrapDollar(await getJson(url));
+  const status = data?.status ?? data?.$?.status ?? data?.data?.status ?? data?.data?.$?.status;
+
+  if (status && status !== "success") throw new Error(data?.message || "Regions API error");
+
+  regionsCache = extractMap(data, "regions");
+  return regionsCache;
+}
+
+async function loadProvincesOnce() {
+  if (provincesCache) return provincesCache;
+
+  const url = PROVINCES_API + "?" + qs(PROVINCE_PARAMS);
+  const data = unwrapDollar(await getJson(url));
+  const status = data?.status ?? data?.$?.status ?? data?.data?.status ?? data?.data?.$?.status;
+
+  if (status && status !== "success") throw new Error(data?.message || "Provinces API error");
+
+  provincesCache = extractMap(data, "provinces");
+  return provincesCache;
+}
+
+async function fetchRegionInfo(regionId) {
+  const map = await loadRegionsOnce();
+  return map[regionId] || null;
+}
+
+async function fetchProvinceInfo(provinceId) {
+  const map = await loadProvincesOnce();
+  return map[provinceId] || null;
+}
+
+const width = 680;
+const height = 680;
+
+const svg = d3.select("#map").attr("width", width).attr("height", height);
+const mapLayer = svg.append("g").attr("id", "mapLayer");
+const overlayLayer = svg.append("g").attr("id", "overlayLayer");
+
+function clearMap() {
+  mapLayer.selectAll("*").remove();
+}
+
+function makeProjectionFit(featureOrFC) {
+  return d3.geoMercator().fitSize([width, height], featureOrFC);
+}
+
+const boxW = 300;
+const boxH = 320;
+const boxX = width - boxW - 16;
+const boxY = height - boxH - 16;
+
+const infoDiv = overlayLayer
+  .append("foreignObject")
+  .attr("x", boxX)
+  .attr("y", boxY)
+  .attr("width", boxW)
+  .attr("height", boxH)
+  .append("xhtml:div")
+  .attr("class", "map-info-card")
+  .html('<p class="hint">Clique sur une région pour afficher ses informations.</p>');
+
+function setInfoLoading(title, id) {
+  infoDiv.html(
+    "<h2>" + esc(title || "Chargement...") + "</h2>" +
+    "<p>Chargement des informations…</p>"
+  );
+}
+
+function setInfoContent(details, fallbackTitle, id) {
+  var html =
+    "<h2>" + esc((details && details.title) ? details.title : (fallbackTitle || "")) + "</h2>" +
+    "<p>" + esc((details && details.description) ? details.description : "") + "</p>";
+
+  if (details && details.imageUrl) {
+    html += '<img src="' + esc(details.imageUrl) + '" alt="' +
+      esc((details && details.title) ? details.title : (fallbackTitle || "image")) + '"/>';
+  }
+
+  if (details && details.linkUrl) {
+    html += '<a href="' + esc(details.linkUrl) +
+      '" target="_blank" rel="noopener noreferrer">Ouvrir</a>';
+  }
+
+  infoDiv.html(html);
+}
+
+let regionsFC;
+let provincesFC;
+
+function renderRegions() {
+  infoDiv.html('<p class="hint">Clique sur une région pour afficher ses informations.</p>');
+  clearMap();
+
+  const projection = makeProjectionFit(regionsFC);
+  const pathGen = d3.geoPath().projection(projection);
+
+  mapLayer
+    .selectAll("path.region")
+    .data(regionsFC.features)
+    .enter()
+    .append("path")
+    .attr("class", "region-shape")
+    .attr("d", pathGen)
+    .on("click", function (d) {
+      mapLayer.selectAll("path.region-shape").classed("is-selected", false);
+      d3.select(this).classed("is-selected", true);
+      onRegionClick(d);
+    });
+}
+
+function renderRegionWithProvinces(regionFeature, provincesInRegion) {
+  clearMap();
+
+  const projection = makeProjectionFit(regionFeature);
+  const pathGen = d3.geoPath().projection(projection);
+
+  mapLayer
+    .selectAll("path.province")
+    .data(provincesInRegion)
+    .enter()
+    .append("path")
+    .attr("class", "province-shape")
+    .attr("d", pathGen)
+    .on("click", function (d) {
+      mapLayer.selectAll("path.province-shape").classed("is-selected", false);
+      d3.select(this).classed("is-selected", true);
+      onProvinceClick(d);
+    });
+
+  mapLayer
+    .append("path")
+    .datum(regionFeature)
+    .attr("class", "region-outline")
+    .attr("d", pathGen);
+}
+
+async function onRegionClick(regionFeature) {
+  const regionId = regionFeature.id;
+  const regionName = getName(regionFeature);
+
+  setInfoLoading(regionName, regionId);
+
+  try {
+    const info = await fetchRegionInfo(regionId);
+    if (!info) setInfoNotFound(regionName, regionId, "région");
+    else setInfoContent(info, regionName, regionId);
+  } catch (e) {
+    infoDiv.html(
+      "<h2>" + esc(regionName) + "</h2>" +
+      '<p style="color:#c00">Erreur API: ' + esc(e.message || e) + "</p>" +
+      '<div class="meta">ID: ' + esc(regionId) + "</div>"
+    );
+    return;
+  }
+
+  if (!ENABLE_PROVINCE_DRILLDOWN) return;
+
+  const provincesInRegion = provincesFC.features.filter((p) => {
+    try {
+      const c = d3.geoCentroid(p);
+      return d3.geoContains(regionFeature, c);
+    } catch {
+      return false;
+    }
+  });
+
+  renderRegionWithProvinces(regionFeature, provincesInRegion);
+}
+
+async function onProvinceClick(provinceFeature) {
+  const provinceId = provinceFeature.id;
+  const provinceName = getName(provinceFeature);
+
+  setInfoLoading(provinceName, provinceId);
+
+  try {
+    const info = await fetchProvinceInfo(provinceId);
+    if (!info) setInfoNotFound(provinceName, provinceId, "province");
+    else setInfoContent(info, provinceName, provinceId);
+  } catch (e) {
+    infoDiv.html(
+      "<h2>" + esc(provinceName) + "</h2>" +
+      '<p style="color:#c00">Erreur API: ' + esc(e.message || e) + "</p>"
+    );
+  }
+}
+//backBtn.addEventListener("click", renderRegions);
+
+Promise.all([d3.json("/" + webAppName + "/external-tools/moroccan_map/data/regions.json"), d3.json("/" + webAppName + "/external-tools/moroccan_map/data/provinces.json")])
+  .then(([r, p]) => {
+    if (!r.objects || !r.objects.regions) throw new Error("regions.json doit contenir objects.regions");
+    regionsFC = topojson.feature(r, r.objects.regions);
+
+    if (p.objects && p.objects.provinces) {
+      provincesFC = topojson.feature(p, p.objects.provinces);
+    } else {
+      provincesFC = { type: "FeatureCollection", features: [] };
+    }
+
+    renderRegions();
+  })
+  .catch((err) => {
+    infoDiv.html('<p style="color:#c00">Erreur: '+esc(err.message || err)+'</p>');
+  });

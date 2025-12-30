@@ -1,0 +1,16 @@
+function moveSliderToViewHeader(){
+	if($('.slider-container').length){
+		var $clone = $('.slider-container.clone');
+		var $view = $('.view-area');
+		if(!$clone.length && $view.length){
+			var $original = $('.slider-container');
+			$clone = $original.clone();
+			$clone.addClass("clone");
+			$clone.prependTo($view);
+			$clone.show();
+			$clone.find(".responsive-slider").attr("id","sliderClone");
+			sliderInit("sliderClone");
+			$original.hide();
+		}
+	}
+}

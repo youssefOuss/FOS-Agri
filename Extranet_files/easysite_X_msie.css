@@ -1,0 +1,66 @@
+/*******************************************/
+/*********** VDoc Easysite System **********/
+/** All browsers except Internet Explorer **/
+/*******************************************/
+
+/* loader */
+.ui-loader-background {  }
+.ui-loader { opacity:0.5; }
+.ui-loading {  }
+
+/*---Datepicker---*/
+/*fix opacity*/
+.ui-datepicker-other-month {opacity:0.3;}
+.ui-datepicker-current {opacity:1!important}
+
+/*disabled buttons*/
+.disabled {
+-moz-opacity:0.30;
+opacity: 0.30;
+cursor: default;
+}
+
+/*----tree----*/
+/*--tree main--*/
+.tree {height:auto; }/*new height:auto*/
+.tree .outer {}
+.tree .left {}
+.tree .center {}
+.tree .innertree { height:auto }/*new height:auto*/
+.tree .right {}
+
+/*--tree items--*/
+
+
+/*--tree nodes--*/
+.treeNodeCollapsed {line-height:18px; padding:4px 6px!important; }
+.treeNodeExpanded {line-height:18px; padding:4px 6px!important; }
+.treeNodeI {line-height:18px; padding:4px 6px!important; }
+.treeNodeT {line-height:18px; padding:4px 6px!important; }
+.treeNodeL {line-height:18px; padding:4px 6px!important; }
+
+/*--tree icons--*/
+.treeRoot {line-height:18px; padding:4px 9px!important;}
+.treeClosedFolder {line-height:18px; padding:4px 9px!important;}
+.treeOpenedFolder {line-height:18px; padding:4px 9px!important;}
+.treeClosedFolder {line-height:18px; padding:4px 9px!important;}
+.treeDocumentDefault {line-height:18px; padding:4px 9px!important; }
+.treeVDocProcessApplications {line-height:18px; padding:4px 9px!important; }
+.treeProcessApplication {line-height:18px; padding:4px 9px!important; }
+.treeProcess {line-height:18px; padding:4px 9px!important; }
+.treeProcessVersion {line-height:18px; padding:4px 9px!important; }
+.treeProcessStep {line-height:18px; padding:4px 9px!important; }
+.treeVDocDMDocuments {line-height:18px; padding:4px 9px!important; }
+.treeDMDatabase {line-height:18px; padding:4px 9px!important; }
+.treeDMDocument {line-height:18px; padding:4px 9px!important;}
+.treeVDocReport {line-height:18px; padding:4px 9px!important;}
+.treeIndicators {line-height:18px; padding:4px 9px!important;}
+.treePageTemplate {line-height:18px; padding:4px 9px!important;}
+.treeBlockTemplate {line-height:18px; padding:4px 9px!important;}
+
+/*lightbox*/
+.lightbox-background {	    
+	opacity:0.8;
+	background-color:#000000;
+	height: fit-content;
+}

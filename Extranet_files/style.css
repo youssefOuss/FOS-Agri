@@ -1,0 +1,122 @@
+#map {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.region-shape {
+  fill: #1482b8;
+  opacity: 0.88;
+  cursor: pointer;
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+.region-shape:hover {
+  opacity: 1;
+}
+
+.region-shape.is-selected {
+  fill: #0e597e;
+  opacity: 1;
+}
+
+.province-shape {
+  fill: #c25b2b;
+  opacity: 0.92;
+  cursor: pointer;
+  stroke: #fff;
+  stroke-width: 1;
+}
+
+.province-shape:hover {
+  opacity: 1;
+}
+
+.province-shape.is-selected {
+  fill: #9a2c00;
+  opacity: 1;
+}
+
+.region-outline {
+  fill: none;
+  stroke: #111827;
+  stroke-width: 2.2;
+  pointer-events: none;
+}
+
+.map-info-card {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e6e6e6;
+  padding: 12px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(104, 143, 228, 0.35) rgba(0, 0, 0, 0);
+}
+
+.map-info-card::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.map-info-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.map-info-card::-webkit-scrollbar-thumb {
+  background: rgba(17, 24, 39, 0.35);
+  border-radius: 999px;
+}
+
+.map-info-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(17, 24, 39, 0.55);
+}
+
+.map-info-card::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.map-info-card h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.map-info-card p {
+  margin: 0 0 10px;
+  color: #444;
+  line-height: 1.35;
+  font-size: 13px;
+}
+
+.map-info-card img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin: 8px 0 10px;
+}
+
+.map-info-card a {
+  display: inline-block;
+  background: #0078a8;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.map-info-card .meta {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #666;
+}
+
+.map-info-card .hint {
+  margin: 0;
+  color: #666;
+}

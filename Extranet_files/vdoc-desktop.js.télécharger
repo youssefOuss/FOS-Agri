@@ -1,0 +1,945 @@
+if (vdocDesktopLoaded==null)
+{
+	var vdocDesktopLoaded = true; // pour ne charger qu'une foi la constante
+	var vdpPopupMenuScreenState = null;
+}
+
+// --- Start - restore/save scroll
+function vdpSaveScroll( target, formName, fieldName )
+{
+	try{
+		if(typeof(target)=="string") target=document.getElementById(target);
+  	document.forms[formName][fieldName].value = $(target).scrollLeft() + ";" + $(target).scrollTop();
+	}catch(e){ alert( "save scroll failed : " + e );}
+}
+
+function vdpRestoreScroll( target, formName, fieldName )
+{
+	try
+	{
+		if(typeof(target)=="string") target=document.getElementById(target);
+		var val = document.forms[formName][fieldName].value;
+		$(target).scrollLeft(parseInt(val.substring(0,val.indexOf(";"))));
+		$(target).scrollTop(parseInt(val.substring(val.indexOf(";")+1)));
+	}
+  catch(e)
+  {
+  }
+}
+//--- End - restore/save scroll
+
+/**
+* Intercepte les événements du clavier déclenchés depuis un contrôle du formulaire
+*
+* @param formName le nom du formulaire
+* @param event le pointeur sur l'événement
+*/
+function vdpFormOnKeyDown( formName, event )
+{
+	if (event != null)
+	{
+		try
+		{
+		  var keyCode = event.keyCode || event.which || 0;
+			if( keyCode == 13 && !vdpCommonsAutocompleteIsOpen && !vdpCommonsCKEditorIsModeSource) // 13 = touche ENTREE
+			{
+				stopPropagation(event);
+				vdpPreventDefault(event);
+
+			  if( formName!=null )
+			  {
+				  var form = document.forms[formName];
+				  if( form!=null )
+					{
+						var defaultWid = form["DEFAULTWID"];
+						if( defaultWid!=null )
+						  defaultWid = defaultWid.value;
+						var defaultWvalue = form["DEFAULTWVALUE"];
+						if( defaultWvalue!=null )
+						  defaultWvalue = defaultWvalue.value;
+
+						if( defaultWid > "" )
+						{
+							vdpFireMessage( formName, defaultWid, defaultWvalue );
+						}
+					}
+				}
+			  return false;
+			}
+		}
+		catch(e)
+		{}
+	}
+}
+
+/**
+ * Gestion du click des formulaires UIVdoc
+ * @param formName
+ * @param event
+ */
+function vdpOnClickForm(formName, event)
+{
+	vdpHideMessages();
+	vdpCommonSelectCloseAllCombo();
+}
+
+
+//*****************************************************************************
+//
+//BEGIN - error messages
+//
+//*****************************************************************************
+/**
+* Array vdpMessagesErrors et vdpMessagesInfos:
+* statut => Le statut du div d'erreur (0 : Non cr?e, 1: cr?e mais displya none, 2: cr?e et display block)
+* message => Le message d'erreur
+* navigatorId => l'id du navigator dont dépend le div d'erreur
+*/
+
+/**
+* Ajoute le message dans le tableau avec tous ses paramètres
+*
+* @param typeMessage true message erreur, false message info
+* @param idChamp l'id du champ concerné
+* @param message le message à afficher
+* @param navigatorId l'id du navigator
+* @param scrollableIdElement l'id du parent scrollable si il y en a un
+* @param isFocus booleen qui définit si l'élément peut prendre le focus
+* @returns
+*/
+function vdpAddMessage(typeMessage, idChamp, message, navigatorId, scrollableIdElement, isFocus) {
+	if(typeMessage) {
+		// TODO a voir pour les messages d'info génant
+		if($("#" + idChamp) == null) {
+			return null;
+		}
+
+		vdpMessagesErrors[idChamp] = new Array();
+
+		// On met le statut à 0, cette fonction ajoute juste
+		vdpMessagesErrors[idChamp]['statut'] = 0;
+		vdpMessagesErrors[idChamp]['message'] = message;
+		vdpMessagesErrors[idChamp]['navigatorId'] = navigatorId;
+		vdpMessagesErrors[idChamp]['isFocus'] = isFocus;
+		vdpMessagesErrors[idChamp]['scrollableIdElement'] = scrollableIdElement;
+	}
+	else {
+		vdpMessagesInfos[idChamp] = new Array();
+
+		// On met le statut à 0, cette fonction ajoute juste
+		vdpMessagesInfos[idChamp]['statut'] = 0;
+		vdpMessagesInfos[idChamp]['message'] = message;
+		vdpMessagesInfos[idChamp]['isFocus'] = isFocus;
+		vdpMessagesInfos[idChamp]['navigatorId'] = navigatorId;
+		vdpMessagesInfos[idChamp]['scrollableIdElement'] = scrollableIdElement;
+	}
+}
+
+function vdpMessageCleanBeforePost(typeMessage, idChamp)
+{
+	var prefix = prefixIdChampInfo;
+	if(typeMessage)
+		prefix = prefixIdChampError;
+
+	var $fullSelector = $("#" + prefix + idChamp);
+
+	if($fullSelector != null && $fullSelector.length > 0)
+		$fullSelector.remove();
+}
+
+var vdpMessageseventContext = "scroll";
+
+/**
+* Construit les messages et bind les évènements de scroll
+*
+* @param boolean typeMessage true message erreur, false message info
+* @param String idChamp
+*/
+function vdpShowMessage(typeMessage, idChamp) {
+	var navigatorId = null;
+	// Cas des messages d'erreurs
+	if(typeMessage && vdpMessagesErrors[idChamp] != null) {
+		if(vdpMessagesErrors[idChamp]['statut'] == 0) {
+			buildDivVdpErrorMessage(true, idChamp);
+			vdpMessagesErrors[idChamp]['statut'] = 1; // On affiche le champ
+		}
+	}
+	else if (!typeMessage && vdpMessagesInfos[idChamp] != null) {
+		if(vdpMessagesInfos[idChamp]['statut'] == 0) {
+			buildDivVdpErrorMessage(false, idChamp);
+			vdpMessagesInfos[idChamp]['statut'] = 1;
+		}
+	}
+
+	var idNavigator = null;
+	var scrollableIdElement = null;
+	if(typeMessage) {
+		idNavigator = vdpMessagesErrors[idChamp]['navigatorId'];
+		scrollableIdElement = vdpMessagesErrors[idChamp]['scrollableIdElement'];
+	}
+	else {
+		idNavigator = vdpMessagesInfos[idChamp]['navigatorId'];
+		scrollableIdElement = vdpMessagesInfos[idChamp]['scrollableIdElement'];
+	}
+
+	if( idNavigator != null && ( vdpMessageErrorInfoBindScroll[idNavigator] == undefined || vdpMessageErrorInfoBindScroll[idNavigator] == null ) )
+	{
+		var selectorScrollableElement = null;
+		if( scrollableIdElement != null)
+			selectorScrollableElement = $("#" + scrollableIdElement);
+		else {
+			var elmt = $("#" + idChamp)[0];
+			if(elmt) {
+				var elmtParent = elmt.parentNode;
+				if(elmtParent) elmt = elmtParent;
+			}
+			selectorScrollableElement = $(getFirstScrollableParent(elmt));
+		}
+
+		vdpMessageErrorInfoBindScroll[idNavigator] = selectorScrollableElement;
+		vdpMessageErrorInfoBindScroll[idNavigator].off("scroll.hideMessage").on("scroll.hideMessage", function (event) {
+			vdpMessagesEventScroll( event );
+		});
+	}
+}
+
+function vdpMessagesEventScroll(event) {
+	if(vdpMessageseventContext == 'scroll') {
+		vdpScrollResizeWindowMessages();
+	}
+	else {
+		vdpMessageseventContext = "scroll";
+	}
+}
+
+/**
+* Cache les messages
+*/
+function vdpScrollResizeWindowMessages() {
+	//On recalcule la position des messages d'erreur
+	for(var idChamp in vdpMessagesErrors) {
+		if(vdpMessagesErrors[idChamp]['statut'] == 2) {
+			var isErrorMessage = true;
+			var selectorDivFull = vdpMessagesErrors[idChamp]['selectorFull'];
+			var selectorMini = vdpMessagesErrors[idChamp]['selectorMini'];
+			var selectorInputFieldParent = vdpMessagesErrors[idChamp]['selectorInput'];
+			calculatePositionVdpFullMessages(isErrorMessage, selectorInputFieldParent, selectorDivFull, selectorMini );
+		}
+	}
+
+	//On recalcule la position des messages d'info
+	for(var idChamp in vdpMessagesInfos) {
+		if(vdpMessagesInfos[idChamp]['statut'] == 2) {
+			var isErrorMessage = false;
+			var selectorDivFull = vdpMessagesInfos[idChamp]['selectorFull'];
+			var selectorMini = vdpMessagesInfos[idChamp]['selectorMini'];
+			var selectorInputFieldParent = vdpMessagesInfos[idChamp]['selectorInput'];
+			calculatePositionVdpFullMessages(isErrorMessage, selectorInputFieldParent, selectorDivFull, selectorMini, true);
+		}
+	}
+}
+
+/**
+* Construit le message d'erreur ou d'info
+*
+* @param typeMessage true message erreur, false message info
+* @param idChamp
+*/
+function buildDivVdpErrorMessage(typeMessage, idChamp) {
+	if(typeMessage) {
+		prefix = prefixIdChampError;
+		classGlobalMessage = "vui-context-message";
+		classLabelMessage = "vui-context-error";
+		classDirectionFlecheBasGauche = "vui-context-message-ne";
+		classDirectionFlecheBasDroite = "vui-context-message-nw";
+		classMinified = "vui-error-indicator";
+		message = vdpMessagesErrors[idChamp]['message'];
+		isFocus = vdpMessagesErrors[idChamp]['isFocus'];
+	}
+	else {
+		prefix = prefixIdChampInfo;
+		classGlobalMessage = "vui-context-message";
+		classLabelMessage = "vui-context-info";
+		classDirectionFlecheBasGauche = "vui-context-message-ne";
+		classDirectionFlecheBasDroite = "vui-context-message-nw";
+		classMinified = "vui-info-indicator";
+		message = vdpMessagesInfos[idChamp]['message'];
+		isFocus = vdpMessagesInfos[idChamp]['isFocus'];
+	}
+
+	var selector = $("#" + prefix + idChamp);
+	if(selector.length  <= 0)
+	{
+		var selectorBody = $("body");
+		// Vue complète de l'erreur
+		selectorBody.append('<div id="'+ prefix + idChamp + '"></div>');
+		selector = $("#" + prefix + idChamp);
+	}
+
+	selector.empty();
+	var selectorInputFieldParent = $("#" + idChamp);
+	if(typeMessage) {
+		vdpMessagesErrors[idChamp]['selectorFull'] = selector;
+		vdpMessagesErrors[idChamp]['selectorInput'] = selectorInputFieldParent;
+	}
+	else {
+		vdpMessagesInfos[idChamp]['selectorFull'] = selector;
+		vdpMessagesInfos[idChamp]['selectorInput'] = selectorInputFieldParent;
+	}
+
+
+	selector.addClass(classGlobalMessage)
+					.addClass(classLabelMessage)
+					.addClass(classDirectionFlecheBasGauche)
+					.append('<ul><li><label for="'+idChamp+'">' + message + '</label></li></ul>')
+					.append('<span class="vui-arrow-top"><span>&#x25ba;</span></span>')
+					.append('<span class="vui-arrow-bottom"><span>&#x25ba;</span></span>')
+					.hide();
+
+	// Le fonctionnel de cacher le minified est uniquement pour les messages d'erreurs
+	if(typeMessage) {
+		selectorDivMinified = $("#" + prefixIdChampError + idChamp + "_minified");
+		vdpMessagesErrors[idChamp]['selectorMini'] = selectorDivMinified;
+
+		if(isFocus) {
+			selectorDivMinified.on('click', function(event) {
+				vdpMessagesErrors[idChamp]['selectorInput'].trigger('focus');
+				stopPropagation(event);
+				vdpPreventDefault(event);
+			});
+		}
+		else {
+			selectorDivMinified.on('click', function(event) {
+				vdpShowFullMessage( idChamp, false );
+				stopPropagation(event);
+				vdpPreventDefault(event);
+			});
+		}
+	}
+	else {
+		// Pour les messages d'info le minified est toujours affiché
+		selectorDivMinified = $("#" + prefixIdChampInfo + idChamp + "_minified");
+		if(selectorDivMinified.length) {
+			vdpMessagesInfos[idChamp]['selectorMini'] = selectorDivMinified;
+			selectorDivMinified.on('click', function(event) {
+				vdpShowFullMessage( idChamp, true );
+				stopPropagation(event);
+				vdpPreventDefault(event);
+			});
+		}
+	}
+}
+
+/**
+* Calcul les marges pour placer les messages
+*
+* @param component l'input relatif au message
+* @param message le div du message en lui même
+* @param bubble le rond avec le point d'exclamation qui ouvre le message
+*/
+function calculatePositionVdpFullMessages(typeMessage, component, message, bubble, doNotShowIfHidden) {
+	if(message == null || component == null || component.length === 0 || component.offset() == null ) {
+		return;
+	}
+	if(!doNotShowIfHidden){
+		message.show();
+	}
+
+	if($(message).css('display') === 'none'){
+		return;
+	}
+
+	var bottomLeftArrow = "vui-context-message-ne", bottomRightArrow = "vui-context-message-nw",
+        topLeftArrow = "vui-context-message-se", topRightArrow = "vui-context-message-sw";
+
+	// On supprime toutes les class des flèches, elle sera placée plus bas dans la fonction
+	message.removeClass(bottomLeftArrow).removeClass(bottomRightArrow).removeClass(topLeftArrow).removeClass(topRightArrow);
+
+	// On remet le top et le left à 0 pour refaire les calculs
+	message.css("top", "0px");
+	message.css("left", "0px");
+
+	// Infos du parent
+	var displayOnBubble = component === bubble;
+	var componentLeftOffset , componentTopOffset, componentHeight, componentWidth;
+	if(!typeMessage && displayOnBubble) {
+		//on bubble look position on img child to avoid margin offset 
+		componentLeftOffset = $(component[0].firstChild).offset().left;
+		componentTopOffset = $(component[0].firstChild).offset().top;
+		componentHeight = $(component[0].firstChild).outerHeight();
+		componentWidth = $(component[0].firstChild).width();
+	} else {
+		componentLeftOffset = component.offset().left;
+		componentTopOffset = component.offset().top;
+		componentHeight = component.outerHeight();
+		componentWidth = component.width();
+	}
+
+	// Dans le cas d'un focus sur le parent
+	if(component[0].id.indexOf('p_id_') === 0) {
+		var fid = component[0].id.substring(5);
+		componentHeight = $("#" + fid).outerHeight();
+	}
+
+	// Infos de la fenetre ou du conteneur
+	var scrollArea = getFirstScrollableParent(component[0]);
+
+    // Si le scroll est sur body, on récupère l'offset top différement d'une zone de scroll à l'intérieur de la page (lightbox par exemple)
+	var scrollAreaTopOffset,scrollAreaHeight;
+	if(document.body === scrollArea){
+		scrollArea = window;
+		scrollAreaTopOffset = $(scrollArea).scrollTop();
+		scrollAreaHeight = $(scrollArea).height();
+	}
+	else{
+		scrollAreaTopOffset = $(scrollArea).offset().top;
+		scrollAreaHeight = $(scrollArea).outerHeight();
+	}
+
+	var scrollAreaWidth = $(scrollArea).width(),
+	    scrollAreaScrollTop = $(scrollArea).scrollTop(),
+	    scrollAreaScrollLeft = $(scrollArea).scrollLeft(),
+	    relativeOffset = componentTopOffset - scrollAreaTopOffset;
+
+	// Infos message qui va être affiché
+	var messageWidth = message.width();
+	var messageHeight = message.height();
+
+	// Décallage css de la flèche par rapport au message complet
+	var arrowLeft = 10;
+	message.find("span.vui-arrow-bottom").show();
+	var arrowHead = message.find(".vui-arrow-bottom")[0].offsetWidth/2 + arrowLeft;
+	// Haut et bas même taille
+	var arrowHeight = message.find(".vui-arrow-bottom")[0].offsetHeight + 2;
+
+	// Empêche que le message sorte de la zone de scroll, le message doit rester soit en haut soit en bas de la zone de scroll si il n'est pas visible
+	if(relativeOffset > scrollAreaHeight){
+    	componentTopOffset = scrollAreaTopOffset + scrollAreaHeight;
+    }
+    else if(relativeOffset < 0) {
+    	componentTopOffset = scrollAreaTopOffset - componentHeight;
+    }
+
+	// Valeurs par défaut si on arrive à se placer nul part on met le message en haut à droite
+	var newLeft = componentLeftOffset + componentWidth - arrowHead;
+	var newTop = componentTopOffset - messageHeight - arrowHeight;
+	// Booléen pour connaitre le placement de la flèche
+	var isTop = true,
+        isRight = true,
+        isBottom = false,
+        isLeft = false;
+
+	// Cas du message à droite
+	if((componentLeftOffset + componentWidth + messageWidth - arrowHead) <= (scrollAreaWidth + scrollAreaScrollLeft)) {
+		newLeft = componentLeftOffset + componentWidth - arrowHead;
+		isRight = true;
+		isLeft = false;
+	}
+	// Cas du message à gauche
+	else if((componentLeftOffset + componentWidth - messageWidth + arrowLeft) > scrollAreaScrollLeft) {
+		newLeft = componentLeftOffset - messageWidth + componentWidth + arrowLeft;
+		isRight = false;
+		isLeft = true;
+	}
+
+	// Cas ou le message est affiché en haut
+	if(scrollAreaScrollTop < (componentTopOffset - messageHeight - arrowHeight)) {
+		newTop = componentTopOffset - messageHeight - arrowHeight;
+		isTop = true;
+		isBottom = false;
+	}
+	// Cas du message en bas
+	else if((scrollAreaScrollTop + scrollAreaHeight) >= (componentTopOffset + componentHeight + messageHeight + arrowHeight)) {
+		newTop = componentTopOffset + componentHeight + arrowHeight;
+		isTop = false;
+		isBottom = true;
+	}
+
+	if(!typeMessage && displayOnBubble) {
+		//center on bubble
+		var halfWidth = $(component[0].firstChild).width() / 2;
+		newLeft -= halfWidth;
+	} else {
+		//offset on input
+		newLeft -= 20;
+	}
+
+/*
+	if((messageWidth + newLeft) > scrollAreaWidth){
+		newLeft = scrollAreaWidth - messageWidth;
+	}
+*/
+	message.css({ "top" : newTop + "px" , "left": newLeft + "px" });
+
+	if(isTop && isRight) {
+		message.addClass(bottomLeftArrow);
+	}
+	else if(isTop && isLeft) {
+		message.addClass(bottomRightArrow);
+	}
+	else if(isBottom && isRight) {
+		message.addClass(topLeftArrow);
+	}
+	else if(isBottom && isLeft) {
+		message.addClass(topRightArrow);
+	}
+
+	// Fix IE9 les deux flèches étaient visibles sinon on ne cache pas les spans
+	if(isTop) {
+		message.find("span.vui-arrow-top").hide();
+		message.find("span.vui-arrow-bottom").show();
+	}
+	else {
+		message.find("span.vui-arrow-top").show();
+		message.find("span.vui-arrow-bottom").hide();
+	}
+}
+
+function getFirstScrollableParent(node) {
+	if(typeof HTMLElement === "undefined"){
+		return node;
+	}
+	var isElement = node instanceof HTMLElement;
+      var overflowY = isElement && window.getComputedStyle(node).overflowY;
+      var isScrollable = overflowY !== 'visible' && overflowY !== 'hidden';
+
+      if (!node) {
+        return null;
+      } else if (isScrollable && node.scrollHeight >= node.clientHeight && node.tagName.toLowerCase() !== 'textarea') {
+        return node;
+      }
+
+      return getFirstScrollableParent(node.parentNode) || document.body;
+}
+
+/**
+* Affiche le message d'erreur, ou le message d'info si il n'y a pas d'erreur
+*
+* @param idChamp l'id du champ concerné
+* @param showInfo booleen forcant l'affichage du message d'info même si il y a une erreur
+*/
+function vdpShowFullMessage(idChamp, isContextHelpMessage) {
+	vdpHideMessages();
+	var selectorDivFull = null;
+	var selectorInputFieldParent = null;
+	var selectorMini = null;
+	var isErrorMessage;
+
+	if(isContextHelpMessage) {
+		// Cas ou on vient d'un click sur une icone helpMessage on place le message par rapport à l'icone
+		isErrorMessage = false;
+		selectorInputFieldParent = vdpMessagesInfos[idChamp]['selectorMini'];
+		selectorDivFull = vdpMessagesInfos[idChamp]['selectorFull'];
+		selectorMini = vdpMessagesInfos[idChamp]['selectorMini'];
+		vdpMessagesInfos[idChamp]['statut'] = 2;
+	}
+	else if(vdpMessagesErrors[idChamp] != null) {
+		vdpMessagesErrors[idChamp]['statut'] = 2;
+		isErrorMessage = true;
+		selectorDivFull = vdpMessagesErrors[idChamp]['selectorFull'];
+		selectorMini = vdpMessagesErrors[idChamp]['selectorMini'];
+		selectorInputFieldParent = vdpMessagesErrors[idChamp]['selectorInput'];
+	}
+	else if(vdpMessagesInfos[idChamp] != null) {
+		vdpMessagesInfos[idChamp]['statut'] = 2;
+		isErrorMessage = false;
+		selectorDivFull = vdpMessagesInfos[idChamp]['selectorFull'];
+		selectorMini = vdpMessagesInfos[idChamp]['selectorMini'];
+		selectorInputFieldParent = vdpMessagesInfos[idChamp]['selectorInput'];
+	}
+	else {
+		return false;
+	}
+
+	// Calcul des positionnements
+	calculatePositionVdpFullMessages( isErrorMessage, selectorInputFieldParent, selectorDivFull, selectorMini );
+
+	selectorDivFull.show();
+
+	if(isErrorMessage) {
+		var selectorDivMinified = vdpMessagesErrors[idChamp]['selectorMini'];
+		selectorDivMinified.hide();
+	}
+}
+
+/**
+* Affiche la vue minimisée de l'erreur et cache la vue complète uniquement pour les messages d'erreur
+*
+* @param idChamp l"id du champ
+*/
+function vdpShowMinifiedMessage(idChamp) {
+	if(vdpMessagesErrors[idChamp] != null) {
+		vdpMessagesErrors[idChamp]['statut'] = 1;
+	}
+	else {
+		return false;
+	}
+
+	selectorDivFull = vdpMessagesErrors[idChamp]['selectorFull'];
+	selectorDivFull.hide();
+
+	selectorDivMinified = vdpMessagesErrors[idChamp]['selectorMini'];
+	selectorDivMinified.show();
+}
+
+/**
+* Cache tous les messages d'info et d'erreur
+*/
+function vdpHideMessages() {
+	// On cache les messages d'erreur
+	for(idChamp in vdpMessagesErrors) {
+		if(vdpMessagesErrors[idChamp]['statut'] == 2) {
+			vdpShowMinifiedMessage(idChamp);
+		}
+	}
+
+	// On cache les messages d'info
+	for(idChamp in vdpMessagesInfos) {
+		if(vdpMessagesInfos[idChamp]['statut'] == 2) {
+			var selectorFull = vdpMessagesInfos[idChamp]['selectorFull'];
+			selectorFull.hide();
+		}
+	}
+}
+
+/**
+* Supprime tous les messages d'erreur et d'info concernant le navigator passé en paramètre
+*
+* @param navigatorId l'id du navigateur
+*/
+function vdpClearMessages(navigatorId) {
+	for(idChamp in vdpMessagesErrors) {
+		if(vdpMessagesErrors[idChamp]['navigatorId'] == navigatorId) {
+			vdpMessagesErrors[idChamp]['selectorFull'].remove();
+			delete vdpMessagesErrors[idChamp];
+			if(vdpMessageErrorInfoBindScroll[navigatorId] != undefined && vdpMessageErrorInfoBindScroll[navigatorId] != null ) {
+				if(vdpMessageErrorInfoBindScroll[navigatorId].lenght > 0)
+					vdpMessageErrorInfoBindScroll[navigatorId].off("scroll.hideMessage");
+				delete vdpMessageErrorInfoBindScroll[navigatorId];
+			}
+		}
+	}
+
+	for(idChamp in vdpMessagesInfos) {
+		if(vdpMessagesInfos[idChamp]['navigatorId'] == navigatorId) {
+			vdpMessagesInfos[idChamp]['selectorFull'].remove();
+			delete vdpMessagesInfos[idChamp];
+			if(vdpMessageErrorInfoBindScroll[navigatorId] != undefined && vdpMessageErrorInfoBindScroll[navigatorId] != null ) {
+				if(vdpMessageErrorInfoBindScroll[navigatorId].lenght > 0)
+					vdpMessageErrorInfoBindScroll[navigatorId].off("scroll.hideMessage");
+				delete vdpMessageErrorInfoBindScroll[navigatorId];
+			}
+		}
+	}
+}
+
+/**
+* Gère la prise de focus sur le champ
+*
+* @param idChamp
+*/
+function vdpMessageFocusField(idChamp) {
+	vdpShowFullMessage( idChamp, false );
+}
+
+/**
+* Gère le blur sur le champ
+*/
+function vdpMessageUnfocus() {
+vdpHideMessages();
+}
+
+function vdpMessageSetFocusOnField(idChamp) {
+	var isFocus;
+	var idScrollableElement;
+	var inputParent;
+
+	if(vdpMessagesErrors[idChamp] != null && vdpMessagesErrors[idChamp] != undefined) {
+		isFocus = vdpMessagesErrors[idChamp]['isFocus'];
+		idScrollableElement = vdpMessagesErrors[idChamp]['scrollableIdElement'];
+		inputParent = vdpMessagesErrors[idChamp]['selectorInput'];
+	}
+	else if(vdpMessagesInfos[idChamp] != null && vdpMessagesInfos[idChamp] != undefined) {
+		isFocus = vdpMessagesInfos[idChamp]['isFocus'];
+		idScrollableElement = vdpMessagesInfos[idChamp]['scrollableIdElement'];
+		inputParent = vdpMessagesInfos[idChamp]['selectorInput'];
+	}
+	else {
+		if($("#" + idChamp).length){
+			$("#" + idChamp).trigger('focus');
+        	focusRestored = true;
+        }
+		return;
+	}
+
+	if(inputParent.length > 0) {
+		if(isFocus){
+			inputParent.trigger('focus');
+			inputParent.scrollView();
+			focusRestored = true;
+		}
+		else {
+			var parent = inputParent.closest('.lightbox-content');
+			if(parent.length){
+				inputParent.scrollView(parent.find('.fields-area'));
+			}
+			else {
+				inputParent.scrollView();
+			}
+			focusRestored = true;
+			if(idScrollableElement != null) {
+				inputParent.scrollView($("#" + idScrollableElement));
+			}
+			else {
+				inputParent.scrollView();
+			}
+		}
+		vdpMessageseventContext = "triggerScroll"; // Permet de ne pas executer l'event de scroll qui va être déclenché par le scrollTop()
+		vdpShowFullMessage( idChamp, false );
+	}
+}
+
+//*****************************************************************************
+//
+//End - error messages
+//
+//*****************************************************************************
+
+//*****************************************************************************
+//
+// Start - popupmenu
+//
+//*****************************************************************************
+var popupMenuTriggerId;
+var openPopupAuthorised = true;
+
+function showPopupMenu(src, caller, event) {
+	if (!openPopupAuthorised) {
+		openPopupAuthorised = true;
+		return;
+	}
+	var menu = $('#popup-menu');
+	var src = $('#' + src);
+
+	if (popupMenuTriggerId !== caller) {
+		hidePopupMenu(); // hide other popup, mandatory for not reopen PopupScreen after vdpFireMessage
+		popupMenuTriggerId = caller;
+
+		menu.html(src.html());
+		menu.addClass(src.attr('rel')); // La class css cible est dans le rel
+
+		showPopupMenuInternal(menu, $('#' + caller));
+
+		if (event) {
+			stopPropagation(event); // for onclick (to not trig documentHidePopup)
+		}
+	}
+	// on 2nd onclick propagation will trig documentHidePopup (not for href and vdpFire)
+}
+
+function showPopupScreen(src, caller, idForm, hidden)
+{
+	if (!openPopupAuthorised) {
+		openPopupAuthorised = true;
+		return;
+	}
+	hidePopupMenu();
+	popupMenuTriggerId = caller;
+	vdpPopupMenuScreenState = hidden;
+
+	var menu = $('#' + src);
+	var popupHandler = $("#popup-menu");
+	popupHandler.on( "click.stopPopupPart", function(event) {
+		stopPropagation(event);
+	});
+
+	var $popupForm = $("<form />");
+	$popupForm.attr("id", idForm + "_popup_menu");
+	$popupForm.off().on("keydown", function(event) {
+		vdpFormOnKeyDown(idForm, event);
+	});
+
+	//#56878 jquery 1.6 -> 3.0 migration, jQuery .html() method now executes JS when copied, we have to avoid javascript execution and an infinite loop
+    var div = document.createElement("div");
+    div.innerHTML = menu[0].innerHTML;
+
+
+	// #95330 remove function is not supported with IE11
+	var script=  div.querySelector('script');
+ 	if (script != null && script.parentNode != null )
+ 	{
+ 		script.parentNode.removeChild(script);
+ 	}
+
+ 	$popupForm[0].appendChild(div);
+
+	menu.empty();
+	popupHandler.empty().removeClass().addClass(menu.attr("rel")).append($popupForm);
+	popupHandler.attr("rel", src);
+
+	showPopupMenuInternal(popupHandler, $('#' + caller));
+
+	$hidden = $("#" + hidden);
+	$hidden.val( src );// On sauvegarde l'id du popupmenu
+}
+
+function focusFirstFieldPopupScreen( idForm )
+{
+	var popupHandler = $("#popup-menu");
+	if( popupHandler != null && popupHandler.length > 0)
+	{
+		var inputFilter = $(":tabbable:input[type='text']:first", popupHandler.find("form[id='"+idForm + "_popup_menu']") );
+		if( inputFilter !=null && inputFilter.length > 0)
+			inputFilter.trigger('focus');
+	}
+}
+
+function showPopupMenuInternal(menu, caller)
+{
+	// On cache les tooltips
+	try
+	{
+		htm();
+	}
+	catch(e){}
+
+	if (caller != null && caller.length > 0)
+	{
+		// Reprendre le calcul de la position
+		var parentObject = caller;
+
+		// Infos du parent
+		var parentLeft = parentObject.offset().left;
+		var parentTop = parentObject.offset().top;
+		var parentHeight = parentObject.height();
+		var parentWidth = parentObject.width();
+
+		// Infos de la fenetre
+		var windowHeight = $(window).height();
+		var windowWidth = $(window).width();
+		var windowScrollTop = $(window).scrollTop();
+		var windowScrollLeft = $(window).scrollLeft();
+
+		// Infos du menu qui va être affiché
+		var widthMenu = menu.width();
+		var heightMenu = menu.height();
+
+		// Valeurs par défaut si on arrive à se placer nul part
+		var newLeft = parentLeft;
+		var newTop = parentTop + parentHeight;
+
+		// Cas du menu affiché à droite
+		if((parentLeft + widthMenu) < (windowWidth + windowScrollLeft)) {
+			newLeft = parentLeft;
+		}
+		// Cas ou le menu est affiché à gauche
+		else if((parentLeft - windowScrollLeft + parentWidth ) >= widthMenu ) {
+			newLeft = parentLeft + parentWidth - widthMenu;
+		}
+
+		// Cas ou le menu est affiché en bas
+		if((windowScrollTop + windowHeight) > (parentTop + parentHeight + heightMenu)) {
+			newTop = parentTop + parentHeight;
+		}
+		// Cas ou le menu est affiché en haut
+		else if ((parentTop - windowScrollTop ) >= heightMenu ) {
+			newTop = parentTop - heightMenu;
+		}
+
+		menu.css("top", newTop + "px");
+		menu.css("left", newLeft + "px");
+	}
+	menu.show();
+
+	document.addEventListener('click', function documentHidePopup(event) {
+		if ((event.target.nodeName && event.target.nodeName.toLowerCase() === 'a') || vdpPopupMenuScreenState != null) {
+			//close is call before open for href and vdpFire > if click on same button we don't want reopen
+			if ($('#' + popupMenuTriggerId)[0].contains(event.target)) {
+				openPopupAuthorised = false;
+			}
+		}
+		hidePopupMenu();
+		document.removeEventListener('click', documentHidePopup, false);
+	}, false);
+
+}
+
+function hidePopupMenu()
+{
+	var selectorPopupMenu = $('#popup-menu');
+	if(selectorPopupMenu.length > 0)
+	{
+		if (vdpPopupMenuScreenState != null) // Il faut masquer le popup menu screen et restaurer le formulaire à son emplacement d'origine
+		{
+			var $hidden = $("#" + vdpPopupMenuScreenState);
+			var id = $hidden.val();
+			if (id != 'closed' )
+			{
+				var popupMenuScreen = $('#' + id);
+				popupMenuScreen.html(selectorPopupMenu.find("form").html());
+				$hidden.val( 'closed' );
+			}
+			vdpPopupMenuScreenState = null;
+			selectorPopupMenu.off( "click.stopPopupPart" ).removeAttr( "rel" );
+		}
+		selectorPopupMenu.hide().removeClass().empty().css({ top : "0px", left : "0px"});
+		popupMenuTriggerId = null;
+	}
+}
+
+function cleanPopupScreen( src )
+{
+	var selectorPopupMenu = $('#popup-menu');
+	if(selectorPopupMenu.length > 0 && selectorPopupMenu.attr("rel") == src )
+	{
+		selectorPopupMenu.hide().removeClass().empty().css({ top : "0px", left : "0px"});
+		vdpPopupMenuScreenState = null;
+	}
+}
+//*****************************************************************************
+//
+// End - popupmenu
+//
+//*****************************************************************************
+
+//*****************************************************************************
+//
+// Start - AutoComplete
+//
+//*****************************************************************************
+
+
+
+//*****************************************************************************
+//
+// End - AutoComplete
+//
+//*****************************************************************************
+
+/**
+ * Laisse passer uniquement les chiffres de 0 à 1 et les touches systèmes
+ * On ne peut rien saisir d'autre dans l'input quand cette méthode est définie sur le onkeydown
+ */
+function vdocNumberKeyPress( event )
+{
+	var keyCode = null; // the Unicode value
+	if( $.browser.mozilla )
+	{
+		keyCode = event.charCode;
+		if( event.ctrlKey || keyCode === 0 )
+			return true;
+	}
+	else keyCode = event.keyCode;
+  var strChar = String.fromCharCode( keyCode ); // Convert the value into a character
+  if( strChar && ( strChar === '-' || strChar.match( /^\d$/ ) ) )
+  	return true;
+
+	vdpPreventDefault(event);
+  return false;
+}
+
+function vdocNumberKeyUp( self, event )
+{
+	if( self.checkValidity && !self.checkValidity() )
+		self.value = "";
+}

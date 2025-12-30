@@ -1,0 +1,28 @@
+// preserve scroll
+function preserveScroll(parentForm) {
+	try {
+		var field = document.createElement('INPUT');
+		field.type = 'hidden';
+		field.setAttribute('name', 'goxy');
+		if(document.documentElement) // xhtml
+			field.value = document.documentElement.scrollLeft + ";" + document.documentElement.scrollTop;
+		else // html4
+			field.value = document.body.scrollLeft + ";" + document.body.scrollTop;
+		parentForm.appendChild(field);
+	} catch(e) {}
+}
+// restore scroll
+function restoreScroll(XY) {
+	try {
+		if(document.documentElement) // xhtml
+		{
+			document.documentElement.scrollLeft = parseInt(XY.substring(0,XY.indexOf(";")));
+			document.documentElement.scrollTop  = parseInt(XY.substring(XY.indexOf(";")+1));
+		}
+		else // html4
+		{
+			document.body.scrollLeft = parseInt(XY.substring(0,XY.indexOf(";")));
+			document.body.scrollTop  = parseInt(XY.substring(XY.indexOf(";")+1));
+		}
+	} catch(e) {}
+}

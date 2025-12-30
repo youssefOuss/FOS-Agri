@@ -1,0 +1,20 @@
+function initMoment(){
+	setTimeout(function(){
+
+		if ( (typeof userLanguage === 'undefined') || userLanguage == null || userLanguage == ""){
+			moment.locale(window.navigator.userLanguage || window.navigator.language);
+		}
+		else{
+			moment.locale(userLanguage);
+		}
+		$("[data-vdp-moment-fromnow]").each(function(index,elem){
+			var momentDate = moment($(elem).data("vdp-moment-fromnow"),"x");
+			if(momentDate._isValid){
+				$(elem).html(momentDate.fromNow());
+			}
+		});
+	},0);
+}
+
+$(document).ready(initMoment);
+$(document).ajaxComplete(initMoment);

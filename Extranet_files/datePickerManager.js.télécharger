@@ -1,0 +1,236 @@
+if (datepickersObject === undefined) {
+    var datepickersObject = new ProcessDatepickers();
+}
+
+/**
+ * Object qui va gérer les datepicker pour les initialisations
+ * state 0 : init, 1 : create
+ */
+function ProcessDatepickers() {
+    this.inputs = [];
+    this.isOpen = false;
+    this.states = [];
+}
+
+ProcessDatepickers.prototype.register = function (id, idNavigator, options) {
+    if (this.inputs[idNavigator] === undefined || this.inputs[idNavigator] == null) {
+        this.inputs[idNavigator] = [];
+    }
+    if (this.states[idNavigator] === undefined || this.states[idNavigator] == null) {
+        this.states[idNavigator] = [];
+    }
+
+    // On initialise le datepicker sans le creer
+    this.inputs[idNavigator][id] = options;
+    this.states[idNavigator][id] = 0;
+};
+/**
+ * id : id champ datepicker
+ * idNavigator : id du navigator
+ */
+ProcessDatepickers.prototype.init = function (id, idNavigator) {
+    // Le datepicker est juste initialise on le cree
+    if (variableIsset(this.states) && variableIsset(this.states[idNavigator]) && this.states[idNavigator][id] === 0) {
+        this._unbind(id); // On unbind les events pour ne pas les executer a chaque fois
+        this._create(id, this.inputs[idNavigator][id]);
+        this.states[idNavigator][id] = 1;
+    }
+};
+
+ProcessDatepickers.prototype._unbind = function (idChamp) {
+    let selector = $('#' + idChamp);
+    let selectorParent = selector.parent();
+
+    if (selectorParent.length !== 0) {
+        selectorParent.off('mouseenter');
+    }
+};
+
+ProcessDatepickers.prototype.deregister = function (idNavigator) {
+    if (this.inputs !== undefined && this.inputs != null && this.inputs[idNavigator] !== undefined && this.inputs[idNavigator] != null) {
+        // On detruit le datepicker pour le detruire avant de poster pour le retour en ajax
+        delete this.inputs[idNavigator];
+        delete this.states[idNavigator];
+    }
+};
+
+/**
+ * Cree le datepicker
+ */
+ProcessDatepickers.prototype._create = function (idChamp, options) {
+    let _self = this;
+    let selector = $('#' + idChamp);
+
+    if (!variableIsset(selector) || selector.length <= 0) {
+        return false;
+    }
+
+    let format = checkDateFormat(options.paramDatePckrFormat);
+
+    let flatpickrLocal = window.flatpickr.l10ns[options.paramLocale];
+
+    if (options.paramDisplaydayofweek && options.paramDisplaydayofweek !== 'mon') {
+        let currentShortWeekdays = flatpickrLocal.weekdays.shorthand;
+        flatpickrLocal.weekdays.shorthand = currentShortWeekdays.map(function (item) {
+            return item.substring(0, options.paramDisplaydayofweek.length);
+        });
+    }
+    flatpickr(selector, {
+        onOpen: function () {
+            _self.isOpen = true;
+        },
+        onClose: function (selectedDates, dateStr) {
+            _self.isOpen = false;
+            if(options.throwEvents && dateStr !== options.paramDefaultDate) {
+                vdpFireMessage(options.formName, "", "", true, false, false);
+            }
+        },
+        allowInput: true,
+        noCalendar: options.paramNoCalendar ? options.paramNoCalendar : false,
+        defaultDate: options.paramDefaultDate,
+        time_24hr: options.paramTime24HFormat,
+        enableTime: options.paramDisplayTime ? options.paramDisplayTime : false,
+        minTime: options.paramTimeSlotsStart ? options.paramTimeSlotsStart : null,
+        maxTime: options.paramTimeSlotsEnd ? options.paramTimeSlotsEnd : null,
+        minuteIncrement: options.paramTimeInterval ? options.paramTimeInterval : 1,
+        dateFormat: format,
+        locale: flatpickrLocal,
+        weekNumbers: options.paramShowWeek ? options.paramShowWeek : false,
+        showMonths: options.paramNumberOfMonths ? options.paramNumberOfMonths : false,
+        monthSelectorType: options.paramChangeMonth ? 'dropdown' : 'static',
+        disable: [
+            function (date) {
+                if(options.paramDisableWeekend && (date.getDay() === 0 || date.getDay() === 6)) {
+                    return true;
+                }
+                if (options.startSelectionRange != null) {
+                    let startRange = new Date(options.startSelectionRange);
+                    startRange.setHours(0);
+                    startRange.setMinutes(0);
+                    startRange.setSeconds(0);
+                    if (startRange > date) {
+                        return true;
+                    }
+                }
+                if (options.endSelectionRange != null) {
+                    let endRange = new Date(options.endSelectionRange);
+                    endRange.setHours(23);
+                    endRange.setMinutes(59);
+                    endRange.setSeconds(59);
+                    if (endRange < date) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        ],
+    });
+};
+
+/**
+ * Initialise le datepicker
+ */
+function initUIDatePicker(idChamp, idNavigator, options) {
+    datepickersObject.register(idChamp, idNavigator, options);
+
+    let selector = $('#' + idChamp);
+    let selectorParent = selector.parent();
+
+    if (selectorParent.length !== 0) {
+        datepickersObject.init(idChamp, idNavigator);
+    }
+}
+
+function onClickTriggerUIDatePicker(idChamp, idNavigator) {
+    if (!vdpLoading) {
+        let datepicker = $('#' + idChamp);
+        if (datepicker.length > 0) {
+            let fltPkr = datepicker[0]._flatpickr;
+            vdpMessageFocusField(idChamp);
+            datepickersObject.init(idChamp, idNavigator);
+            fltPkr.toggle();
+        }
+    }
+}
+
+function onClickResetUIDatePicker(idChamp, idNavigator) {
+    if (!vdpLoading) {
+        datepickersObject.init(idChamp, idNavigator);
+        let selector = $('#' + idChamp);
+        if (selector.length > 0) {
+            let fltPkr = selector[0]._flatpickr;
+            fltPkr.setDate(null, true, "");
+            fltPkr.close();
+        }
+    }
+}
+
+
+/**
+ * Le flatpickr n'a pas le même format de date que les dates java ou javascript
+ **/
+function checkDateFormat(inComingFormat) {
+    let finalFormat = inComingFormat;
+
+    if (finalFormat.indexOf('mm') !== -1) {
+        finalFormat = finalFormat.replace('mm', 'i');
+    }
+
+    if (finalFormat.indexOf('hh') !== -1) {
+        finalFormat = finalFormat.replace('hh', 'G');
+    } else if (finalFormat.indexOf('HH') !== -1) {
+        finalFormat = finalFormat.replace('HH', 'H');
+    }
+
+    if (finalFormat.indexOf(' a') !== -1) {
+        finalFormat = finalFormat.replace(' a', ' K');
+    }
+
+    if (finalFormat.indexOf('dd') !== -1) {
+        finalFormat = finalFormat.replace('dd', 'd');
+    } else if (finalFormat.indexOf('DD') !== -1) {
+        finalFormat = finalFormat.replace('DD', 'd');
+    }
+
+    if (finalFormat.indexOf('MM') !== -1) {
+        finalFormat = finalFormat.replace('MM', 'm');
+    }
+
+    if (finalFormat.indexOf('yyyy') !== -1) {
+        finalFormat = finalFormat.replace('yyyy', 'Y');
+    } else if (finalFormat.indexOf('YYYY') !== -1) {
+        finalFormat = finalFormat.replace('YYYY', 'Y');
+    } else if (finalFormat.indexOf('YY') !== -1) {
+        finalFormat = finalFormat.replace('YY', 'y');
+    } else if (finalFormat.indexOf('yy') !== -1) {
+        finalFormat = finalFormat.replace('yy', 'y');
+    }
+
+    return finalFormat;
+}
+
+function variableIsset(variable) {
+    return variable != null && variable != undefined;
+}
+
+/**
+ * FOR OLD JSPs, to remove if no page use this function
+ */
+function onClickTriggerOldUIDatePicker(id) {
+    let datepicker = document.getElementById(id);
+    if (datepicker != null) {
+        let fltPkr = datepicker._flatpickr;
+        fltPkr.open();
+    }
+}
+
+/**
+ * FOR OLD JSPs, to remove if no page use this function
+ */
+function onClickResetOldUIDatePicker(id) {
+    let selector = document.getElementById(id);
+    if (selector != null) {
+        let fltPkr = selector._flatpickr;
+        fltPkr.setDate(null, true, "");
+    }
+}

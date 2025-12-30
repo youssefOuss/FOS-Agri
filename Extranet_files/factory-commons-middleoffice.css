@@ -1,0 +1,33 @@
+div.clear-padding-left {
+	padding-left: 0px;
+}
+
+div.clear-padding-right {
+	padding-right: 0px;
+}
+
+.middle-office .dropdown li.top a[href*="middleoffice/applications"] span::before {
+	content: "\e900";
+	position: relative;
+	top: 2px;
+}
+
+.factory-middle-office .side-menu {
+    max-width: initial;
+    padding-right: 0px;
+}
+.factory-middle-office .side-menu ul.side {
+	white-space: nowrap;
+}
+.factory-middle-office h2{
+	font-weight: normal;
+    border-bottom: 5px solid #e0e0e0;
+    margin-top: 5px;
+}
+
+.factory-middle-office .clear-padding-right .panel {
+	padding-left: 0px;
+}
+.listfield {
+	min-width:500px;
+}

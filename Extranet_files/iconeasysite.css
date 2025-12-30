@@ -1,0 +1,31 @@
+@import url(../../../../skins/workplace/fonts/icons.css);
+
+.icon_easysite[class*="icon_"] {
+  font-family: 'icomoon', 'icomoon-ultimate';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.icon_easysite.icon_24_home,
+.icon_easysite.icon_32_app-menu,
+.icon_easysite.icon_32_colleagues,
+.icon_easysite.icon_32_news,
+.icon_easysite.icon_32_duplicate,
+.icon_easysite.icon_24_faq,
+.icon_easysite.icon_32_message-boards {
+  font-family: 'Material Icons Outlined',  'icomoon', 'icomoon-ultimate' !important;
+}
+
+.popup-menu,
+.popup-menu-handler {
+  a i {
+    padding-right: 0.3rem;
+  }
+}

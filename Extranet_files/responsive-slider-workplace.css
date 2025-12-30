@@ -1,0 +1,19 @@
+.responsive-slider{
+    position: relative;
+    margin: 0 auto;
+    top: 0px;
+    left: 0px;
+    width: 1300px;
+    height: 456px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.responsive-slider-slides{
+    cursor: default;
+    position: relative;
+    top: 0px; left: 0px;
+    width: 1300px;
+    height: 456px;
+    overflow: hidden;
+}

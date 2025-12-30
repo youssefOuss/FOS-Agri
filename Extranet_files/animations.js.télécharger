@@ -1,0 +1,114 @@
+function initAnimations() {
+    var speedOn = 200;
+    initDropdown("Header", "header .dropdown");
+    initDropdown("Avatar", ".modify-avatar-dropdown");
+
+    // FAQ
+    $(".faq-container .faq-line .question").off("click").on("click", function () {
+        var $header = $(this);
+        var $content = $header.next();
+        $(".faq-container .faq-line .question").removeClass('active');
+        $header.addClass('active');
+        $(".faq-container .faq-line .content").slideUp();
+        if (!$content.is(":visible")) {
+            $content.slideToggle(300);
+        } else {
+            $header.removeClass('active');
+        }
+    });
+
+    // Tabs
+    $('.client-contacts-tab').off("click").on("click", function (event) {
+        $(this).addClass('standard-current-tab');
+        $('.internal-contacts-tab').removeClass('standard-current-tab');
+        $(".client-view-internal-contacts").velocity({opacity: 0, translateX: [30, 0]}, speedOn, function () {
+            $(this).css('display', 'none');
+            $('.client-view-client-contacts').css('display', 'block').velocity({
+                opacity: 1,
+                translateX: [0, -30]
+            }, speedOn);
+        });
+    });
+
+    $('.internal-contacts-tab').off("click").on("click", function (event) {
+        $(this).addClass('standard-current-tab');
+        $('.client-contacts-tab').removeClass('standard-current-tab');
+        $(".client-view-client-contacts").velocity({opacity: 0, translateX: [30, 0]}, speedOn, function () {
+            $(this).css('display', 'none');
+            $('.client-view-internal-contacts').css('display', 'block').velocity({
+                opacity: 1,
+                translateX: [0, -30]
+            }, speedOn);
+        });
+    });
+
+    FixTableViewHeader();
+}
+
+function initDropdown(name, selector) {
+    var $dropdown = $(selector);
+    var bindName = "click.workplace-open" + name + "Dropdown";
+    $dropdown.off(bindName).on(bindName, {name: name, selector: selector}, openDropdown);
+}
+
+function openDropdown(e) {
+    var name = e.data.name;
+    var selector = e.data.selector;
+    var $dropdown = $(selector);
+    if (!$dropdown.hasClass("open")) {
+        e.stopPropagation();
+        $dropdown.removeClass("close").addClass("open");
+        $dropdown.children('.dropdown-actions-button').addClass('triggered-hover');
+        $dropdown.children('.dropdown-actions').css('display', 'block').velocity({
+            opacity: 1,
+            translateY: [0, -30]
+        }, 200);
+        $dropdown.off("click.workplace-open" + name + "Dropdown");
+        $(document).on("click.workplace-close" + name + "Dropdown touchstart.workplace-close" + name + "Dropdown", {
+            name: name,
+            selector: selector
+        }, closeDropdown);
+    }
+}
+
+function closeDropdown(e) {
+    var name = e.data.name;
+    var selector = e.data.selector;
+    var $dropdown = $(selector);
+    var $dropdownButton = $(selector + " .dropdown-actions-button");
+    var $dropdownActions = $(selector + " .dropdown-actions");
+    if ($dropdown.hasClass("open") && !$(e.target).is($dropdownActions) && !$(e.target).closest($dropdownActions).length) {
+        e.stopPropagation();
+        $dropdownButton.removeClass('triggered-hover');
+        $dropdownActions.velocity({opacity: 0, translateY: [-30, 0]}, 200, function () {
+            $(this).css('display', 'none');
+            $dropdown.addClass("close").removeClass("open");
+        });
+        $(document).off("click.workplace-close" + name + "Dropdown touchstart.workplace-close" + name + "Dropdown");
+        $dropdown.on("click.workplace-open" + name + "Dropdown", {name: name, selector: selector}, openDropdown);
+    }
+}
+
+function FixTableViewHeader() {
+    let header = document.querySelector('.vui-screen-view .table-view-header');
+    if (header != null) {
+        let tableView = document.querySelector('.vui-screen-view .table-view');
+        if (tableView.getBoundingClientRect().top <= 0) {
+            header.style.top = Math.abs(tableView.getBoundingClientRect().top) + 'px';
+            header.classList.add('fixedOnTop');
+        } else {
+            header.style.top = '0px';
+            header.classList.remove('fixedOnTop');
+        }
+    }
+}
+
+/**
+ * Fix header in table views
+ */
+window.addEventListener('scroll', function() {
+    FixTableViewHeader();
+});
+
+$(document).ready(initAnimations);
+$(document).ajaxComplete(initAnimations);

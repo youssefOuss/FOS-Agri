@@ -1,0 +1,74 @@
+let tileCounterRegistered = false;
+let loadedTileList = [];
+
+function registerTileCounters() {
+    if (tileCounterRegistered == false) {
+        tileCounterRegistered = true;
+        $(document).ready(function () {
+            initializeTileCounters();
+        });
+    }
+}
+
+function addIndicator(className, indicator) {
+    if (indicator.type === 'COUNTER') {
+        $(indicator.appClass).each(function () {
+            let tile = $(this).children('.notif-counter');
+            tile.html(indicator.count > 99 ? '99+' : indicator.count);
+            tile.css('background-color', indicator.backgroundColor);
+            tile.css('color', indicator.color);
+            if (indicator.count > 0) {
+                tile.show();
+            }
+
+        })
+    }
+}
+
+function initializeTileCounters() {
+    $('.tile-with-counter').each(function () {
+        let info = $(this).children('.notif-counter');
+        let className = $(this).attr('class');
+        let url = info.data('workplace-indicator-url');
+        if (url && loadedTileList.indexOf(className) === -1) {
+            loadedTileList.push(className)
+            info.addClass('ajax-loading');
+            $.ajax({
+                url: url,
+                dataType: 'json'
+            }).done(function (indicator) {
+                    addIndicator(className, indicator);
+                }
+            ).fail(function (data) {
+                console.log(data.message);
+                info.html('<i class="icon_easysite color-grey icon-cancel-circle"></i>');
+            }).always(function () {
+                info.removeClass('ajax-loading');
+            });
+        }
+    });
+}
+
+function createYoutubeIframeLightbox(appTitle, url) {
+    createIframeLightbox(appTitle, '<iframe width="100%" height="480" src="' + url + '" frameborder="0" allowfullscreen></iframe>');
+}
+
+function createHelpTextIframeLightbox(appTitle, text) {
+    createIframeLightbox(appTitle, text);
+}
+
+function createIframeLightbox(appTitle, content) {
+    let lightboxContent = $('.lightbox-content');
+    let screenWidth = lightboxContent.width();
+    if(screenWidth === 0) {
+        screenWidth = window.screen.width;
+    }
+    $('.lightbox-dialog').width(screenWidth >= 854 ? 854 : screenWidth - 60);
+    lightBoxCreate(appTitle, content, '', []);
+
+    let buttonElement = lightboxContent.find('.button1');
+    if (buttonElement.length > 0) {
+        buttonElement.addClass('button2');
+        buttonElement.removeClass('button1');
+    }
+}

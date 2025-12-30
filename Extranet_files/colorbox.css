@@ -1,0 +1,42 @@
+/*
+    ColorBox Core Style
+    The following rules are the styles that are consistant between themes.
+    Avoid changing this area to maintain compatability with future versions of ColorBox.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden; font:normal 10px  Verdana, Arial, sans-serif;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative; overflow:visible;}
+#cboxLoadedContent{overflow:auto;}
+#cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+
+/* 
+    ColorBox example user style
+    The following rules are ordered and tabbed in a way that represents the
+    order/nesting of the generated HTML, so that the structure easier to understand.
+*/
+#cboxOverlay{background:#000;}
+
+#colorbox{}
+    #cboxContent{background:#fff; }
+        #cboxLoadedContent{background:#fff; padding:10px;margin-bottom:25px;text-align:center;}
+        #cboxLoadingGraphic{background:url(images/loading.gif) no-repeat center center;}
+        #cboxLoadingOverlay{background:#fff;}
+        #cboxTitle{position:absolute; bottom:20px; left:10px; color:#666666;}
+        #cboxCurrent{position:absolute; bottom:5px; left:10px; color:#666666;}
+        #cboxSlideshow, #cboxClose{position:absolute; text-indent:-9999px; width:16px; height:16px; bottom:4px; background:url(images/colorbox_controls.gif) no-repeat 0 0;}
+        #cboxPrevious, #cboxNext{position:absolute; text-indent:-9999px; width:14px; height:16px; bottom:4px; background:url(images/colorbox_controls.gif) no-repeat 0 0;}		
+        #cboxPrevious{background-position:-22px -1px; right:46px;}
+        #cboxPrevious:hover{background-position:-22px -23px;}
+        #cboxNext{background-position:-1px -1px; right:30px;}
+        #cboxNext:hover{background-position:-1px -23px;}
+        #cboxClose{background-position:-47px -1px; right:10px;}
+        #cboxClose:hover{background-position:-47px -23px; }
+        .cboxSlideshow_on #cboxPrevious, .cboxSlideshow_off #cboxPrevious{right:66px;}
+        .cboxSlideshow_on #cboxSlideshow{background-position:-75px -25px; right:44px;}
+        .cboxSlideshow_on #cboxSlideshow:hover{background-position:-100px -25px;}
+        .cboxSlideshow_off #cboxSlideshow{background-position:-100px 0px; right:44px;}
+        .cboxSlideshow_off #cboxSlideshow:hover{background-position:-75px -25px;}

@@ -1,0 +1,84 @@
+.responsive-slider{
+    position: relative;
+    margin: 0 auto;
+    top: 0px;
+    left: 0px;
+    width: 1300px;
+    height: 500px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.responsive-slider-slides{
+    cursor: default;
+    position: relative;
+    top: 0px; left: 0px;
+    width: 1300px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.bullets {
+    position: absolute;
+    bottom:16px;
+    right:16px;
+}
+
+.bullets div, .bullets div:hover, .bullets .av {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background-image: none;
+    overflow: hidden;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-left, .arrow-right {
+    display: block;
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    top:0px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+	border-radius:50%;
+}
+.arrow-left {
+    left:12px;
+}
+.arrow-right {
+    right:12px;
+}
+.arrow-left:hover,.arrow-right:hover {
+  background: rgba(0,0,0,0.75);
+}
+
+.arrow-right .arrow-inner {
+  height: 20px;
+  width: 20px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  display: block;
+  transform: rotate(45deg);
+  margin: 18px 0 0 15px;
+}
+.arrow-left .arrow-inner {
+    height: 20px;
+    width: 20px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    display: block;
+    transform: rotate(-45deg);
+    margin: 18px 0 0 22px;
+}
+
+.bullets div:hover {
+  background: #FF9800;
+}
+.bullets .av {
+  background: #2196F3;
+}
