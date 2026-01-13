@@ -1,0 +1,42 @@
+﻿tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: "#13887C",
+                            blue: "#1482b8",
+                            deep: "#0a3b37",
+                            gold: "#e6c027",
+                            red: "#be3c3f",
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"],
+                    },
+                    boxShadow: {
+                        lift: "0 24px 60px rgba(10, 59, 55, 0.18)",
+                        glow: "0 18px 45px rgba(20, 130, 184, 0.25)",
+                    },
+                    backgroundImage: {
+                        haze: "radial-gradient(circle at 15% 15%, rgba(20,130,184,0.22), transparent 38%), radial-gradient(circle at 85% 25%, rgba(19,136,124,0.28), transparent 36%), linear-gradient(180deg, #f7fbfa 0%, #eef6f4 55%, #f7faf9 100%)",
+                        ribbon: "linear-gradient(115deg, rgba(19,136,124,0.1), rgba(20,130,184,0.14))",
+                    },
+                    keyframes: {
+                        floaty: {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-10px)" }
+                        },
+                        fadeUp: {
+                            "0%": { opacity: 0, transform: "translateY(18px)" },
+                            "100%": { opacity: 1, transform: "translateY(0)" }
+                        }
+                    },
+                    animation: {
+                        floaty: "floaty 6s ease-in-out infinite",
+                        fadeUp: "fadeUp 0.6s ease both",
+                    }
+                }
+            }
+        };
+

@@ -1,0 +1,62 @@
+[
+    {
+        "id":  "tanger-tetouan-al-hoceima",
+        "title":  "Tanger-Tetouan-Al Hoceima",
+        "text":  "Accueil et orientation des adherents, relais des services et actions sociales locales."
+    },
+    {
+        "id":  "oriental",
+        "title":  "Oriental",
+        "text":  "Accompagnement de proximite, informations sur les aides et les dispositifs disponibles."
+    },
+    {
+        "id":  "draa-tafilalet",
+        "title":  "Draa-Tafilalet",
+        "text":  "Relais de proximite pour l'information, le suivi et l'accompagnement."
+    },
+    {
+        "id":  "souss-massa",
+        "title":  "Souss-Massa",
+        "text":  "Conseil local et suivi des demandes, avec un relais sur le territoire."
+    },
+    {
+        "id":  "guelmim-oued-noun",
+        "title":  "Guelmim-Oued Noun",
+        "text":  "Information et orientation des adherents, appui aux demarches sociales."
+    },
+    {
+        "id":  "casablanca-settat",
+        "title":  "Casablanca-Settat",
+        "text":  "Orientation et suivi des dossiers avec un relais local pour les beneficiaires."
+    },
+    {
+        "id":  "marrakech-safi",
+        "title":  "Marrakech-Safi",
+        "text":  "Accueil des adherents et information sur les programmes de soutien regionaux."
+    },
+    {
+        "id":  "laayoune-sakia-el-hamra",
+        "title":  "Laayoune-Sakia El Hamra",
+        "text":  "Accompagnement de proximite et suivi des demandes locales."
+    },
+    {
+        "id":  "dakhla-oued-eddahab",
+        "title":  "Dakhla-Oued Ed-Dahab",
+        "text":  "Relais local pour l'acces aux services et informations sociales."
+    },
+    {
+        "id":  "rabat-sale-kenitra",
+        "title":  "Rabat-Sale-Kenitra",
+        "text":  "Point de contact regional pour le conseil, la coordination et l'acces aux services."
+    },
+    {
+        "id":  "fes-meknes",
+        "title":  "Fes-Meknes",
+        "text":  "Appui administratif et suivi des demandes sociales pour les beneficiaires de la region."
+    },
+    {
+        "id":  "beni-mellal-khenifra",
+        "title":  "Beni Mellal-Khenifra",
+        "text":  "Information de proximite et accompagnement dans les demarches sociales."
+    }
+]

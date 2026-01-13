@@ -1,0 +1,350 @@
+﻿<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOS-Agri | Extranet - Ministère de l'Agriculture</title>
+    <meta name="description"
+        content="FOS-Agri - Fondation pour la promotion des œuvres sociales du personnel du ministère de l'agriculture" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/tailwind.config.js"></script>
+    <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body class="bg-haze animated-bg text-slate-900 text-lg">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-brand-teal/15">
+        <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-0">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
+                <div class="h-16 w-16 rounded-none bg-transparent grid place-items-center">
+                    <img src="Extranet_files/logo.png" alt="FOS-Agri" class="h-16 w-16 object-contain" />
+                </div>
+                </a>
+                <a href="index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
+                <div>
+                    <p class="font-display text-base leading-none">FOS-Agri</p>
+                </div>
+                  </a>
+            </div>
+            <nav class="hidden items-center gap-5 text-base font-medium text-slate-700 md:flex md:text-lg">
+                <a href="#actus" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Actualités</a>
+                <a href="#adherent" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Adhérent</a>
+                <a href="#services" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">Préstations</a>
+                <a href="#evenements" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.events">Evénements</a>
+                <a href="#mission" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.mission">Mission</a>
+                <a href="#carte" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.map">Carte</a>
+                <a href="#partenaires" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.partners">Partenaires</a>
+                <a href="#contact" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.contact">Contact</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <details class="relative hidden md:inline-flex">
+                    <summary
+                        class="list-none flex items-center gap-2 rounded-full border border-brand-gold bg-white/80 px-3 py-2 text-sm font-semibold text-brand-deep shadow-sm transition hover:border-brand-gold underline decoration-brand-gold decoration-2 underline-offset-4 cursor-pointer">
+                        <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                            <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                <rect width="1" height="2" x="0" fill="#0055A4"></rect>
+                                <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
+                                <rect width="1" height="2" x="2" fill="#EF4135"></rect>
+                            </svg>
+                        </span>
+                        <span>FR</span>
+                    </summary>
+                    <div
+                        class="absolute right-0 top-12 w-44 rounded-xl border border-slate-200 bg-white p-2 text-sm shadow">
+                        <a href="index.html"
+                            class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
+                            <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                    <rect width="1" height="2" x="0" fill="#0055A4"></rect>
+                                    <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
+                                    <rect width="1" height="2" x="2" fill="#EF4135"></rect>
+                                </svg>
+                            </span>
+                            <span>Francais</span>
+                        </a>
+                        <a href="index-ar.html"
+                            class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
+                            <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                    <rect width="3" height="2" fill="#C1272D"></rect>
+                                    <path
+                                        d="M1.5 0.2L1.688 0.741L2.261 0.753L1.804 1.099L1.97 1.647L1.5 1.32L1.03 1.647L1.196 1.099L0.739 0.753L1.312 0.741Z"
+                                        fill="none" stroke="#006233" stroke-width="0.08" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <span>Arabe</span>
+                        </a>
+                    </div>
+                </details>
+                <a href="#contact"
+                    class="hidden rounded-full border border-brand-gold/40 px-4 py-2 text-base font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex"
+                    data-i18n="nav.signup">Espace Adhérent</a>
+                <button id="menuBtn"
+                    class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
+                    aria-label="Ouvrir le menu">
+                    <span class="h-5 w-5">=</span>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden border-t border-brand-teal/10 bg-white px-6 py-4 md:hidden">
+            <div class="flex flex-col gap-4 text-base font-medium text-slate-700">
+                <a href="#actus" data-i18n="nav.actus">Actualités</a>
+                <a href="#evenements" data-i18n="nav.events">Evénements</a>
+                <a href="#mission" data-i18n="nav.mission">Mission</a>
+                <a href="#services" data-i18n="nav.services">Services</a>
+                <a href="#chiffres" data-i18n="nav.stats">Chiffres</a>
+                <a href="#carte" data-i18n="nav.map">Carte</a>
+                <a href="#partenaires" data-i18n="nav.partners">Partenaires</a>
+                <a href="#contact" data-i18n="nav.contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative overflow-hidden">
+        <div class="pointer-events-none absolute inset-0 -z-10 opacity-45 motif-simple"></div>
+        <div class="pointer-events-none absolute inset-0 -z-10 opacity-35 motif-dots"></div>
+        <div class="pointer-events-none absolute inset-0 -z-10 opacity-55 water-wave"></div>
+        <div class="pointer-events-none absolute inset-0 -z-10 opacity-40 water-shimmer"></div>
+        <div class="pointer-events-none absolute inset-0 -z-10">
+            <!-- <div class="bubble one"></div> -->
+            <!-- <div class="bubble two"></div> -->
+            <!-- <div class="bubble three"></div> -->
+            <!-- <div class="bubble four"></div> -->
+            <!-- <div class="bubble five"></div> -->
+            <!-- <div class="bubble six"></div> -->
+            <!-- <div class="bubble seven"></div> -->
+            <!-- <div class="bubble eight"></div> -->
+            <!-- <div class="bubble nine"></div> -->
+            <!-- <div class="bubble ten"></div> -->
+        </div>
+
+      
+    
+
+
+        <section id="mission" class="bg-white/70 py-16 bg-cover bg-center  bg-cover bg-center">
+            <div class="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-center mx-auto max-w-screen-2xl px-6">
+                <div class="space-y-4">
+                    <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
+                        data-i18n="mission.label">Prestations</p>
+                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title">Culture, loisirs, et voyages
+</h2>
+                    <p class="text-slate-600">
+                        <span data-i18n="mission.desc">La FOS-Agri offre une panoplie de services culturelles, de loisirs 
+                            et de divertissements répondant aux aspirations de ses adhérents et favorisant leurs épanouissement et bien-être.</span>
+                    </p>
+                    <div class="grid gap-4">
+
+<ul class="onglet flex gap-6 border-b ">
+  <li><button class="tab-btn active" data-tab="tab1">Loisirs et voyages</button></li>
+  <li><button class="tab-btn" data-tab="tab2">Colonies de vacances</button></li>
+  <li><button class="tab-btn" data-tab="tab3">Pèlerinage</button></li>
+  <li><button class="tab-btn" data-tab="tab4">Cérémonies</button></li>
+    <li><button class="tab-btn" data-tab="tab5">Conventions partenaires Hébergement et loisirs</button></li>
+</ul>
+
+<!-- SECTIONS -->
+<div id="tab1" class="tab-content"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                            <p class="font-semibold text-brand-deep" data-i18n="mission.card1.title">Loisirs et voyages</p>
+                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">La Fondation organise 
+                                diverses activités de loisirs et de voyages au profit de ses adhérents et leurs familles 
+                                leur permettant de passer des vacances dans des conditions adéquates.</p>
+                        </div></div>
+<div id="tab2" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                            <p class="font-semibold text-brand-deep" data-i18n="mission.card1.title">Colonies de vacances</p>
+                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">La Fondation organise 
+                                diverses activités de loisirs et de voyages au profit de ses adhérents et leurs familles 
+                                leur permettant de passer des vacances dans des conditions adéquates.</p>
+                        </div></div>
+<div id="tab3" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                            <p class="font-semibold text-brand-deep" data-i18n="mission.card1.title">Pèlerinage</p>
+                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">La Fondation organise 
+                                diverses activités de loisirs et de voyages au profit de ses adhérents et leurs familles 
+                                leur permettant de passer des vacances dans des conditions adéquates.</p>
+                        </div></div>
+<div id="tab4" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                            <p class="font-semibold text-brand-deep" data-i18n="mission.card1.title">Cérémonies</p>
+                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">La Fondation organise 
+                                diverses activités de loisirs et de voyages au profit de ses adhérents et leurs familles 
+                                leur permettant de passer des vacances dans des conditions adéquates.</p>
+                        </div></div>
+<div id="tab5" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                            <p class="font-semibold text-brand-deep" data-i18n="mission.card1.title">Conventions partenaires Hébergement et loisirs</p>
+                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">La Fondation organise 
+                                diverses activités de loisirs et de voyages au profit de ses adhérents et leurs familles 
+                                leur permettant de passer des vacances dans des conditions adéquates.</p>
+                        </div></div>
+
+
+<script>
+const tabs = document.querySelectorAll(".tab-btn");
+const contents = document.querySelectorAll(".tab-content");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+
+    // Retirer active de tous les onglets
+    tabs.forEach(t => t.classList.remove("active"));
+
+    // Masquer toutes les sections
+    contents.forEach(c => c.classList.add("hidden"));
+
+    // Activer l'onglet cliqué
+    tab.classList.add("active");
+
+    // Afficher la section correspondante
+    document.getElementById(tab.dataset.tab).classList.remove("hidden");
+  });
+});
+</script>
+
+
+
+
+
+                        
+                       
+                    </div>
+                </div>
+                <div class="grid gap-6">
+
+                     <div
+                            class="rounded-none bg-gradient-to-br from-brand-teal to-brand-blue p-5 text-white shadow-glow">
+                            <h3 class="font-semibold text-brand-deep text-white" data-i18n="mission.quick.title">
+                                La FOS-Agri assure via son centre médico-social :</h3>
+                          
+                            <p class="text-sm" data-i18n="mission.stat1">
+                                
+                                <ul>
+                                    <li style="font-weight: 400; text-align: justify;" aria-level="1">
+                                        <span style="font-weight: 400;">
+                                            Les consultations données par une équipe médicale spécialisée et performante
+                                        </span>
+                                    </li>
+
+                                     <li style="font-weight: 400; text-align: justify;" aria-level="1">
+                                        <span style="font-weight: 400;">
+                                            L’accompagnement et le suivi des adhérents en situation de pré ou post hospitalisation
+                                        </span>
+                                    </li>
+
+                                      <li style="font-weight: 400; text-align: justify;" aria-level="1">
+                                        <span style="font-weight: 400;">
+                                            Le conseil et l’orientation des adhérents
+                                        </span>
+                                    </li>
+
+
+                                </ul>
+                                    </p>
+                    </div>
+
+
+                 
+                </div>
+            </div>
+        </section>
+      
+     
+    
+        <section id="contact" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center">
+            <div class="grid gap-10 md:grid-cols-[1fr_0.9fr] md:items-center">
+                <div class="space-y-4">
+                    <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
+                        data-i18n="contact.label">Contact</p>
+                    <h2 class="font-display text-5xl text-brand-deep" data-i18n="contact.title">Parlons de vos besoins
+                    </h2>
+                    <p class="text-slate-600" data-i18n="contact.subtitle">Une équipe à votre écoute pour tout
+                        accompagnement, information ou demande spécifique</p>
+                    <div class="grid gap-4">
+                        <div class="rounded-none bg-white p-4 shadow">
+                            <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.phone">Téléphone</p>
+                            <p class="text-base text-slate-600">0537 66 55 40 / 0537 69 84 31</p>
+                        </div>
+                        <div class="rounded-none bg-white p-4 shadow">
+                            <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.address">Adresse</p>
+                            <p class="text-base text-slate-600">461 Avenue Hassan II, Agdal - Rabat</p>
+                        </div>
+                        <div class="rounded-none bg-white p-4 shadow">
+                            <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.email">Email</p>
+                            <p class="text-base text-slate-600">FOS-Agri@FOS-Agri.ma</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="rounded-[28px] bg-white p-6 shadow">
+                    <h3 class="text-2xl font-semibold text-brand-deep" data-i18n="contact.formTitle">Ecrire un message
+                    </h3>
+                    <div class="mt-4 grid gap-4">
+                        <input
+                            class="w-full rounded-none border border-slate-200 px-4 py-3 text-base focus:border-brand-teal focus:outline-none"
+                            placeholder="Nom complet" data-i18n-placeholder="contact.formName" />
+                        <input
+                            class="w-full rounded-none border border-slate-200 px-4 py-3 text-base focus:border-brand-teal focus:outline-none"
+                            placeholder="Email" data-i18n-placeholder="contact.formEmail" />
+                        <textarea rows="4"
+                            class="w-full rounded-none border border-slate-200 px-4 py-3 text-base focus:border-brand-teal focus:outline-none"
+                            placeholder="Votre message" data-i18n-placeholder="contact.formMessage"></textarea>
+                        <button type="button"
+                            class="rounded-none bg-brand-gold px-4 py-3 text-base font-semibold text-white shadow-glow"
+                            data-i18n="contact.formSend">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-brand-deep text-white" style="background-color: #4f579c;">
+        <div class="mx-auto grid max-w-screen-2xl gap-8 px-6 py-10 md:grid-cols-3">
+            <div>
+                <div class="flex items-center gap-3">
+                    <img src="Extranet_files/logo.png" alt="FOS-Agri"
+                        class="h-32 w-32 object-contain brightness-0 invert" />
+                    <p class="font-display text-xl">FOS-Agri</p>
+                </div>
+                <p class="mt-2 text-sm text-white/70" data-i18n="footer.desc">Fondation pour la promotion des œuvres
+                    sociales du personnel du ministère de l'agriculture</p>
+            </div>
+            <div>
+                <p class="text-sm font-semibold" data-i18n="footer.linksTitle">Liens utiles</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                    <li data-i18n="footer.link1">Appels d'offres</li>
+                    <li data-i18n="footer.link2">FAQ</li>
+                    <li data-i18n="footer.link3">Newsletter</li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-sm font-semibold" data-i18n="footer.quickTitle">Accès rapide</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                    <li data-i18n="footer.quick1">Portail agent</li>
+                    <li data-i18n="footer.quick2">Programme social</li>
+                    <li data-i18n="footer.quick3">Actualités</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 py-4 text-center text-sm text-white/60" data-i18n="footer.copy">Copyright
+            2025 FOS-Agri - Ministère de l'Agriculture</div>
+    </footer>
+
+    <button id="backToTop"
+        class="back-to-top fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-brand-gold text-white shadow-glow transition hover:-translate-y-1"
+        aria-label="Retour en haut">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5"></path>
+            <path d="M5 12l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <script src="assets/app.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+

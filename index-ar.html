@@ -1,650 +1,34 @@
-﻿<!doctype html>
+ï»¿<!doctype html>
 <html lang="ar" dir="rtl">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FOSAgri | الإكسترانت - وزارة الفلاحة</title>
-    <meta name="description"
-        content="FOS-Agri - Fondation pour la promotion des œuvres sociales du personnel du ministère de l'agriculture" />
+    <title>FOS-Agri | البوابة - وزارة الفلاحة</title>
+    <meta name="description" content="FOS-Agri - مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            teal: "#13887C",
-                            blue: "#1482b8",
-                            deep: "#0a3b37",
-                            gold: "#e6c027",
-                            red: "#be3c3f",
-                        }
-                    },
-                    fontFamily: {
-                        sans: ["Inter", "sans-serif"],
-                        display: ["Inter", "sans-serif"],
-                    },
-                    boxShadow: {
-                        lift: "0 24px 60px rgba(10, 59, 55, 0.18)",
-                        glow: "0 18px 45px rgba(20, 130, 184, 0.25)",
-                    },
-                    backgroundImage: {
-                        haze: "radial-gradient(circle at 15% 15%, rgba(20,130,184,0.22), transparent 38%), radial-gradient(circle at 85% 25%, rgba(19,136,124,0.28), transparent 36%), linear-gradient(180deg, #f7fbfa 0%, #eef6f4 55%, #f7faf9 100%)",
-                        ribbon: "linear-gradient(115deg, rgba(19,136,124,0.1), rgba(20,130,184,0.14))",
-                    },
-                    keyframes: {
-                        floaty: {
-                            "0%, 100%": { transform: "translateY(0)" },
-                            "50%": { transform: "translateY(-10px)" }
-                        },
-                        fadeUp: {
-                            "0%": { opacity: 0, transform: "translateY(18px)" },
-                            "100%": { opacity: 1, transform: "translateY(0)" }
-                        }
-                    },
-                    animation: {
-                        floaty: "floaty 6s ease-in-out infinite",
-                        fadeUp: "fadeUp 0.6s ease both",
-                    }
-                }
-            }
-        };
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap');
-
-        :root {
-            --font-latin: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-            --font-ar: "Noto Sans Arabic", "Noto Naskh Arabic", Tahoma, Arial, sans-serif;
-        }
-
-        html {
-            font-family: var(--font-latin);
-        }
-
-        html[lang="ar"],
-        body:lang(ar) {
-            font-family: var(--font-ar);
-        }
-
-        html[dir="rtl"] body {
-            direction: rtl;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        body {
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        .button,
-        .nav,
-        .card-title {
-            font-weight: 600;
-        }
-
-        .back-to-top {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
-        }
-
-        .back-to-top.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        ::selection {
-            background: rgba(19, 136, 124, 0.22);
-        }
-
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .no-scrollbar {
-            scrollbar-width: none;
-        }
-
-        .clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        main>section:not(#actus) div,
-        main>section:not(#actus) article,
-        main>section:not(#actus) form {
-            border-radius: 8px;
-        }
-
-        #actus article,
-        #actus,
-        #actus .actus-info {
-            /* border-radius: 0 !important; */
-        }
-
-        #actus .actus-container {
-            border-radius: 8px;
-        }
-
-        span[data-i18n$=".badge"],
-        span[data-i18n="hero.badgeTag"] {
-            background-color: #4f579c !important;
-            color: #ffffff !important;
-        }
-
-        .animated-bg {
-            background-size: 220% 220%;
-            animation: gradientShift 18s ease infinite;
-        }
-
-        .motif-simple {
-            background-image: repeating-linear-gradient(135deg, rgba(20, 130, 184, 0.12) 0 1px, transparent 1px 22px);
-            animation: simpleDrift 12s linear infinite;
-        }
-
-        .motif-dots {
-            background-image: radial-gradient(circle at 2px 2px, rgba(19, 136, 124, 0.18) 1px, transparent 1px);
-            background-size: 18px 18px;
-            animation: dotsDrift 10s linear infinite;
-        }
-
-        .logo-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 20s linear infinite;
-        }
-
-        .logo-marquee-track {
-            display: flex;
-            gap: 32px;
-            flex-shrink: 0;
-            padding-right: 32px;
-        }
-
-        .logo-marquee:hover {
-            animation-play-state: paused;
-        }
-
-        .logo-card img {
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .logo-card:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.06);
-        }
-
-        @keyframes marquee {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        .water-wave {
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='160' viewBox='0 0 320 160'><path d='M0 40c40-12 80-12 120 0s80 12 120 0 80-12 120 0' fill='none' stroke='%231482b8' stroke-opacity='0.22' stroke-width='2'/><path d='M0 80c40-12 80-12 120 0s80 12 120 0 80-12 120 0' fill='none' stroke='%2313887C' stroke-opacity='0.2' stroke-width='2'/><path d='M0 120c40-12 80-12 120 0s80 12 120 0 80-12 120 0' fill='none' stroke='%231482b8' stroke-opacity='0.18' stroke-width='2'/></svg>");
-            background-size: 320px 160px;
-            background-repeat: repeat;
-            mix-blend-mode: screen;
-            animation: waveDrift 6s linear infinite;
-        }
-
-        .water-shimmer {
-            background-image: linear-gradient(120deg, rgba(20, 130, 184, 0.12), rgba(19, 136, 124, 0.08), rgba(20, 130, 184, 0.12));
-            background-size: 200% 200%;
-            mix-blend-mode: screen;
-            animation: shimmerMove 4s ease-in-out infinite;
-        }
-
-        .bubble {
-            position: absolute;
-            border-radius: 999px;
-            overflow: hidden;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(20, 130, 184, 0.3) 45%, rgba(19, 136, 124, 0.2) 70%, transparent 75%);
-            box-shadow: inset -8px -12px 30px rgba(255, 255, 255, 0.35);
-            filter: none;
-            animation: bubbleFloat 4s ease-in-out infinite;
-            --logo-size: 86%;
-        }
-        .bubble::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background-image: url("Extranet_files/logo.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: var(--logo-size);
-            opacity: 0.65;
-            filter: drop-shadow(0 10px 18px rgba(20, 130, 184, 0.35));
-            mix-blend-mode: normal;
-            pointer-events: none;
-        }
-        .bubble::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.12) 60%, rgba(255, 255, 255, 0) 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        .bubble::after {
-            z-index: 1;
-        }
-
-        .bubble.one {
-            width: 220px;
-            height: 220px;
-            left: -40px;
-            top: 160px;
-        }
-
-        .bubble.two {
-            width: 140px;
-            height: 140px;
-            right: 120px;
-            top: 80px;
-            animation-delay: -2s;
-            --logo-size: 82%;
-        }
-
-        .bubble.three {
-            width: 260px;
-            height: 260px;
-            right: -60px;
-            bottom: 120px;
-            animation-delay: -4s;
-        }
-
-        .bubble.four {
-            width: 110px;
-            height: 110px;
-            left: 20%;
-            top: 20%;
-            animation-delay: -1s;
-            --logo-size: 84%;
-        }
-
-        .bubble.five {
-            width: 90px;
-            height: 90px;
-            right: 25%;
-            bottom: 18%;
-            animation-delay: -3s;
-            --logo-size: 82%;
-        }
-
-        .bubble.six {
-            width: 180px;
-            height: 180px;
-            left: 55%;
-            top: 35%;
-            animation-delay: -5s;
-            --logo-size: 86%;
-        }
-
-        .bubble.seven {
-            width: 70px;
-            height: 70px;
-            left: 12%;
-            bottom: 12%;
-            animation-delay: -1.5s;
-            --logo-size: 80%;
-        }
-
-        .bubble.eight {
-            width: 130px;
-            height: 130px;
-            right: 8%;
-            top: 18%;
-            animation-delay: -2.5s;
-            --logo-size: 84%;
-        }
-
-        .bubble.nine {
-            width: 160px;
-            height: 160px;
-            left: 38%;
-            bottom: 8%;
-            animation-delay: -3.5s;
-            --logo-size: 86%;
-        }
-
-        .bubble.ten {
-            width: 95px;
-            height: 95px;
-            right: 40%;
-            top: 55%;
-            animation-delay: -4.5s;
-            --logo-size: 82%;
-        }
-
-        @keyframes simpleDrift {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            100% {
-                transform: translate3d(-50px, 30px, 0);
-            }
-        }
-
-        @keyframes dotsDrift {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            100% {
-                transform: translate3d(40px, -25px, 0);
-            }
-        }
-
-        @keyframes bubbleFloat {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            50% {
-                transform: translate3d(0, -40px, 0);
-            }
-
-            100% {
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        @keyframes waveDrift {
-            0% {
-                background-position: 0 0;
-            }
-
-            100% {
-                background-position: 320px 0;
-            }
-        }
-
-        @keyframes shimmerMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes linesDrift {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            100% {
-                transform: translate3d(-60px, 40px, 0);
-            }
-        }
-
-        .motif-drift {
-            animation: motifDrift 22s linear infinite;
-        }
-
-        @keyframes motifDrift {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            50% {
-                transform: translate3d(-20px, 12px, 0);
-            }
-
-            100% {
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        .orb {
-            mix-blend-mode: screen;
-            filter: blur(10px);
-            opacity: 0.75;
-            animation: orbFloat 18s ease-in-out infinite;
-        }
-
-        .orb.delay-1 {
-            animation-delay: -4s;
-        }
-
-        .orb.delay-2 {
-            animation-delay: -8s;
-        }
-
-        @keyframes orbFloat {
-            0% {
-                transform: translate3d(0, 0, 0) scale(1);
-            }
-
-            50% {
-                transform: translate3d(0, -18px, 0) scale(1.05);
-            }
-
-            100% {
-                transform: translate3d(0, 0, 0) scale(1);
-            }
-        }
-
-        #map {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .region-shape {
-            fill: #1482b8;
-            opacity: 0.88;
-            cursor: pointer;
-            stroke: #ffffff;
-            stroke-width: 1;
-        }
-
-        .region-shape:hover {
-            opacity: 1;
-        }
-
-        .region-shape.is-selected {
-            fill: #0e597e;
-            opacity: 1;
-        }
-
-        .map-info-card {
-            box-sizing: border-box;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.96);
-            border: 1px solid #e6e6e6;
-            padding: 12px;
-            overflow: auto;
-            display: none !important;
-        }
-
-        .map-info-card h2 {
-            margin: 0 0 8px;
-            font-size: 16px;
-        }
-
-        .map-info-card p {
-            margin: 0 0 10px;
-            color: #444;
-            line-height: 1.35;
-            font-size: 13px;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(18px);
-        }
-
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .wave-block {
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.7);
-        }
-
-        .wave-block::before,
-        .wave-block::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 160px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.7'/%3E%3Cstop offset='70%25' stop-color='%23ffffff' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23ffffff' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 60 C 150 100 350 20 600 60 C 850 100 1050 20 1200 60 L1200 120 L0 120 Z' fill='url(%23g)'/%3E%3Cpath d='M0 72 C 180 30 360 110 600 70 C 840 30 1020 110 1200 72 L1200 120 L0 120 Z' fill='%23ffffff' fill-opacity='0.45'/%3E%3C/svg%3E");
-            background-size: 900px 110px;
-            background-repeat: repeat-x;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .wave-block::before {
-            top: -110px;
-        }
-
-        .wave-block::after {
-            bottom: -110px;
-            transform: scaleY(-1);
-        }
-
-        .wave-block>* {
-            position: relative;
-            z-index: 1;
-        }
-
-        .wave-top {
-            position: relative;
-        }
-
-        .wave-top::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: -110px;
-            height: 160px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.7'/%3E%3Cstop offset='70%25' stop-color='%23ffffff' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23ffffff' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 60 C 150 100 350 20 600 60 C 850 100 1050 20 1200 60 L1200 120 L0 120 Z' fill='url(%23g)'/%3E%3Cpath d='M0 72 C 180 30 360 110 600 70 C 840 30 1020 110 1200 72 L1200 120 L0 120 Z' fill='%23ffffff' fill-opacity='0.45'/%3E%3C/svg%3E");
-            background-size: 900px 110px;
-            background-repeat: repeat-x;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .wave-top>* {
-            position: relative;
-            z-index: 1;
-        }
-
-        .wave-bottom {
-            position: relative;
-        }
-
-        .wave-bottom::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -110px;
-            height: 160px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.7'/%3E%3Cstop offset='70%25' stop-color='%23ffffff' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23ffffff' stop-opacity='0.35'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 60 C 150 100 350 20 600 60 C 850 100 1050 20 1200 60 L1200 120 L0 120 Z' fill='url(%23g)'/%3E%3Cpath d='M0 72 C 180 30 360 110 600 70 C 840 30 1020 110 1200 72 L1200 120 L0 120 Z' fill='%23ffffff' fill-opacity='0.45'/%3E%3C/svg%3E");
-            background-size: 900px 110px;
-            background-repeat: repeat-x;
-            pointer-events: none;
-            transform: scaleY(-1);
-            z-index: 0;
-        }
-
-        .wave-bottom>* {
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .animated-bg {
-                animation: none;
-            }
-        }
-
-        .menuBtnNav:hover {
-            color: #e6c027 !important;
-        }
-
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 999px;
-            background: rgba(20, 130, 184, 0.3);
-            border: 1px solid rgba(20, 130, 184, 0.45);
-            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
-            pointer-events: auto;
-        }
-
-        .carousel-dot.is-active {
-            background: #e6c027;
-            border-color: #e6c027;
-            transform: scale(1.15);
-        }
-    </style>
+    <script src="assets/tailwind.config.js"></script>
+    <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body class="bg-haze animated-bg text-slate-900 text-lg">
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-brand-teal/15">
+    <!-- <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-brand-teal/15">
         <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-0">
             <div class="flex items-center gap-3">
-                <div class="h-16 w-16 rounded-none bg-transparent grid place-items-center">
-                    <img src="Extranet_files/logo.png" alt="FOS-Agri" class="h-16 w-16 object-contain" />
+                <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">الأخبار</div>
+                </a>
+                <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">الأخبار</p>
                 </div>
-                <div>
-                    <p class="font-display text-base leading-none">FOS-Agri</p>
-                </div>
+                  </a>
             </div>
             <nav class="hidden items-center gap-5 text-base font-medium text-slate-700 md:flex md:text-lg">
                 <a href="#actus" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">الأخبار</a>
+                <a href="#adherent" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">المنخرط</a>
+                <a href="#services" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">الخدمات</a>
                 <a href="#evenements" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.events">الفعاليات</a>
                 <a href="#mission" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.mission">المهمة</a>
-                <a href="#services" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">الخدمات</a>
-                <a href="#chiffres" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.stats">الأرقام</a>
                 <a href="#carte" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.map">الخريطة</a>
                 <a href="#partenaires" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.partners">الشركاء</a>
                 <a href="#contact" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.contact">اتصل بنا</a>
@@ -660,7 +44,7 @@
                                 <rect width="1" height="2" x="2" fill="#EF4135"></rect>
                             </svg>
                         </span>
-                        <span>FR</span>
+                        <span>AR</span>
                     </summary>
                     <div
                         class="absolute right-0 top-12 w-44 rounded-xl border border-slate-200 bg-white p-2 text-sm shadow">
@@ -673,9 +57,9 @@
                                     <rect width="1" height="2" x="2" fill="#EF4135"></rect>
                                 </svg>
                             </span>
-                            <span>Francais</span>
+                            <span>الفرنسية</span>
                         </a>
-                        <a href="index-ar.html"
+                        <a href="index.html"
                             class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
                             <span class="grid h-6 w-6 place-items-center overflow-hidden">
                                 <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
@@ -685,7 +69,7 @@
                                         fill="none" stroke="#006233" stroke-width="0.08" stroke-linejoin="round"></path>
                                 </svg>
                             </span>
-                            <span>Arabe</span>
+                            <span>العربية</span>
                         </a>
                     </div>
                 </details>
@@ -694,7 +78,7 @@
                     data-i18n="nav.signup">سجّل</a>
                 <button id="menuBtn"
                     class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
-                    aria-label="Ouvrir le menu">
+                    aria-label="فتح القائمة">
                     <span class="h-5 w-5">=</span>
                 </button>
             </div>
@@ -711,7 +95,7 @@
                 <a href="#contact" data-i18n="nav.contact">اتصل بنا</a>
             </div>
         </div>
-    </header>
+    </header> -->
 
     <main class="relative overflow-hidden">
         <div class="pointer-events-none absolute inset-0 -z-10 opacity-45 motif-simple"></div>
@@ -719,19 +103,115 @@
         <div class="pointer-events-none absolute inset-0 -z-10 opacity-55 water-wave"></div>
         <div class="pointer-events-none absolute inset-0 -z-10 opacity-40 water-shimmer"></div>
         <div class="pointer-events-none absolute inset-0 -z-10">
-            <div class="bubble one"></div>
-            <div class="bubble two"></div>
-            <div class="bubble three"></div>
-            <div class="bubble four"></div>
-            <div class="bubble five"></div>
-            <div class="bubble six"></div>
-            <div class="bubble seven"></div>
-            <div class="bubble eight"></div>
-            <div class="bubble nine"></div>
-            <div class="bubble ten"></div>
+            <!-- <div class="bubble one"></div> -->
+            <!-- <div class="bubble two"></div> -->
+            <!-- <div class="bubble three"></div> -->
+            <!-- <div class="bubble four"></div> -->
+            <!-- <div class="bubble five"></div> -->
+            <!-- <div class="bubble six"></div> -->
+            <!-- <div class="bubble seven"></div> -->
+            <!-- <div class="bubble eight"></div> -->
+            <!-- <div class="bubble nine"></div> -->
+            <!-- <div class="bubble ten"></div> -->
         </div>
 
-        <section class="relative overflow-hidden bg-cover bg-center">
+        <section class="relative overflow-hidden bg-cover bg-center min-h-screen"  id="Home">
+             <header class="sticky top-0 z-50 ">
+        <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-0">
+            <div class="flex items-center gap-3">
+                <a href="index-ar.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
+                <div class="h-16 w-16 rounded-none bg-transparent grid place-items-center">
+                    <img src="Extranet_files/logo.png" alt="FOS-Agri" class="h-16 w-16 object-contain" />
+                </div>
+                </a>
+                <a href="index-ar.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
+                <div>
+                    <p class="font-display text-base leading-none">FOS-Agri</p>
+                </div>
+                  </a>
+            </div>
+            <nav class="hidden items-center gap-5 text-base font-medium text-slate-700 md:flex md:text-lg">
+                <a href="index-ar.html/actus" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">الأخبار</a>
+                <a href="#adherent" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">المنخرط</a>
+                <a href="#services" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">الخدمات</a>
+                <a href="#evenements" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.events">الفعاليات</a>
+                <a href="#mission" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.mission">المهمة</a>
+                <a href="#carte" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.map">الخريطة</a>
+                <a href="#partenaires" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.partners">الشركاء</a>
+                <a href="#contact" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.contact">تواصل</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <details class="relative hidden md:inline-flex">
+                    <summary
+                        class="list-none flex items-center gap-2 rounded-full border border-brand-gold bg-white/80 px-3 py-2 text-sm font-semibold text-brand-deep shadow-sm transition hover:border-brand-gold underline decoration-brand-gold decoration-2 underline-offset-4 cursor-pointer">
+                        <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                            <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                <rect width="1" height="2" x="0" fill="#0055A4"></rect>
+                                <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
+                                <rect width="1" height="2" x="2" fill="#EF4135"></rect>
+                            </svg>
+                        </span>
+                        <span>AR</span>
+                    </summary>
+                    <div
+                        class="absolute right-0 top-12 w-44 rounded-xl border border-slate-200 bg-white p-2 text-sm shadow">
+                        <a href="index.html"
+                            class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
+                            <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                    <rect width="1" height="2" x="0" fill="#0055A4"></rect>
+                                    <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
+                                    <rect width="1" height="2" x="2" fill="#EF4135"></rect>
+                                </svg>
+                            </span>
+                            <span>الفرنسية</span>
+                        </a>
+                        <a href="index-ar.html"
+                            class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
+                            <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                    <rect width="3" height="2" fill="#C1272D"></rect>
+                                    <path
+                                        d="M1.5 0.2L1.688 0.741L2.261 0.753L1.804 1.099L1.97 1.647L1.5 1.32L1.03 1.647L1.196 1.099L0.739 0.753L1.312 0.741Z"
+                                        fill="none" stroke="#006233" stroke-width="0.08" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <span>العربية</span>
+                        </a>
+                    </div>
+                </details>
+                <a href="#contact"
+                    class="hidden rounded-full border border-brand-gold/40 px-4 py-2 text-base font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex"
+                    data-i18n="nav.signup">فضاء المنخرط</a>
+                <button id="menuBtn"
+                    class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
+                    aria-label="فتح القائمة">
+                    <span class="h-5 w-5">=</span>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden border-t border-brand-teal/10 bg-white px-6 py-4 md:hidden">
+            <div class="flex flex-col gap-4 text-base font-medium text-slate-700">
+                <a href="#actus" data-i18n="nav.actus">الأخبار</a>
+                <a href="#evenements" data-i18n="nav.events">الفعاليات</a>
+                <a href="#mission" data-i18n="nav.mission">المهمة</a>
+                <a href="#services" data-i18n="nav.services">الخدمات</a>
+                <a href="#chiffres" data-i18n="nav.stats">الأرقام</a>
+                <a href="#carte" data-i18n="nav.map">الخريطة</a>
+                <a href="#partenaires" data-i18n="nav.partners">الشركاء</a>
+                <a href="#contact" data-i18n="nav.contact">تواصل</a>
+            </div>
+        </div>
+    </header>
+            
+            <video aria-hidden="true" class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none" autoplay muted loop playsinline>
+    <source src="Extranet_files/Hero-video.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidÃ©o HTML5.
+  </video>
+
+
+
+            
             <div class="absolute -left-24 top-22 h-48 w-48 rounded-full bg-brand-blue/20 blur-3xl animate-floaty"></div>
             <div class="absolute right-10 top-10 h-32 w-32 rounded-full bg-brand-teal/25 blur-3xl animate-floaty"></div>
             <div
@@ -739,12 +219,12 @@
                 <div class="space-y-6">
                     <p
                         class="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-base font-semibold uppercase tracking-[0.25em] text-brand-deep shadow">
-                        Ministère de l'Agriculture
+                        DÃ©partement de l'Agriculture
                         <span class="rounded-full bg-brand-gold/20 px-2 py-1 text-xs font-semibold text-brand-deep"
                             data-i18n="hero.badgeTag">رسمي</span>
                     </p>
-                    <h4 class="font-display text-3xl leading-tight text-brand-deep md:text-4xl" data-i18n="hero.title">مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة والصيد البحري.</h4>
-                    <p class="text-base text-slate-600 md:text-xl" data-i18n="hero.subtitle">ترافق FOSAgri موظفي وأسر وزارة الفلاحة بخدمات اجتماعية ومزايا وبرامج تهدف إلى الرفاه والتضامن.</p>
+                    <h4 class="font-display text-3xl leading-tight text-brand-deep md:text-xl text-white font-bold" data-i18n="hero.title">مؤسسة النهوض بالأعمال الاجتماعية لموظفي وزارة الفلاحة والصيد البحري.</h4>
+                    <p class="text-base text-slate-600 md:text-base text-white font-semibold" data-i18n="hero.subtitle">ترافق FOSAgri موظفي وأسر وزارة الفلاحة بخدمات اجتماعية ومزايا وبرامج تهدف إلى الرفاه والتضامن.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#services"
                             class="rounded-full bg-brand-gold px-6 py-3 text-base font-semibold text-white shadow-glow transition hover:-translate-y-1"
@@ -755,21 +235,35 @@
                     </div>
                     <div class="flex flex-wrap items-center gap-6 pt-4 text-base text-slate-600">
                         <div>
-                            <p class="text-2xl font-semibold text-brand-teal">+40</p>
-                            <p data-i18n="hero.statPrograms">برامج نشطة</p>
+                            <p class="text-2xl font-semibold text-brand-teal ">+40</p>
+                            <p class="text-white" data-i18n="hero.statPrograms ">Programmes actifs</p>
                         </div>
                         <div>
                             <p class="text-2xl font-semibold text-brand-blue">24/7</p>
-                            <p data-i18n="hero.statAccess">ولوج الخدمات</p>
+                            <p  class="text-white" data-i18n="hero.statAccess">ولوج الخدمات</p>
                         </div>
                         <div>
                             <p class="text-2xl font-semibold text-[#4f579c]">100%</p>
-                            <p data-i18n="hero.statTransparency">الشفافية</p>
+                            <p class="text-white" data-i18n="hero.statTransparency">الشفافية</p>
                         </div>
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="relative rounded-none bg-white p-6 shadow">
+
+                  <!-- <div class="relative rounded-none bg-white p-1 shadow">
+                     
+                      <video autoplay loop muted playsinline>
+                        <source src="Extranet_files/video-slide.mp4" type="video/mp4" style="height: 514px;">
+                        Votre navigateur ne supporte pas la vidÃ©o HTML5.
+                        </video>
+
+
+                    </div>
+
+                    --> 
+
+
+                     <!--   <div class="relative rounded-none bg-white p-6 shadow">
                         <div class="rounded-[8px] bg-ribbon p-6">
                             <div class="flex items-center gap-3">
                                 <div class="h-12 w-12 rounded-none bg-brand-teal text-white grid place-items-center">
@@ -803,6 +297,9 @@
                                 data-i18n="hero.cardFooter">ولوج آمن، أخبار، صفقات، خدمات، فعاليات.</div>
                         </div>
                     </div>
+-->
+
+
                     <div class="absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-brand-teal/20 blur-2xl"></div>
                 </div>
             </div>
@@ -817,7 +314,97 @@
                     </div>
                     <a class="font-semibold text-brand-blue" href="#" data-i18n="actus.more">المزيد من الأخبار</a>
                 </div>
-                <div class="mt-8 actus-container relative rounded-[8px] bg-white/80 px-0 pt-0 pb-0 shadow mb-6">
+
+                <div class="mt-8 actus-container relative rounded-[8px]  px-0 pt-0 pb-0  mb-6 
+            grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="relative rounded-[8px]  bg-white p-6 shadow">
+
+
+
+                        <div class="news-feed actu">
+
+                            <div class="panel bg-white shadowed-thin-bottom">
+
+                                    <div class="news-panel-content">
+
+                                        <div class="moovapps-news vertical-list">
+                                        
+                                            <div class="news-list-wrapper">
+                                                
+                                                <article class="">
+                                                
+                                                    <a href="https://fosagri.process.preprod.moovapps.com/moovapps/easysite/extranet/news?n=uri://vdoc/workflowInstance/17">
+                                                        <div class="article-body">
+                                                            <div class="">
+                                                                <header>
+                                                                    <h1 data-vdp-ellipsis-title="true" class="article-title" data-ellipsis-id="64">Partenariat Ã  tarifs prÃ©fÃ©rentiels pour lâ€™activitÃ© sportive : PADELâ€¦</h1>
+                                                                </header>
+                                                                
+                                                            </div>
+                                                            
+                                                            
+                                                            <p data-vdp-ellipsis="true" class="article-content" data-ellipsis-id="57">
+                                                                La FOS-Agri a le plaisir dâ€™informer ses adhÃ©rents de la conclusion d'une convention de partenariat avec LA SociÃ©tÃ© Joude Gestion Sport
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </article>
+                                                
+                                                <article class="">
+                                                
+                                                    <a href="https://fosagri.process.preprod.moovapps.com/moovapps/easysite/extranet/news?n=uri://vdoc/workflowInstance/2">
+                                                        <div class="article-body">
+                                                            <div class="">
+                                                                <header>
+                                                                    <h1 data-vdp-ellipsis-title="true" class="article-title" data-ellipsis-id="65">CONVENTION AVEC CABINET DE PATHOLOGIE - BOUREGREG -â€¦</h1>
+                                                                </header>
+                                                                
+                                                            </div>
+                                                            
+                                                            
+                                                            <p data-vdp-ellipsis="true" class="article-content" data-ellipsis-id="58">
+                                                                Signature dâ€™une convention de partenariat avec le cabinet de Pathologie Bouregreg sur Rabat, accordant des remises prÃ©fÃ©rentielles aux adhÃ©rents de la FOS-Agri, leurs conjoints et enfants.
+
+                                                       Vous trouverez ci-joint la note dÃ©taillÃ©e et la grille des tarifs .
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </article>
+                                                
+                                                <article class="">
+                                                    
+                                                    <a href="https://fosagri.process.preprod.moovapps.com/moovapps/easysite/extranet/news?n=uri://vdoc/workflowInstance/1">
+                                                        <div class="article-body">
+                                                            <div class="">
+                                                                <header>
+                                                                    <h1 data-vdp-ellipsis-title="true" class="article-title" data-ellipsis-id="66">OPÃ‰RATION OMRA 2025 â€“ DISPOSITIONS LOGISTIQUES</h1>
+                                                                </header>
+                                                                
+                                                            </div>
+                                                            
+                                                            
+                                                            <p data-vdp-ellipsis="true" class="article-content" data-ellipsis-id="59">
+                                                                La FOS-Agri informe ses aimables adhÃ©rents de la publication des dispositions logistiques relatives au dÃ©roulement de lâ€™OpÃ©ration OMRA 2025.
+                                                          Nous invitons lâ€™ensemble des adhÃ©rents concernÃ©s Ã  consulter la note ci-jointe pour prendre connaissance des dÃ©tails organisationnels.
+                                                            </p>
+                                                        </div>
+                                                    </a>
+                                                </article>
+                                                
+                                                
+                                            </div>
+                                            
+   
+	
+                                        </div><!-- ]#unindex] -->
+
+                                    </div>
+                         </div>
+
+                  </div>
+            </div>
+               
+                <div class="md:col-span-2 relative rounded-[8px] bg-white/80 px-0 pt-0 pb-0 shadow">
                     <div class="no-scrollbar flex gap-6 overflow-x-auto pb-0 snap-x snap-mandatory"
                         data-carousel="actus">
                         <article class="w-full flex-[0_0_100%] snap-start overflow-hidden rounded-[8px] bg-white">
@@ -920,8 +507,207 @@
                     <div class="pointer-events-none absolute bottom-3 left-0 right-0 flex justify-center gap-2" data-carousel-dots="actus"></div>
                 </div>
             </div>
-            <div id="evenements" class="mt-12 bg-cover bg-center">
-                <div class="mx-auto max-w-screen-2xl px-6">
+
+</div>
+</section>
+
+ <section id="adherent" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center">
+            <div class="grid gap-10 md:grid-cols-2 md:items-center">
+                <div class="space-y-4">
+                  <!--  <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
+                        data-i18n="mission.label">مهمتنا</p>
+                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title">نخدم، ندعم، نقرّب.</h2>
+                    <p class="text-slate-600">
+                        <span data-i18n="mission.desc">تعمل FOSAgri كجسر بين حاجيات الموظفين وآليات الدعم: مواكبة اجتماعية، تكفل، برامج ثقافية، صحة وعطل.</span>
+                    </p>--> 
+                    <div class="grid gap-6">
+
+                     
+
+
+                                <a href="#" >
+                    <div class="relative flex items-center justify-center rounded-[8px] border shadow overflow-hidden 
+           bg-cover bg-center bg-no-repeat h-32"  style="background-image: url('Extranet_files/adherent.jpg'); "  >
+                            <!-- Overlay pour lisibilitÃ© -->
+                            <div class="absolute inset-0 bg-brand-teal/40 backdrop-blur-sm"></div>
+
+                            <!-- Contenu -->
+                            <div class="relative p-6 flex items-center gap-4">
+
+                                <!-- IcÃ´ne -->
+                                <div   class="h-12 w-12 rounded-none bg-brand-teal/10 text-brand-teal   flex items-center justify-center"  >
+                               
+
+                                 <svg  class="text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path d="M19.5 6h-15v9h15V6Z" />
+  <path fill-rule="evenodd" d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v11.25C1.5 17.16 2.34 18 3.375 18H9.75v1.5H6A.75.75 0 0 0 6 21h12a.75.75 0 0 0 0-1.5h-3.75V18h6.375c1.035 0 1.875-.84 1.875-1.875V4.875C22.5 3.839 21.66 3 20.625 3H3.375Zm0 13.5h17.25a.375.375 0 0 0 .375-.375V4.875a.375.375 0 0 0-.375-.375H3.375A.375.375 0 0 0 3 4.875v11.25c0 .207.168.375.375.375Z" clip-rule="evenodd" />
+</svg>
+
+
+                                </div>
+
+                                <!-- Texte -->
+                                <p class="text-xl font-medium text-brand-deep text-white font-semibold" data-i18n="mission.stat1">المستفيدون</p>
+                            </div>
+                        </div>
+                        </a>
+
+
+
+                       <!--  <div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                            <p class="font-semibold text-brand-deep" data-i18n="mission.card1.title">حوكمة شفافة</p>
+                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">مساطر واضحة، تتبع الملفات، تواصل مستمر.</p>
+                        </div>
+                        <div class="rounded-none border border-brand-blue/15 bg-white/80 p-4 shadow">
+                            <p class="font-semibold text-brand-deep" data-i18n="mission.card2.title">قرب ترابي</p>
+                            <p class="text-base text-slate-600" data-i18n="mission.card2.desc">شبكة جهوية وخدمات متاحة في كل مكان.</p>
+                        </div>
+                    -->
+                    </div>
+                </div>
+                <div class="grid gap-6">
+                    <!-- <div class="rounded-[28px] bg-white p-6 shadow">
+                        <h3 class="font-semibold text-brand-deep" data-i18n="mission.quick.title">ولوج سريع</h3>
+                        <p class="text-base text-slate-600" data-i18n="mission.quick.desc">سجّل دخولك، تتبّع طلباتك، واطّلع على الأخبار.</p>
+                        <div class="mt-4 flex flex-wrap gap-3">
+                            <span class="rounded-full bg-brand-teal/10 px-4 py-2 text-sm font-semibold text-brand-teal"
+                                data-i18n="mission.quick.tag1">ملفات اجتماعية</span>
+                            <span class="rounded-full bg-brand-blue/10 px-4 py-2 text-sm font-semibold text-brand-blue"
+                                data-i18n="mission.quick.tag2">صفقات</span>
+                            <span class="rounded-full bg-brand-teal/10 px-4 py-2 text-sm font-semibold text-brand-teal"
+                                data-i18n="mission.quick.tag3">فعاليات</span>
+                        </div>
+                    </div> -->
+                   <a href="#" >
+                    <div class="relative flex items-center justify-center rounded-[8px] border shadow overflow-hidden 
+           bg-cover bg-center bg-no-repeat h-32"  style="background-image: url('Extranet_files/Projet-Paradise-club.jpg'); "  >
+                            <!-- Overlay pour lisibilitÃ© -->
+                            <div class="absolute inset-0 bg-brand-teal/40 backdrop-blur-sm"></div>
+
+                            <!-- Contenu -->
+                            <div class="relative p-6 flex items-center gap-4">
+
+                                <!-- IcÃ´ne -->
+                                <div   class="h-12 w-12 rounded-none bg-brand-teal/10 text-brand-teal   flex items-center justify-center"  >
+                                <svg  class="text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                                     <path d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+                                 </svg>
+
+                                </div>
+
+                                <!-- Texte -->
+                                <p class="text-xl font-medium text-brand-deep text-white font-semibold"  data-i18n="mission.stat1">المستفيدون</p>
+                            </div>
+                        </div>
+                        </a>
+
+                </div>
+            </div>
+        </section>
+     <section id="services" class="
+     bg-white/70 py-16 bg-cover bg-center mt-12 bg-cover bg-center">
+            <div class="mx-auto max-w-screen-2xl px-6">
+                <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                    <div>
+                        <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
+                            data-i18n="services.label">الخدمات</p>
+                        <h2 class="font-display text-4xl text-brand-deep" data-i18n="services.title">منظومة دعم متكاملة</h2>
+                    </div>
+                </div>
+                <div class="mt-10 grid gap-6 md:grid-cols-3">
+                    <div class="rounded-[8px] border border-brand-teal/15 bg-white p-6 shadow">
+                        <div  class="mb-4 h-16 w-16 rounded-none  text-brand-teal grid place-items-center">
+                            <div class="icon">
+                                <span class="image">
+                                        <img src="Extranet_files\icon-family.png" border="0" alt="11328094">
+                                </span><!-- ]#unindex] -->
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card1.title">التكافل الطبي والاجتماعي</h3>
+                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card1.desc">دعم منخرطينا في مواجهة مخاطر الصحة.</p>
+                    <a href="Prevoyance-ar.html"> <span
+                            class="mt-3 inline-flex items-center rounded-full bg-brand-red/15 px-3 py-1 text-xs font-semibold text-brand-red"
+                            data-i18n="services.card1.badge">المزيد</span></a>
+                    </div>
+                    <div class="rounded-[8px] border border-brand-blue/15 bg-white p-6 shadow">
+                        <div  class="mb-4 h-16 w-16 rounded-none  text-brand-teal grid place-items-center">
+                            <div class="icon">
+                                <span class="image">
+                                        <img src="Extranet_files\icon-hobbies.png" border="0" alt="11328094">
+                                </span><!-- ]#unindex] -->
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card2.title">الثقافة والترفيه والسفر</h3>
+                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card2.desc">مساندة منخرطينا للولوج إلى خدمات الترفيه والرفاه.</p>
+                          <a href="Culture-ar.html"> <span
+                            class="mt-3 inline-flex items-center rounded-full bg-brand-red/15 px-3 py-1 text-xs font-semibold text-brand-red"
+                            data-i18n="services.card1.badge">المزيد</span></a>
+                    </div>
+                    <div class="rounded-[8px] border border-brand-teal/15 bg-white p-6 shadow">
+                         <div  class="mb-4 h-16 w-16 rounded-none  text-brand-teal grid place-items-center">
+                            <div class="icon">
+                                <span class="image">
+                                        <img src="Extranet_files\icon-mortarboard.png" border="0" alt="11328094">
+                                </span><!-- ]#unindex] -->
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card3.title">التكوين والتمدرس</h3>
+                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card3.desc">تشجيع التفوق الدراسي لأبناء منخرطينا والتكوين المستمر.</p>
+                        <a href="#"> <span
+                            class="mt-3 inline-flex items-center rounded-full bg-brand-red/15 px-3 py-1 text-xs font-semibold text-brand-red"
+                            data-i18n="services.card1.badge">المزيد</span></a>
+                    </div>
+                </div>
+
+                  <div class="mt-10 grid gap-6 md:grid-cols-3">
+                    <div class="rounded-[8px] border border-brand-teal/15 bg-white p-6 shadow">
+                        <div  class="mb-4 h-16 w-16 rounded-none  text-brand-teal grid place-items-center">
+                            <div class="icon">
+                                <span class="image">
+                                        <img src="Extranet_files\icon-home.png" border="0" alt="11328094">
+                                </span><!-- ]#unindex] -->
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card1.title">الولوج إلى السكن</h3>
+                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card1.desc">مواكبة منخرطينا في إنجاز مشاريع السكن.</p>
+                        <a href="#"> <span
+                            class="mt-3 inline-flex items-center rounded-full bg-brand-red/15 px-3 py-1 text-xs font-semibold text-brand-red"
+                            data-i18n="services.card1.badge">المزيد</span></a>
+                    </div>
+                    <div class="rounded-[8px] border border-brand-blue/15 bg-white p-6 shadow">
+                        <div  class="mb-4 h-16 w-16 rounded-none  text-brand-teal grid place-items-center">
+                            <div class="icon">
+                                <span class="image">
+                                        <img src="Extranet_files\icon-project-management.png" border="0" alt="11328094">
+                                </span><!-- ]#unindex] -->
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card2.title">مواكبة المشاريع الشخصية</h3>
+                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card2.desc">مواكبة منخرطينا في إنجاز مشاريعهم الشخصية.</p>
+                      <a href="#"> <span
+                            class="mt-3 inline-flex items-center rounded-full bg-brand-red/15 px-3 py-1 text-xs font-semibold text-brand-red"
+                            data-i18n="services.card1.badge">المزيد</span></a>
+                    </div>
+                    <div class="rounded-[8px] border border-brand-teal/15 bg-white p-6 shadow">
+                      <div  class="mb-4 h-16 w-16 rounded-none  text-brand-teal grid place-items-center">
+                            <div class="icon">
+                                <span class="image">
+                                        <img src="Extranet_files\icon-project.png" border="0" alt="11328094">
+                                </span><!-- ]#unindex] -->
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card3.title">التعليم والثقافة</h3>
+                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card3.desc">تمكين منخرطينا من الاستفادة من شراكات واتفاقيات متنوعة.</p>
+                         <a href="#"> <span
+                            class="mt-3 inline-flex items-center rounded-full bg-brand-red/15 px-3 py-1 text-xs font-semibold text-brand-red"
+                            data-i18n="services.card1.badge">المزيد</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <section id="evenements" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center   ">
+                <div class="mx-auto max-w-screen-2xl  animate-fadeUp ">
                     <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                         <div>
                             <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
@@ -931,68 +717,84 @@
                         <p class="max-w-xl text-base text-slate-600" data-i18n="events.subtitle">حملات، لقاءات، مبادرات اجتماعية وأنشطة ميدانية.</p>
                     </div>
                     <div class="mt-10 grid gap-6 md:grid-cols-2">
+                    <a href="#">
                         <article
                             class="rounded-[8px] border border-brand-teal/15 bg-white p-8 transition hover:-translate-y-1">
+                            
                             <div class="flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-4">
                                     <img src="Extranet_files/news(4).jpg" alt="Evenement"
-                                        class="h-14 w-14 rounded-[8px] object-cover" />
-                                    <h3 class="text-lg font-semibold text-brand-deep" data-i18n="events.1.title">حملة للتبرع بالدم</h3>
+                                        class="h-24 w-32 rounded-[8px] object-cover" />
+                                    <h3 class="text-lg font-semibold text-brand-deep" data-i18n="events.1.title">حملة للتبرع بالدم</small></h3>
+                                        
                                 </div>
                                 <span
                                     class="rounded-full bg-brand-teal/10 px-3 py-1 text-sm font-semibold text-brand-teal"
                                     data-i18n="events.badge.new">جديد</span>
                             </div>
+                           
                             <p class="mt-2 text-base text-slate-600" data-i18n="events.1.desc">جمع منظم بتاريخ 09/10/2023 بالرباط، القاعة الكبرى بمركب دباغ.</p>
+                                
                         </article>
+                             </a>
+                           <a href="#">
                         <article
                             class="rounded-[8px] border border-brand-blue/15 bg-white p-8 transition hover:-translate-y-1">
+                           
                             <div class="flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-4">
                                     <img src="Extranet_files/news(3).png" alt="Evenement"
-                                        class="h-14 w-14 rounded-[8px] object-cover" />
-                                    <h3 class="text-lg font-semibold text-brand-deep" data-i18n="events.2.title">أيام الأبواب المفتوحة العمران</h3>
+                                        class="h-24 w-32 rounded-[8px] object-cover" />
+                                    <h3 class="text-lg font-semibold text-brand-deep" data-i18n="events.2.title">أيام الأبواب المفتوحة العمران</small></h3>
                                 </div>
                                 <span
                                     class="rounded-full bg-brand-blue/10 px-3 py-1 text-sm font-semibold text-brand-blue"
                                     data-i18n="events.badge.new">جديد</span>
                             </div>
                             <p class="mt-2 text-base text-slate-600" data-i18n="events.2.desc">عرض خاص بالسكن من 26 إلى 28 أكتوبر 2023 (القنيطرة، تمارة، الرباط).</p>
+                                
                         </article>
-                        <article
+                         </a>
+                    <a href="#">    <article
                             class="rounded-[8px] border border-brand-teal/15 bg-white p-8 transition hover:-translate-y-1">
+                             
                             <div class="flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-4">
                                     <img src="Extranet_files/news(2).jpg" alt="Evenement"
-                                        class="h-14 w-14 rounded-[8px] object-cover" />
-                                    <h3 class="text-lg font-semibold text-brand-deep" data-i18n="events.3.title">مخيم صيفي للأطفال 2025</h3>
+                                        class="h-24 w-32 rounded-[8px] object-cover" />
+                                    <h3 class="text-lg font-semibold text-brand-deep" data-i18n="events.3.title">مخيم صيفي للأطفال 2025</small> </h3>
                                 </div>
                                 <span
                                     class="rounded-full bg-brand-teal/10 px-3 py-1 text-sm font-semibold text-brand-teal"
                                     data-i18n="events.badge.new">جديد</span>
                             </div>
                             <p class="mt-2 text-base text-slate-600" data-i18n="events.3.desc">نشر البرنامج للأطفال المستفيدين وأوليائهم.</p>
-                        </article>
+                                 
+                        </article></a>
+                            <a href="#">
                         <article
                             class="rounded-[8px] border border-brand-blue/15 bg-white p-8 transition hover:-translate-y-1">
+                          
                             <div class="flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-4">
                                     <img src="Extranet_files/news(1).png" alt="Evenement"
-                                        class="h-14 w-14 rounded-[8px] object-cover" />
-                                    <h3 class="text-lg font-semibold text-brand-deep" data-i18n="events.4.title">اتفاقية صيدلية Nouvelle El Mers</h3>
+                                        class="h-24 w-32 rounded-[8px] object-cover" />
+                                    <h3 class="text-lg font-semibold text-brand-deep" data-i18n="events.4.title">اتفاقية صيدلية Nouvelle El Mers</small></h3>
                                 </div>
                                 <span
                                     class="rounded-full bg-brand-blue/10 px-3 py-1 text-sm font-semibold text-brand-blue"
                                     data-i18n="events.badge.info">معلومة</span>
                             </div>
                             <p class="mt-2 text-base text-slate-600" data-i18n="events.4.desc">تخفيضات تفضيلية بأكادير للمنخرطين وعائلاتهم.</p>
-                        </article>
+                                
+                        </article> </a>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="mission" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center">
-            <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+
+        <section id="mission" class="bg-white/70 py-16 bg-cover bg-center mt-12 bg-cover bg-center">
+            <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center mx-auto max-w-screen-2xl px-6">
                 <div class="space-y-4">
                     <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
                         data-i18n="mission.label">مهمتنا</p>
@@ -1038,69 +840,8 @@
                 </div>
             </div>
         </section>
-        <section id="services" class="wave-bottom bg-white/70 py-20 bg-cover bg-center">
-            <div class="mx-auto max-w-screen-2xl px-6">
-                <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-                    <div>
-                        <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
-                            data-i18n="services.label">الخدمات</p>
-                        <h2 class="font-display text-4xl text-brand-deep" data-i18n="services.title">منظومة دعم متكاملة</h2>
-                    </div>
-                </div>
-                <div class="mt-10 grid gap-6 md:grid-cols-3">
-                    <div class="rounded-[8px] border border-brand-teal/15 bg-white p-6 shadow">
-                        <div
-                            class="mb-4 h-12 w-12 rounded-none bg-brand-teal/10 text-brand-teal grid place-items-center">
-                            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path
-                                    d="M20.2 12.1a4.4 4.4 0 0 0-7.1-3.5L12 9.7l-1.1-1.1a4.4 4.4 0 0 0-7.1 3.5L12 20l8.2-7.9z">
-                                </path>
-                                <path d="M8 12h2l1.5-2.5L13 15l1-1.5H16"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card1.title">الصحة والرفاه</h3>
-                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card1.desc">تكفل، رعاية طبية، مواكبة نفسية.</p>
-                        <span
-                            class="mt-3 inline-flex items-center rounded-full bg-brand-red/15 px-3 py-1 text-xs font-semibold text-brand-red"
-                            data-i18n="services.card1.badge">أولوية</span>
-                    </div>
-                    <div class="rounded-[8px] border border-brand-blue/15 bg-white p-6 shadow">
-                        <div
-                            class="mb-4 h-12 w-12 rounded-none bg-brand-blue/10 text-brand-blue grid place-items-center">
-                            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M3 10.5L12 4l9 6.5"></path>
-                                <path d="M6 9.5V20h12V9.5"></path>
-                                <path d="M10 20v-6h4v6"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card2.title">السكن والتضامن</h3>
-                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card2.desc">برامج سكن، مساعدات ظرفية، دعم للأسر.</p>
-                        <span
-                            class="mt-3 inline-flex items-center rounded-full bg-brand-gold/20 px-3 py-1 text-xs font-semibold text-brand-deep"
-                            data-i18n="services.card2.badge">مساندة</span>
-                    </div>
-                    <div class="rounded-[8px] border border-brand-teal/15 bg-white p-6 shadow">
-                        <div
-                            class="mb-4 h-12 w-12 rounded-none bg-brand-teal/10 text-brand-teal grid place-items-center">
-                            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M12 3l9 4-9 4-9-4 9-4z"></path>
-                                <path d="M3 7v5.5C3 15.5 7 18 12 18s9-2.5 9-5.5V7"></path>
-                                <path d="M12 11v8"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-brand-deep" data-i18n="services.card3.title">التعليم والثقافة</h3>
-                        <p class="mt-2 text-base text-slate-600" data-i18n="services.card3.desc">منح، مخيمات، أنشطة ثقافية ورياضية.</p>
-                        <span
-                            class="mt-3 inline-flex items-center rounded-full bg-brand-gold/15 px-3 py-1 text-xs font-semibold text-brand-deep"
-                            data-i18n="services.card3.badge">تكوين</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="chiffres" class="mx-auto max-w-screen-2xl px-6 pt-40 py-0 bg-cover bg-center">
+      
+      <!--  <section id="chiffres" class="mx-auto max-w-screen-2xl px-6 pt-40 py-0 bg-cover bg-center">
             <div class="rounded-[36px] bg-gradient-to-r from-brand-blue to-brand-teal p-10 text-white shadow-glow">
                 <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
                     <div>
@@ -1129,9 +870,9 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <section id="carte" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center">
-            <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+            <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
                 <div class="space-y-4">
                     <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
                         data-i18n="map.label">خريطة المغرب</p>
@@ -1144,9 +885,12 @@
                             <p class="text-sm font-semibold text-brand-deep" $124 d?l?gations r?gionales</p>
                             <p class="text-base text-slate-600" data-i18n="map.card1.desc">تمثيليات محلية لمواكبة القرب.</p>
                         </div>
-                        <div class="rounded-none border border-brand-blue/15 bg-white/80 p-4 shadow">
-                            <p class="text-sm font-semibold text-brand-deep" data-i18n="map.card2.title">خدمات عن بُعد</p>
-                            <p class="text-base text-slate-600" data-i18n="map.card2.desc">تتبع الملفات ومعلومات متاحة عبر الإنترنت.</p>
+                        <div id="region-info" class="rounded-none border border-brand-blue/15 bg-white/80 p-4 shadow">
+                            <div class="flex items-center gap-2">
+                                <span id="region-dot" class="inline-block h-3 w-3 rounded-full bg-brand-teal/70 opacity-40"></span>
+                                <p id="region-title" class="text-sm font-semibold text-brand-deep">اختر جهة</p>
+                            </div>
+                            <p id="region-text" class="mt-2 text-base text-slate-600">انقر على جهة في الخريطة لعرض التفاصيل.</p>
                         </div>
                     </div>
                 </div>
@@ -1195,7 +939,7 @@
                             </path>
                         </g>
                         <g id="overlayLayer">
-                            <foreignobject x="364" y="344" width="300" height="320">
+<foreignobject x="364" y="344" width="300" height="320">
                                 <div class="map-info-card"></div>
                             </foreignobject>
                         </g>
@@ -1289,7 +1033,7 @@
                 </div>
             </div>
         </section>
-<section id="contact" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center">
+        <section id="contact" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center">
             <div class="grid gap-10 md:grid-cols-[1fr_0.9fr] md:items-center">
                 <div class="space-y-4">
                     <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
@@ -1364,7 +1108,7 @@
 
     <button id="backToTop"
         class="back-to-top fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-brand-gold text-white shadow-glow transition hover:-translate-y-1"
-        aria-label="Retour en haut">
+        aria-label="العودة إلى الأعلى">
         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 19V5"></path>
@@ -1372,157 +1116,6 @@
         </svg>
     </button>
 
-    <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const mobileMenu = document.getElementById("mobileMenu");
-        menuBtn?.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-
-        const revealTargets = document.querySelectorAll("section > div");
-        revealTargets.forEach((el) => el.classList.add("reveal"));
-        const onScroll = () => {
-            const trigger = window.innerHeight * 0.9;
-            revealTargets.forEach((el) => {
-                const top = el.getBoundingClientRect().top;
-                if (top < trigger) {
-                    el.classList.add("animate-fadeUp");
-                    el.classList.remove("reveal");
-                }
-            });
-        };
-        window.addEventListener("scroll", onScroll);
-        onScroll();
-
-        const initCarousel = (name, auto = false, interval = 3500) => {
-            const track = document.querySelector(`[data-carousel="${name}"]`);
-            const buttons = document.querySelectorAll(`[data-carousel-btn="${name}"]`);
-            const dotsWrap = document.querySelector(`[data-carousel-dots="${name}"]`);
-            if (!track) return;
-
-            const slides = Array.from(track.children);
-            let slideOffsets = [];
-
-            const updateOffsets = () => {
-                slideOffsets = slides.map((slide) => slide.offsetLeft);
-            };
-
-            const setActiveDot = (index) => {
-                if (!dotsWrap) return;
-                const dots = dotsWrap.querySelectorAll("button");
-                dots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
-            };
-
-            if (dotsWrap) {
-                dotsWrap.innerHTML = "";
-                slides.forEach((_, index) => {
-                    const dot = document.createElement("button");
-                    dot.type = "button";
-                    dot.className = "carousel-dot";
-                    dot.addEventListener("click", () => {
-                        updateOffsets();
-                        track.scrollTo({ left: slideOffsets[index] || 0, behavior: "smooth" });
-                        setActiveDot(index);
-                    });
-                    dotsWrap.appendChild(dot);
-                });
-                setActiveDot(0);
-            }
-
-            buttons.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    const dir = Number(btn.getAttribute("data-dir")) || 1;
-                    updateOffsets();
-                    const current = Math.round(track.scrollLeft / (slides[0]?.clientWidth || 1));
-                    const next = Math.min(Math.max(current + dir, 0), slides.length - 1);
-                    track.scrollTo({ left: slideOffsets[next] || 0, behavior: "smooth" });
-                    setActiveDot(next);
-                });
-            });
-
-            track.addEventListener("scroll", () => {
-                if (!slideOffsets.length) updateOffsets();
-                const current = slideOffsets.reduce((closest, offset, index) => {
-                    const distance = Math.abs(track.scrollLeft - offset);
-                    return distance < closest.distance ? { index, distance } : closest;
-                }, { index: 0, distance: Infinity });
-                setActiveDot(current.index);
-            });
-
-            window.addEventListener("resize", updateOffsets);
-            updateOffsets();
-
-            if (auto) {
-                setInterval(() => {
-                    updateOffsets();
-                    const current = slideOffsets.reduce((closest, offset, index) => {
-                        const distance = Math.abs(track.scrollLeft - offset);
-                        return distance < closest.distance ? { index, distance } : closest;
-                    }, { index: 0, distance: Infinity });
-                    const next = current.index + 1 >= slides.length ? 0 : current.index + 1;
-                    track.scrollTo({ left: slideOffsets[next] || 0, behavior: "smooth" });
-                    setActiveDot(next);
-                }, interval);
-            }
-        };
-
-        initCarousel("actus", true, 6500);
-
-        const initCounters = () => {
-            const counters = document.querySelectorAll("[data-counter]");
-            if (!counters.length) return;
-
-            const animate = (el) => {
-                const target = Number(el.getAttribute("data-target")) || 0;
-                const suffix = el.getAttribute("data-suffix") || "";
-                const duration = 1800;
-                const start = performance.now();
-
-                const tick = (now) => {
-                    const progress = Math.min((now - start) / duration, 1);
-                    const value = Math.floor(progress * target);
-                    el.textContent = value.toLocaleString("fr-FR") + suffix;
-                    if (progress < 1) requestAnimationFrame(tick);
-                };
-                requestAnimationFrame(tick);
-            };
-
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        animate(entry.target);
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.4 });
-
-            counters.forEach((el) => observer.observe(el));
-        };
-
-        initCounters();
-
-        const backToTop = document.getElementById("backToTop");
-        const onScrollTop = () => {
-            if (!backToTop) return;
-            if (window.scrollY > 500) {
-                backToTop.classList.add("is-visible");
-            } else {
-                backToTop.classList.remove("is-visible");
-            }
-        };
-        backToTop?.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-        window.addEventListener("scroll", onScrollTop);
-        onScrollTop();
-
-
-    </script>
+    <script src="assets/app.js"></script>
 </body>
-
 </html>
-
-
-
-
-
