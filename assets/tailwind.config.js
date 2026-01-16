@@ -44,14 +44,14 @@
                     "100%": { opacity: 1, transform: "translateX(0)" }
                 }
             },
-            animation: {
-                floaty: "floaty 6s ease-in-out infinite",
-                fadeUp: "fadeUp 0.6s ease both",
+          animation: {
+    slideLeft: "slideLeft 0.8s ease-out forwards",
+    slideRight: "slideRight 0.8s ease-out forwards",
 
-                /* ✅ AJOUT : animations */
-                slideLeft: "slideLeft 0.8s ease-out",
-                slideRight: "slideRight 0.8s ease-out",
-            }
+    /* tes autres animations existantes restent inchangées */
+    floaty: "floaty 6s ease-in-out infinite",
+    fadeUp: "fadeUp 0.6s ease both",
+}
         }
     }
 };
