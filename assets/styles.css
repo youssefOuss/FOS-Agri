@@ -735,19 +735,6 @@
 
 
 
-/* Style des onglets */
-.onglet .tab-btn {
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    color: #334155; /* text-slate-700 */
-    border-bottom: 2px solid transparent;
-    transition: 0.3s;
-}
-
-.onglet .tab-btn.active {
-    color: #0f766e; /* brand teal */
-    border-bottom: 2px solid #0f766e;
-}
 
 /* Transition contenu */
 .tab-content {
