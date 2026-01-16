@@ -678,6 +678,7 @@
 .tab-btn.active {
   background-color: #13887f;
   color: #fff;
+  height: 80px !important;
 }
 
 /* Triangle */
