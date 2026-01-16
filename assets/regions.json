@@ -27,7 +27,8 @@
     {
         "id":  "casablanca-settat",
         "title":  "Casablanca-Settat",
-        "text":  "Orientation et suivi des dossiers avec un relais local pour les beneficiaires."
+        "text":  "Orientation et suivi des dossiers avec un relais local pour les beneficiaires.",
+        "link" : "voir plus"
     },
     {
         "id":  "marrakech-safi",
@@ -47,7 +48,11 @@
     {
         "id":  "rabat-sale-kenitra",
         "title":  "Rabat-Sale-Kenitra",
+        "text":  "Point de contact regional pour le conseil, la coordination et l'acces aux services.",
+         "id":  "rabat-sale-kenitra",
+        "title":  "Rabat-Sale-Kenitra",
         "text":  "Point de contact regional pour le conseil, la coordination et l'acces aux services."
+
     },
     {
         "id":  "fes-meknes",
