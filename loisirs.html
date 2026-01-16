@@ -42,7 +42,9 @@
             <div class="flex items-center gap-3">
                 <details class="relative hidden md:inline-flex">
                     <summary
-                        class="list-none flex items-center gap-2 rounded-full border border-brand-gold bg-white/80 px-3 py-2 text-sm font-semibold text-brand-deep shadow-sm transition hover:border-brand-gold underline decoration-brand-gold decoration-2 underline-offset-4 cursor-pointer">
+                        class="list-none flex items-center gap-2 rounded-full border border-brand-gold
+                         bg-white/80 px-3 py-2 text-sm font-semibold text-brand-deep shadow-sm transition
+                          hover:border-brand-gold underline decoration-brand-gold decoration-2 underline-offset-4 cursor-pointer">
                         <span class="grid h-6 w-6 place-items-center overflow-hidden">
                             <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
                                 <rect width="1" height="2" x="0" fill="#0055A4"></rect>
@@ -256,7 +258,7 @@ tabs.forEach(tab => {
     
         <section id="contact" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center">
             <div class="grid gap-10 md:grid-cols-[1fr_0.9fr] md:items-center">
-                <div class="space-y-4">
+                <div class="space-y-4 animate-slideLeft">
                     <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
                         data-i18n="contact.label">Contact</p>
                     <h2 class="font-display text-5xl text-brand-deep" data-i18n="contact.title">Parlons de vos besoins
@@ -278,7 +280,7 @@ tabs.forEach(tab => {
                         </div>
                     </div>
                 </div>
-                <form class="rounded-[28px] bg-white p-6 shadow">
+                <form class="rounded-[28px] bg-white p-6 shadow animate-slideRight delay-200">
                     <h3 class="text-2xl font-semibold text-brand-deep" data-i18n="contact.formTitle">Ecrire un message
                     </h3>
                     <div class="mt-4 grid gap-4">
