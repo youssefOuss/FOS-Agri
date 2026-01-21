@@ -930,3 +930,11 @@ border-radius: 0px !important;
 margin: 0px !important;
 }
 
+
+
+.li-dot::before {
+  content: "•";
+  margin-right: 8px;
+  font-size: 1.2rem;
+  line-height: 1;
+}
