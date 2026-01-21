@@ -192,3 +192,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (defaultShape) defaultShape.click();
             });
         });
+
+
+            const tabs = document.querySelectorAll(".tab-btn");
+            const contents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => {
+                t.classList.remove("active", "border-brand-teal", "text-brand-deep");
+                t.classList.add("text-slate-500");
+                });
+
+                contents.forEach(c => c.classList.add("hidden"));
+
+                tab.classList.add("active", "border-brand-teal", "text-brand-deep");
+                tab.classList.remove("text-slate-500");
+
+                document.getElementById(tab.dataset.tab).classList.remove("hidden");
+            });
+            });
