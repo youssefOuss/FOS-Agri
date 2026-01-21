@@ -751,6 +751,132 @@
 
 
 
+
+
+/* ===== Section globale ===== */
+.adhesion-section {
+    background: #f6f7f9;
+    padding: 40px 20px;
+}
+
+
+
+/* ===== Carte principale ===== */
+.content-area {
+      text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+/* ===== Texte d’introduction ===== */
+.content-area p {
+    text-align: left;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* ===== Onglets (simplifiés) ===== */
+.horizontal-top-tabs .tab1 ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.horizontal-top-tabs .tab1 li {
+    background: #eef0f2;
+    border-radius: 0px;
+}
+
+.horizontal-top-tabs .tab1 li a,
+.horizontal-top-tabs .tab1 li span {
+    display: block;
+    padding: 6px 22px;
+    color: #555;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.horizontal-top-tabs .tab1 .current span {
+
+    color: #fff;
+
+}
+
+/* ===== Box cotisation ===== */
+.cart-total-box {
+    margin-top: 10px;
+}
+
+.cart-total-box .title {
+    font-size: 22px;
+    color: #6f8a1d;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ===== PRIX ===== */
+.cart-total-box .list li span {
+    font-weight: 700;
+    color: #6b7f1c;
+    background: #f1f4ea;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+/* ===== Liste cotisation ===== */
+.cart-total-box .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-total-box .list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+.cart-total-box .list li:last-child {
+    border-bottom: none;
+}
+
+.cart-total-box .list span {
+    font-weight: 600;
+    color: #6f8a1d;
+}
+.pdf-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #d32f2f;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+
+
+
+
+a.pdf-link i {
+    color: #ffffff !important;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
 /* ===== CARD COTISATION ===== */
 .cart-total-box {
     background: #ffffff;
@@ -804,29 +930,3 @@ border-radius: 0px !important;
 margin: 0px !important;
 }
 
-
-
-/* Border LEFT uniquement entre les boutons non actifs */
-.horizontal-top-tabs .tab1 li:not(:first-child) a {
-    border-left: 2px solid #495826;
-}
-
-.login-box .image {
-    padding: 10px !important;
-}
-
-.login-full-page .container-fluid {
-    padding-top: 100px !important;
-}
-
-
-.horizontal-top-tabs  .content-area{
-    text-align: left !important;
-}
-
-
-.Content-page {
-    padding: 10px 5%;
-    border-radius: 5px;
-    position: relative;
-}
