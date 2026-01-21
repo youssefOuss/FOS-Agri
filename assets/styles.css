@@ -745,3 +745,88 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+
+
+
+
+
+/* ===== CARD COTISATION ===== */
+.cart-total-box {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.horizontal-top-tabs  .tab1 span.current {
+    background: #6f8a1d;
+    color: #fff;
+    border-radius: 0px;
+    border: none !important;
+}
+
+
+ .horizontal-top-tabs .tab1 a:hover {
+    background-color: #6f8a1d2e !important;
+border-radius: 0px !important;
+    margin: 0px !important;
+}
+
+
+  .horizontal-top-tabs .tab1 span.current:hover {
+    background-color: #6f8a1d8f !important;
+}
+
+
+.adhesion-section .content-area h3 {
+    text-align: left;
+    color: #495e05 !important;
+    margin: 0 0 5px 0 !important;
+}
+
+
+.adhesion-section .content-area ul li  {
+    text-align: left !important;
+}
+
+
+
+.adhesion-section  .tab1 {
+
+    justify-content: center !important;
+}
+
+.horizontal-top-tabs .tab1 li a, .horizontal-top-tabs .tab1 li span {
+    border-radius: 0px !important;
+margin: 0px !important;
+}
+
+
+
+/* Border LEFT uniquement entre les boutons non actifs */
+.horizontal-top-tabs .tab1 li:not(:first-child) a {
+    border-left: 2px solid #495826;
+}
+
+.login-box .image {
+    padding: 10px !important;
+}
+
+.login-full-page .container-fluid {
+    padding-top: 100px !important;
+}
+
+
+.horizontal-top-tabs  .content-area{
+    text-align: left !important;
+}
+
+
+.Content-page {
+    padding: 10px 5%;
+    border-radius: 5px;
+    position: relative;
+}
