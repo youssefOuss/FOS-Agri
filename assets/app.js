@@ -145,8 +145,36 @@ document.addEventListener("DOMContentLoaded", () => {
         const titleEl = document.getElementById("region-title");
         const textEl = document.getElementById("region-text");
         const dotEl = document.getElementById("region-dot");
+        const infoEl = document.getElementById("region-info");
 
         if (!titleEl || !textEl) return;
+
+        let extraTitleEl = document.getElementById("region-extra-title");
+        let extraTextEl = document.getElementById("region-extra-text");
+        let linkEl = document.getElementById("region-link");
+
+        if (infoEl && (!extraTitleEl || !extraTextEl || !linkEl)) {
+            if (!extraTitleEl) {
+                extraTitleEl = document.createElement("p");
+                extraTitleEl.id = "region-extra-title";
+                extraTitleEl.className = "mt-4 text-sm font-semibold text-brand-deep hidden";
+            }
+            if (!extraTextEl) {
+                extraTextEl = document.createElement("p");
+                extraTextEl.id = "region-extra-text";
+                extraTextEl.className = "mt-2 text-base text-slate-600 hidden";
+            }
+            if (!linkEl) {
+                linkEl = document.createElement("a");
+                linkEl.id = "region-link";
+                linkEl.className = "mt-4 inline-flex items-center justify-center rounded-full border border-brand-teal/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-deep transition hover:bg-brand-teal/10 hidden";
+                linkEl.target = "_blank";
+                linkEl.rel = "noopener";
+                linkEl.textContent = "Visiter la page";
+            }
+
+            textEl.after(extraTitleEl, extraTextEl, linkEl);
+        }
 
         fetch("assets/regions.json")
             .then((response) => response.json())
@@ -180,6 +208,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         titleEl.textContent = region.title;
                         textEl.textContent = region.text;
+                        if (extraTitleEl && extraTextEl) {
+                            if (region.costumField) {
+                                extraTitleEl.textContent = region.costumField;
+                                extraTextEl.textContent = region.description || "";
+                                extraTitleEl.classList.remove("hidden");
+                                extraTextEl.classList.remove("hidden");
+                            } else {
+                                extraTitleEl.textContent = "";
+                                extraTextEl.textContent = "";
+                                extraTitleEl.classList.add("hidden");
+                                extraTextEl.classList.add("hidden");
+                            }
+                        }
+                        if (linkEl) {
+                            if (region.link) {
+                                linkEl.href = region.link;
+                                linkEl.classList.remove("hidden");
+                            } else {
+                                linkEl.removeAttribute("href");
+                                linkEl.classList.add("hidden");
+                            }
+                        }
                         if (dotEl) {
                             dotEl.classList.remove("opacity-40");
                             dotEl.classList.add("opacity-100");
