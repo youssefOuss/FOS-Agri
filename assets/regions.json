@@ -54,10 +54,10 @@
         "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
     },
     {
-        "id":  "Siége",
-        "costumField":"rabat-sale-kenitra ",
+        "id":  "rabat-sale-kenitra",
+        "costumField":"Rabat-Sale-Kenitra",
         "description": "Point de contact regional pour le conseil, la coordination et l'acces aux services.",
-        "title":  "Rabat-Sale-Kenitra",
+        "title":  "Siége",
         "text":  "Point de contact regional pour le conseil, la coordination et l'acces aux services.",
         "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
 
