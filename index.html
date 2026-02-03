@@ -15,93 +15,7 @@
 </head>
 
 <body class="bg-haze animated-bg text-slate-900 text-lg">
-    <!-- <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-brand-teal/15">
-        <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-0">
-            <div class="flex items-center gap-3">
-                <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
-                <div class="h-16 w-16 rounded-none bg-transparent grid place-items-center">
-                    <img src="Extranet_files/logo.png" alt="FOS-Agri" class="h-16 w-16 object-contain" />
-                </div>
-                </a>
-                <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
-                <div>
-                    <p class="font-display text-base leading-none">FOS-Agri</p>
-                </div>
-                  </a>
-            </div>
-            <nav class="hidden items-center gap-5 text-base font-medium text-slate-700 md:flex md:text-lg">
-                <a href="#actus" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Actualités</a>
-                <a href="#adherent" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Adhérent</a>
-                <a href="#services" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">Préstations</a>
-                <a href="#evenements" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.events">Evénements</a>
-                <a href="#mission" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.mission">Mission</a>
-                <a href="#carte" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.map">Carte</a>
-                <a href="#partenaires" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.partners">Partenaires</a>
-                <a href="#contact" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.contact">Contact</a>
-            </nav>
-            <div class="flex items-center gap-3">
-                <details class="relative hidden md:inline-flex">
-                    <summary
-                        class="list-none flex items-center gap-2 rounded-full border border-brand-gold bg-white/80 px-3 py-2 text-sm font-semibold text-brand-deep shadow-sm transition hover:border-brand-gold underline decoration-brand-gold decoration-2 underline-offset-4 cursor-pointer">
-                        <span class="grid h-6 w-6 place-items-center overflow-hidden">
-                            <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
-                                <rect width="1" height="2" x="0" fill="#0055A4"></rect>
-                                <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
-                                <rect width="1" height="2" x="2" fill="#EF4135"></rect>
-                            </svg>
-                        </span>
-                        <span>FR</span>
-                    </summary>
-                    <div
-                        class="absolute right-0 top-12 w-44 rounded-xl border border-slate-200 bg-white p-2 text-sm shadow">
-                        <a href="index.html"
-                            class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
-                            <span class="grid h-6 w-6 place-items-center overflow-hidden">
-                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
-                                    <rect width="1" height="2" x="0" fill="#0055A4"></rect>
-                                    <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
-                                    <rect width="1" height="2" x="2" fill="#EF4135"></rect>
-                                </svg>
-                            </span>
-                            <span>Francais</span>
-                        </a>
-                        <a href="index-ar.html"
-                            class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
-                            <span class="grid h-6 w-6 place-items-center overflow-hidden">
-                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
-                                    <rect width="3" height="2" fill="#C1272D"></rect>
-                                    <path
-                                        d="M1.5 0.2L1.688 0.741L2.261 0.753L1.804 1.099L1.97 1.647L1.5 1.32L1.03 1.647L1.196 1.099L0.739 0.753L1.312 0.741Z"
-                                        fill="none" stroke="#006233" stroke-width="0.08" stroke-linejoin="round"></path>
-                                </svg>
-                            </span>
-                            <span>Arabe</span>
-                        </a>
-                    </div>
-                </details>
-                <a href="#contact"
-                    class="hidden rounded-full border border-brand-gold/40 px-4 py-2 text-base font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex"
-                    data-i18n="nav.signup">Espace Adhérent</a>
-                <button id="menuBtn"
-                    class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
-                    aria-label="Ouvrir le menu">
-                    <span class="h-5 w-5">=</span>
-                </button>
-            </div>
-        </div>
-        <div id="mobileMenu" class="hidden border-t border-brand-teal/10 bg-white px-6 py-4 md:hidden">
-            <div class="flex flex-col gap-4 text-base font-medium text-slate-700">
-                <a href="#actus" data-i18n="nav.actus">Actualités</a>
-                <a href="#evenements" data-i18n="nav.events">Evénements</a>
-                <a href="#mission" data-i18n="nav.mission">Mission</a>
-                <a href="#services" data-i18n="nav.services">Services</a>
-                <a href="#chiffres" data-i18n="nav.stats">Chiffres</a>
-                <a href="#carte" data-i18n="nav.map">Carte</a>
-                <a href="#partenaires" data-i18n="nav.partners">Partenaires</a>
-                <a href="#contact" data-i18n="nav.contact">Contact</a>
-            </div>
-        </div>
-    </header> -->
+
 
     <main class="relative overflow-hidden">
         <div class="pointer-events-none absolute inset-0 -z-10 opacity-45 motif-simple"></div>
@@ -120,7 +34,7 @@
             <!-- <div class="bubble nine"></div> -->
             <!-- <div class="bubble ten"></div> -->
         </div>
-<section class="relative overflow-hidden bg-cover bg-center" id="Home">
+    <section class="relative overflow-hidden bg-cover bg-center" id="Home">
 
         <header class="fixed top-0 w-full z-50 bg-white/20 backdrop-blur-md transition-colors duration-300">
         <div class="mx-auto max-w-screen-2xl px-6  flex items-center justify-between">
@@ -208,17 +122,14 @@
         </div>
     </header>
 	    
-            <div class="mx-auto grid  gap-12 px-6 pb-80 pt-80  md:items-center">
+    <div class="mx-auto grid  gap-12 px-6 pb-80 pt-80  md:items-center">
 
            
-		                 <video aria-hidden="true" class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none" autoplay="" muted="" loop="" playsinline="">
+	<video aria-hidden="true" class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none" autoplay="" muted="" loop="" playsinline="">
         <source src="Extranet_files/Hero-video.mp4" type="video/mp4">
     </video>
         
-     
-                
-            
-          
+    
 			
 			    <div class="absolute bottom-24 -translate-x-1/2 w-full px-6 text-center space-y-6 justify-center animate-fadeUp">
 
@@ -472,7 +383,7 @@
 
                                 <a href="#" >
                     <div class="relative flex items-center justify-center rounded-[8px] border shadow overflow-hidden 
-           bg-cover bg-center bg-no-repeat h-32"  style="background-image: url('Extranet_files/adherent.jpg'); "  >
+           bg-cover bg-center bg-no-repeat h-48"  style="background-image: url('Extranet_files/adherent.jpg'); "  >
                             <!-- Overlay pour lisibilité -->
                             <div class="absolute inset-0 bg-brand-teal/40 backdrop-blur-sm"></div>
 
@@ -532,7 +443,7 @@
                     </div> -->
                    <a href="#" >
                     <div class="relative flex items-center justify-center rounded-[8px] border shadow overflow-hidden 
-           bg-cover bg-center bg-no-repeat h-32"  style="background-image: url('Extranet_files/Projet-Paradise-club.jpg'); "  >
+           bg-cover bg-center bg-no-repeat h-48"  style="background-image: url('Extranet_files/Projet-Paradise-club.jpg'); "  >
                             <!-- Overlay pour lisibilité -->
                             <div class="absolute inset-0 bg-brand-teal/40 backdrop-blur-sm"></div>
 
