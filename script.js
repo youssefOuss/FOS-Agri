@@ -122,7 +122,7 @@ card.innerHTML = `
     </h3>
 
     <div>
-      <div class="w-12 h-12 rounded-full border border-white flex items-center justify-center">
+      <div class="w-12 h-12 rounded-full border border-white flex items-center justify-center arrow-right">
         <i data-lucide="arrow-right"></i>
       </div>
     </div>
@@ -190,3 +190,19 @@ servicesGrid.appendChild(wrapper);
 });
 
 lucide.createIcons();
+
+
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'brand-blue': '#1482b8',
+        'brand-green': '#13887c',
+        'brand-red': '#be333f',
+        'brand-yellow': '#e6c027',
+        'brand-dark': '#03443d',
+        'brand-gray': '#858585',
+      }
+    }
+  }
+}
