@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOS-Agri | Extranet - Ministère de l'Agriculture</title>
+    <meta name="description"
+        content="FOS-Agri - Fondation pour la promotion des œuvres sociales du personnel du ministère de l'agriculture" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/tailwind.config.js"></script>
+    <link rel="stylesheet" href="assets/styles.css" />
+      <script src="script.js" type="module"></script>
+</head>
+<body >
+
+  <div class="max-w-xl mx-auto space-y-4">
+
+    <div class="bg-white border rounded-lg">
+      <button onclick="toggleAccordion(1)"
+        class="w-full flex justify-between items-center px-5 py-4 font-semibold">
+        Maternité (Forfait)
+        <span id="icon-1">+</span>
+      </button>
+      <div id="content-1" class="hidden px-5 pb-4">
+        Accouchement normal, gémellaire, césarienne.
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-lg">
+      <button onclick="toggleAccordion(2)"
+        class="w-full flex justify-between items-center px-5 py-4 font-semibold">
+        Orthodontie
+        <span id="icon-2">+</span>
+      </button>
+      <div id="content-2" class="hidden px-5 pb-4">
+        Remboursement plafonné à 1 200 DH.
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-lg">
+      <button onclick="toggleAccordion(3)"
+        class="w-full flex justify-between items-center px-5 py-4 font-semibold">
+        Rééducation
+        <span id="icon-3">+</span>
+      </button>
+      <div id="content-3" class="hidden px-5 pb-4">
+        Cas chronique et non chronique.
+      </div>
+    </div>
+
+  </div>
+
+
+
+</body>
+</html>

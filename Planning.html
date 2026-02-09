@@ -1,0 +1,450 @@
+﻿<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOS-Agri | Extranet - Ministère de l'Agriculture</title>
+    <meta name="description"
+        content="FOS-Agri - Fondation pour la promotion des œuvres sociales du personnel du ministère de l'agriculture" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/tailwind.config.js"></script>
+    <link rel="stylesheet" href="assets/styles.css" />
+      <script src="script.js" type="module"></script>
+</head>
+
+<body class="bg-haze animated-bg text-slate-900 text-lg">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-brand-teal/15">
+        <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-0">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
+                <div class="h-16 w-16 rounded-none bg-transparent grid place-items-center">
+                    <img src="Extranet_files/logo.png" alt="FOS-Agri" class="h-16 w-16 object-contain" />
+                </div>
+                </a>
+                <a href="index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
+                <div>
+                    <p class="font-display text-base leading-none">FOS-Agri</p>
+                </div>
+                  </a>
+            </div>
+   <nav class="hidden items-center gap-5 text-base font-medium text-slate-700 md:flex md:text-lg">
+                <a href="index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Accueil</a>
+                <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">La Fondation</a>
+                <a href="Adhesion.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">Adhésion</a>
+                <a href="Culture.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.events">Préstations</a>
+                <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.mission">Réalisations</a>
+                <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.map">Avis et Annonces</a>
+                <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.contact">Contact</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <details class="relative hidden md:inline-flex">
+                    <summary
+                        class="list-none flex items-center gap-2 rounded-full border border-brand-gold
+                         bg-white/80 px-3 py-2 text-sm font-semibold text-brand-deep shadow-sm transition
+                          hover:border-brand-gold underline decoration-brand-gold decoration-2 underline-offset-4 cursor-pointer">
+                        <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                            <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                <rect width="1" height="2" x="0" fill="#0055A4"></rect>
+                                <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
+                                <rect width="1" height="2" x="2" fill="#EF4135"></rect>
+                            </svg>
+                        </span>
+                        <span>FR</span>
+                    </summary>
+                    <div
+                        class="absolute right-0 top-12 w-44 rounded-xl border border-slate-200 bg-white p-2 text-sm shadow">
+                        <a href="index.html"
+                            class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
+                            <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                    <rect width="1" height="2" x="0" fill="#0055A4"></rect>
+                                    <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
+                                    <rect width="1" height="2" x="2" fill="#EF4135"></rect>
+                                </svg>
+                            </span>
+                            <span>Francais</span>
+                        </a>
+                        <a href="index-ar.html"
+                            class="flex w-full items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-slate-50">
+                            <span class="grid h-6 w-6 place-items-center overflow-hidden">
+                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
+                                    <rect width="3" height="2" fill="#C1272D"></rect>
+                                    <path
+                                        d="M1.5 0.2L1.688 0.741L2.261 0.753L1.804 1.099L1.97 1.647L1.5 1.32L1.03 1.647L1.196 1.099L0.739 0.753L1.312 0.741Z"
+                                        fill="none" stroke="#006233" stroke-width="0.08" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <span>Arabe</span>
+                        </a>
+                    </div>
+                </details>
+                <a href="#contact"
+                    class="hidden rounded-full border border-brand-gold/40 px-4 py-2 text-base font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex"
+                    data-i18n="nav.signup">Espace Adhérent</a>
+                <button id="menuBtn"
+                    class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden"
+                    aria-label="Ouvrir le menu">
+                    <span class="h-5 w-5">=</span>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden border-t border-brand-teal/10 bg-white px-6 py-4 md:hidden">
+            <div class="flex flex-col gap-4 text-base font-medium text-slate-700">
+                <a href="index.html"  data-i18n="nav.actus">Accueil</a>
+                <a href="#"  data-i18n="nav.actus">La Fondation</a>
+                <a href="Adhesion.html"  data-i18n="nav.services">Adhésion</a>
+                <a href="Culture.html"  data-i18n="nav.events">Préstations</a>
+                <a href="#"  data-i18n="nav.mission">Réalisations</a>
+                <a href="#"  data-i18n="nav.map">Avis et Annonces</a>
+                <a href="#"  data-i18n="nav.contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative overflow-hidden">
+        <div class="pointer-events-none absolute inset-0 -z-10 opacity-45 motif-simple"></div>
+        <div class="pointer-events-none absolute inset-0 -z-10 opacity-35 motif-dots"></div>
+        <div class="pointer-events-none absolute inset-0 -z-10 opacity-55 water-wave"></div>
+        <div class="pointer-events-none absolute inset-0 -z-10 opacity-40 water-shimmer"></div>
+        <div class="pointer-events-none absolute inset-0 -z-10">
+            <!-- <div class="bubble one"></div> -->
+            <!-- <div class="bubble two"></div> -->
+            <!-- <div class="bubble three"></div> -->
+            <!-- <div class="bubble four"></div> -->
+            <!-- <div class="bubble five"></div> -->
+            <!-- <div class="bubble six"></div> -->
+            <!-- <div class="bubble seven"></div> -->
+            <!-- <div class="bubble eight"></div> -->
+            <!-- <div class="bubble nine"></div> -->
+            <!-- <div class="bubble ten"></div> -->
+        </div>
+
+      
+    
+
+
+   
+      <section id="mission" class="bg-white/70 p-16 bg-cover bg-center">
+    <div class="grid md:items-center mx-auto max-w-screen-2xl px-6">
+            <div class="space-y-4 text-left sticky top-0 self-start pb-10 opacity-0 animate-slideLeft">
+                    <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
+                        data-i18n="mission.label">Centre Médico-Social
+</p>
+                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title"> Spécialités et Planning
+ </h2>
+                    <p class="text-slate-600">
+                        <span data-i18n="mission.desc">    Planning des consultations médicales au profit des adhérents de la Fondation pour la Promotion des Œuvres Sociales du Personnel du Ministère de l’Agriculture et de la Pêche Maritime - Département de l’Agriculture -          </span>
+                    </p>
+
+                </div>
+        <div class="space-y-4 text-left pb-10">
+
+            <div id="collapseSiven">
+                <div class="card-body p-4">
+                  
+
+                       <div class="overflow-x-auto">
+                        <table class="min-w-full border border-gray-300 text-sm text-left">
+                            <thead class="bg-[#13887f] text-white">
+                                <tr>
+                                    <th class="py-3 px-4 border text-center font-bold bg-[#31644f]">Jours</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="3">LUNDI</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="3">MARDI</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="3">MERCREDI</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="5">JEUDI</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="3">VENDREDI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-[#1482b8]   text-white text-xs">
+                                    <td class="py-2 px-3 border text-center font-bold bg-[#31644f]">Spécialité</td>
+                                    <!-- Lundi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+                                            </svg>
+                                            <span>Médecine Interne</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+                                            </svg>
+                                            <span>ORL</span>
+                                        </div>
+                                    </td>
+                                    <!-- Mardi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+                                            </svg>
+                                            <span>Gastro-entérologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+                                            </svg>
+                                            <span>ORL</span>
+                                        </div>
+                                    </td>
+                                    <!-- Mercredi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                            </svg>
+                                            <span>Allergo-Phytsio</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                                            </svg>
+                                            <span>Gynécologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <!-- Jeudi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M17.73 12.02l3.98-3.98c.39-.39.39-1.02 0-1.41l-4.34-4.34c-.39-.39-1.02-.39-1.41 0l-3.98 3.98L8 2.29C7.8 2.1 7.55 2 7.29 2c-.25 0-.51.1-.7.29L2.25 6.63c-.39.39-.39 1.02 0 1.41l3.98 3.98L2.25 16c-.39.39-.39 1.02 0 1.41l4.34 4.34c.39.39 1.02.39 1.41 0l3.98-3.98 3.98 3.98c.2.2.45.29.71.29.26 0 .51-.1.7-.29l4.34-4.34c.39-.39.39-1.02 0-1.41l-3.98-3.98z"/>
+                                            </svg>
+                                            <span>Dermatologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                            </svg>
+                                            <span>Endocrinologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" opacity=".3"/>
+                                            </svg>
+                                            <span>Cardiologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+                                            </svg>
+                                            <span>ORL</span>
+                                        </div>
+                                    </td>
+                                    <!-- Vendredi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/>
+                                            </svg>
+                                            <span>Traumatologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+                                            </svg>
+                                            <span>ORL</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-100">
+                                    <td class="py-2 px-3 border text-center font-bold bg-[#31644f] text-white">Lieu</td>
+                                    <!-- Lundi -->
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <!-- Mardi -->
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <!-- Mercredi -->
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <!-- Jeudi -->
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <!-- Vendredi -->
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="py-2 px-3 border text-center font-bold bg-[#31644f] text-white">Heure</td>
+                                    <!-- Lundi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">8h30</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">12h</td>
+                                    <!-- Mardi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">9h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">12h</td>
+                                    <!-- Mercredi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">8h30</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">09h30</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <!-- Jeudi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">8h30</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">10h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">10h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">12h</td>
+                                    <!-- Vendredi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">9h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">12h</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br>
+                    <h3 class="text-xl font-semibold mb-2">Au niveau régional</h3>
+                    <p class="font-bold">Veuillez contacter le relais régional concerné.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+    
+    
+    </main>
+
+<footer class="bg-brand-deep text-white" style="background-color: #03443d;">
+        <div class="mx-auto grid max-w-screen-2xl gap-8 px-6 py-10 md:grid-cols-4">
+            <div>
+                <div class="flex items-center gap-3">
+                    <img src="Extranet_files/logo.png" alt="FOS-Agri" class="h-32 w-32 object-contain brightness-0 invert">
+                    <p class="font-display text-xl">FOS-Agri</p>
+                </div>
+                <p class="mt-2 text-sm text-white/70" data-i18n="footer.desc">Fondation pour la promotion des œuvres
+                    sociales du personnel du ministère de l'agriculture</p>
+            </div>
+            <div class="text-center py-10 ">
+                <p class="text-sm font-semibold " data-i18n="footer.linksTitle">Liens utiles</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                    <li data-i18n="footer.link1">Appels d'offres</li>
+                    <li data-i18n="footer.link2">FAQ</li>
+                    <li data-i18n="footer.link3">Newsletter</li>
+                </ul></div>
+
+
+                  <div class="text-center py-10 ">
+                
+                 <p class="text-sm font-semibold" data-i18n="footer.quickTitle">Accès rapide</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                    <li data-i18n="footer.quick1">Portail agent</li>
+                    <li data-i18n="footer.quick2">Programme social</li>
+                    <li data-i18n="footer.quick3">Actualités</li>
+                </ul>
+                
+            </div>
+           
+
+          <div class="space-y-4">
+                
+                    <div class="grid gap-4">
+                        <div class="rounded-none bg-white p-2 shadow">
+                            <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.phone">Téléphone</p>
+                            <p class="text-base text-slate-600">0537 66 55 40 / 0537 69 84 31</p>
+                        </div>
+                        <div class="rounded-none bg-white p-2 shadow">
+                            <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.address">Adresse</p>
+                            <p class="text-base text-slate-600">461 Avenue Hassan II, Agdal - Rabat</p>
+                        </div>
+                        <div class="rounded-none bg-white p-2 shadow">
+                            <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.email">Email</p>
+                            <p class="text-base text-slate-600">FOS-Agri@FOS-Agri.ma</p>
+                        </div>
+                    </div>
+                </div>
+    
+        </div>
+        <div class="border-t border-white/10 py-4 text-center text-sm text-white/60" data-i18n="footer.copy">Copyright
+            2025 FOS-Agri - Ministère de l'Agriculture</div>
+    </footer>
+    <button id="backToTop"
+        class="back-to-top fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-brand-gold text-white shadow-glow transition hover:-translate-y-1"
+        aria-label="Retour en haut">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5"></path>
+            <path d="M5 12l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <script src="assets/app.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
