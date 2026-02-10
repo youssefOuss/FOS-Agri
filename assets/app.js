@@ -176,7 +176,11 @@ document.addEventListener("DOMContentLoaded", () => {
             textEl.after(extraTitleEl, extraTextEl, linkEl);
         }
 
-        fetch("assets/regions.json")
+        const mapSourceEl = document.getElementById("map");
+        const mapSource = mapSourceEl?.getAttribute("data-map-source") || "assets/regions.json";
+        const defaultRegionId = mapSourceEl?.getAttribute("data-map-default-id") || "rabat-sale-kenitra";
+
+        fetch(mapSource)
             .then((response) => response.json())
             .then((regions) => {
                 const shapes = Array.from(document.querySelectorAll("#mapLayer .region-shape"));
@@ -200,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         });
 
                         shape.setAttribute("data-selected", "true");
-                        shape.style.fill = "#1173a2";
+                        shape.style.fill = "#0f8578";
                         shape.style.opacity = "1";
                         shape.style.transformBox = "fill-box";
                         shape.style.transformOrigin = "center";
@@ -237,8 +241,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 });
 
-                const defaultIndex = regions.findIndex((region) => region.id === "rabat-sale-kenitra");
-                const defaultShape = shapes[defaultIndex];
+                const defaultIndex = regions.findIndex((region) => region.id === defaultRegionId);
+                const fallbackIndex = defaultIndex >= 0 ? defaultIndex : 0;
+                const defaultShape = shapes[fallbackIndex];
                 if (defaultShape) defaultShape.click();
             });
         });
