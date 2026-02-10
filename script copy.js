@@ -16,7 +16,7 @@ const services = [
   },
   {
     id: 3,
-    title: "Prévoyance     médico-sociale",
+    title: "Prévoyance médico-sociale",
     description: "Soutenir nos adhérents face aux aléas de la santé",
     image: "Extranet_files/Prevoyance.png",
     span: "col-start-2 row-start-1 row-span-3",
@@ -26,8 +26,7 @@ const services = [
   {
     id: 4,
     title: "Accès au logement",
-        description: "Accompagner nos adhérents dans leurs projets de logement",
-
+    description: "Accompagner nos adhérents dans leurs projets de logement",
     image: "Extranet_files/prers04.png",
     span: "col-start-2 row-start-4 row-span-3",
     background: "#e2e2e2",
@@ -36,8 +35,7 @@ const services = [
   {
     id: 5,
     title: "Culture, loisirs et voyages",
-        description: "Accès aux prestations loisirs et bien-être",
-
+    description: "Accès aux prestations loisirs et bien-être",
     image: "Extranet_files/prers07.png",
     span: "col-start-3 row-start-1 row-span-3",
     background: "#1482b8",
@@ -46,8 +44,7 @@ const services = [
   {
     id: 6,
     title: "Appui au Projets Personnels",
-        description: "Accompagnement des projets personnels",
-
+    description: "Accompagnement des projets personnels",
     image: "Extranet_files/prers05.png",
     span: "col-start-3 row-start-4 row-span-3",
     background: "#77a290",
@@ -56,8 +53,7 @@ const services = [
   {
     id: 7,
     title: "Formation et scolarisation",
-        description: "Encourager l’excellence scolaire",
-
+    description: "Encourager l’excellence scolaire",
     image: "Extranet_files/prers03.png",
     span: "col-start-4 row-start-1 row-span-2",
     background: "#b0d6e0",
@@ -66,11 +62,10 @@ const services = [
   {
     id: 8,
     title: "Education et culture",
-        description: "Bénéficier des partenariats éducatifs",
-
+    description: "Bénéficier des partenariats éducatifs",
     image: "Extranet_files/prers06.png",
     span: "col-start-4 row-start-3 row-span-4",
-    background: "#7c6d5a",
+    background: "#f9e9cb",
     link: "education.html"
   }
 ];
@@ -105,16 +100,16 @@ if (servicesGrid) {
     /* ==========================
        🔒 BLOC STATIQUE (ID 1)
     ========================== */
-    if (isStaticTitle) {
-      card.className =
-        "relative overflow-visible rounded-2xl border border-gray-200 flex flex-col items-center text-center px-6 pb-14 pt-20 mt-10 cursor-default select-none";
-      card.classList.add("is-static");
+if (isStaticTitle) {
+  card.className =
+    "relative overflow-visible rounded-2xl border border-gray-200 flex flex-col items-center text-center px-6 py-3 h-full pt-20 cursor-default select-none";
+card.classList.add("is-static");
 
       card.innerHTML = `
         <div class="absolute -top-12 left-1/2 -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center">
           <img src="${service.image}" class="rounded-full border-4 border-white" />
         </div>
-        <h3 class="font-subtitle text-3xl font-bold text-[#0f3c3c]">
+        <h3 class=" font-subtitle  text-3xl font-bold text-[#0f3c3c]">
           ${service.title}
         </h3>
       `;
@@ -129,15 +124,15 @@ if (servicesGrid) {
 
       card.innerHTML = `
         <div class="flex flex-col justify-end h-full text-white">
-          <img src="${service.image}" class="object-contain image-prestation mb-2  w-32" />
-          <h3 class="text-3xl font-nirmal mb-6">${service.title}</h3>
-          <div class="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center" >
+          <img src="${service.image}" class="object-contain image-prestation mb-2" />
+          <h3 class="text-2xl font-semibold mb-6">${service.title}</h3>
+          <div class="w-12 h-12 rounded-full border border-white flex items-center justify-center">
             <i data-lucide="arrow-right"></i>
           </div>
         </div>
       `;
     }
-    
+
     /* ==========================
        🔹 AUTRES CARTES
     ========================== */
@@ -145,72 +140,52 @@ if (servicesGrid) {
       card.className =
         "relative overflow-hidden rounded-2xl border border-gray-200 flex flex-col justify-between px-6 py-3 h-full transition-all duration-300 cursor-pointer hover:scale-[1.02]";
 
-      // Cas spécial pour Formation et scolarisation (ID 7)
-      if (service.id === 7) {
-        card.innerHTML = `
-          <div class="flex justify-between items-start mb-1">
-            <div class="inline-flex">
-              <img src="${service.image}" class="object-contain image-prestation w-28 pt-2" />
-            </div>
-            
-            <span class="p-2 rounded-full flex items-center justify-center bg-[#0f3c3c]">
-              <i data-lucide="plus" class="w-5 h-5 icon-plus" style="color: ${service.background}" stroke-width="4"></i>
-            </span>
-          </div>
-
-          <div>
-            <h3 class="text-2xl font-normal text-[#0f3c3c]">
-              ${service.title}
-            </h3>
-
-            <p class="text-sm text-[#0f3c3c]/80">
-              ${service.description || ""}
-            </p>
-          </div>
-        `;
-      } 
-      // Tous les autres blocs (3, 4, 5, 6, 8)
-      else {
-        card.innerHTML = `
-          <div class="flex justify-end mb-1">
-            <span class="p-2 rounded-full flex items-center justify-center
-              ${
-                [3,5,8].includes(service.id)
-                  ? 'bg-[#e6c027]'
-                  : service.id === 4
-                  ? 'bg-[#0f3c3c]'
-                  : service.id === 6
-                  ? 'bg-white'
-                  : 'bg-white/20'
+      card.innerHTML = `
+        <div class="flex justify-end mb-1">
+          <span class="p-2 rounded-full flex items-center justify-center
+            ${
+              [3,5,8].includes(service.id)
+                ? 'bg-[#e6c027]'
+                : [4,7].includes(service.id)
+                ? 'bg-[#0f3c3c]'
+                : service.id === 6
+                ? 'bg-white'
+                : 'bg-white/20'
+            }">
+            <i data-lucide="plus"
+              class="w-5 h-5 ${
+                service.id === 6
+                  ? 'text-[#0f3c3c]'
+                  : 'text-white'
               }">
-              <i data-lucide="plus" class="w-5 h-5 icon-plus" style="color: ${service.background}" stroke-width="4"></i>
-            </span>
+            </i>
+          </span>
+        </div>
+
+        <div>
+          <div class="mb-1 inline-flex rounded-lg">
+            <img src="${service.image}" class="object-contain image-prestation" />
           </div>
 
-          <div>
-            <div class="mb-1 inline-flex rounded-lg">
-              <img src="${service.image}" class="object-contain image-prestation w-28" />
-            </div>
+          <h3 class="text-xl font-semibold mb-2 ${
+            [4,7,8].includes(service.id)
+              ? "text-[#0f3c3c]"
+              : "text-white"
+          }">
+            ${service.title}
+          </h3>
 
-            <h3 class="text-2xl ${[4, 8].includes(service.id) ? 'font-normal' : 'font-light'} ${
-              [4,7,8].includes(service.id)
-                ? "text-[#0f3c3c]"
-                : "text-white"
-            }">
-              ${service.id === 3 ? service.title.replace(/^(\S+)\s/, '$1<br/>') : service.title}
-            </h3>
-
-            <p class="text-sm ${
-              [4,7,8].includes(service.id)
-                ? "text-[#0f3c3c]/80"
-                : "text-white/80"
-            }">
-              ${service.description || ""}
-            </p>
-          </div>
-        `;
-      }
+          <p class="text-sm ${
+            [4,7,8].includes(service.id)
+              ? "text-[#0f3c3c]/80"
+              : "text-white/80"
+          }">
+            ${service.description || ""}
+          </p>
+        </div>
+      `;
     }
+
     wrapper.appendChild(card);
     servicesGrid.appendChild(wrapper);
   });

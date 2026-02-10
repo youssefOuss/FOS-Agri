@@ -993,11 +993,19 @@ margin: 0px !important;
         object-fit: contain;
       }
 
-      img.image-prestation {
-    width: 70px !important;
+   /*   img.image-prestation {
+    width: 100px !important;
+}*/
+
+
+/* Animation rotation de l'icône plus au survol */
+#servicesGrid > * > div:not(.is-static) .icon-plus {
+  transition: transform 0.3s ease;
 }
 
-
+#servicesGrid > *:hover > div:not(.is-static) .icon-plus {
+  transform: rotate(90deg);
+}
 
 
 
@@ -1207,3 +1215,17 @@ border-radius: 5px !important;
     transform: scale(1.02);
   }
 }
+
+       .space-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .space-card:hover {
+            transform: scale(1.02);
+        }
+        .image-container {
+            transition: transform 0.5s ease;
+        }
+        .space-card:hover .image-container {
+            transform: rotate(0deg) !important;
+        }
