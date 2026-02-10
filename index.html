@@ -9,6 +9,10 @@
         content="FOS-Agri - Fondation pour la promotion des œuvres sociales du personnel du ministère de l'agriculture" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -20,7 +24,7 @@
     <script src="script.js" type="module"></script>
 </head>
 
-<body class="animated-bg text-slate-900 text-lg">
+<body class="font-body animated-bg text-slate-900 text-lg">
 
 
     <main class="relative overflow-hidden">
@@ -40,12 +44,12 @@
                 </a>
                 <a href="index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
                 <div>
-                    <p class="font-display text-base leading-none">FOS-Agri</p>
+                    <p class="font-title font-bold font-subtitle  leading-none">FOS-Agri</p>
                 </div>
                   </a>
             </div>
 
-            <nav class="hidden items-center gap-5 text-base font-medium text-slate-700 md:flex md:text-lg">
+            <nav class="hidden items-center gap-5 font-subtitle  font-medium text-slate-700 md:flex md:text-lg">
                 <a href="index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Accueil</a>
                 <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">La Fondation</a>
                 <a href="Adhesion.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">Adhésion</a>
@@ -56,43 +60,48 @@
             </nav>
 
             <div class="flex items-center gap-3">
-                <details class="relative hidden md:inline-flex">
-                    <summary class="list-none flex items-center gap-2 rounded-full border border-brand-gold bg-white/80 px-3 py-2 text-sm font-semibold text-brand-deep shadow-sm transition hover:border-brand-gold cursor-pointer">
-                        <span class="grid h-6 w-6 place-items-center">
-                            <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
-                                <rect width="1" height="2" x="0" fill="#0055A4"></rect>
-                                <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
-                                <rect width="1" height="2" x="2" fill="#EF4135"></rect>
-                            </svg>
-                        </span>
-                        <span>FR</span>
-                    </summary>
+<details class="relative hidden md:inline-flex">
+  <summary
+    class="list-none flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-3 py-1 text-sm font-medium text-slate-700 shadow-sm transition hover:border-brand-gold cursor-pointer"
+  >
+    <!-- Icône globe -->
+    <svg
+      class="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20" />
+      <path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20" />
+    </svg>
 
-                    <div class="absolute right-0 top-12 w-44 rounded-xl border border-slate-200 bg-white p-2 text-sm shadow">
-                        <a href="index.html" class="flex items-center gap-2 rounded-lg px-2 py-2 hover:bg-slate-50">
-                            <span class="grid h-6 w-6 place-items-center">
-                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
-                                    <rect width="1" height="2" x="0" fill="#0055A4"></rect>
-                                    <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
-                                    <rect width="1" height="2" x="2" fill="#EF4135"></rect>
-                                </svg>
-                            </span>
-                            <span>Français</span>
-                        </a>
+    <span>FR</span>
+    <span class="text-lg">▾</span>
+  </summary>
 
-                        <a href="index-ar.html" class="flex items-center gap-2 rounded-lg px-2 py-2 hover:bg-slate-50">
-                            <span class="grid h-6 w-6 place-items-center">
-                                <svg viewBox="0 0 3 2" aria-hidden="true" class="h-full w-full">
-                                    <rect width="3" height="2" fill="#C1272D"></rect>
-                                    <path d="M1.5 0.2L1.688 0.741L2.261 0.753L1.804 1.099L1.97 1.647L1.5 1.32L1.03 1.647L1.196 1.099L0.739 0.753L1.312 0.741Z" fill="none" stroke="#006233" stroke-width="0.08"></path>
-                                </svg>
-                            </span>
-                            <span>Arabe</span>
-                        </a>
-                    </div>
-                </details>
+  <!-- Dropdown -->
+  <div
+    class="absolute right-0 top-11 w-28 rounded-lg border border-slate-200 bg-white p-1 text-sm shadow"
+  >
+    <a
+      href="index.html"
+      class="block rounded px-3 py-2 hover:bg-slate-50"
+    >
+      Français
+    </a>
+    <a
+      href="index-ar.html"
+      class="block rounded px-3 py-2 hover:bg-slate-50"
+    >
+      Arabe
+    </a>
+  </div>
+</details>
 
-               <a href="#contact" class="hidden rounded-full border border-brand-gold/40 px-4 py-2 text-base font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex" data-i18n="nav.signup">Espace Adhérent</a>
+
+               <a href="#contact" class="hidden rounded-full border border-brand-gold/40 px-4 py-2 font-subtitle  font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex" data-i18n="nav.signup">Espace Adhérent</a>
 
                 <button id="menuBtn" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden" aria-label="Ouvrir le menu">
                     <span class="h-5 w-5">=</span>
@@ -102,7 +111,7 @@
 
         <!-- Menu mobile -->
         <div id="mobileMenu" class="hidden border-t border-brand-teal/10 bg-white px-6 py-4 md:hidden">
-            <div class="flex flex-col gap-4 text-base font-medium text-slate-700">
+            <div class="flex flex-col gap-4 font-subtitle  font-medium text-slate-700">
 
 
                 <a href="index.html" data-i18n="nav.actus">Accueil</a>
@@ -164,9 +173,9 @@
             <div class="mx-auto max-w-screen-2xl px-6">
                 <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                     <div>
-                        <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
+                        <p class="font-subtitle  font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
                             data-i18n="actus.label">Actualités</p>
-                        <h2 class="font-display text-4xl text-brand-deep" data-i18n="actus.title">Les infos FOS-Agri
+                        <h2 class="font-title font-bold text-4xl text-brand-deep" data-i18n="actus.title">Les infos FOS-Agri
                         </h2>
                     </div>
                     <a class="font-semibold text-brand-blue" href="#" data-i18n="actus.more">Plus d'actualités</a>
@@ -186,7 +195,7 @@
 
                                         <div class="moovapps-news vertical-list">
                                         
-                                            <div class="news-list-wrapper">
+                                            <div class="news-list-wrapper font-body">
                                                 
                                                 <article class="">
                                                 
@@ -276,7 +285,7 @@
                                         <h3 class="mt-2 text-xl font-semibold text-brand-deep"
                                             data-i18n="actus.1.title">Partenariat à tarifs préférentiels pour l'activité
                                             sportive</h3>
-                                        <p class="mt-2 text-base text-slate-700 clamp-2" data-i18n="actus.1.desc">
+                                        <p class="mt-2 font-subtitle  text-slate-700 clamp-2" data-i18n="actus.1.desc">
                                             Convention avec Joude Gestion Sport pour des remises aux adhérents</p>
                                     </div>
                                 </div>
@@ -294,7 +303,7 @@
                                         <h3 class="mt-2 text-xl font-semibold text-brand-deep"
                                             data-i18n="actus.2.title">Convention avec cabinet de pathologie Bouregreg
                                         </h3>
-                                        <p class="mt-2 text-base text-slate-700 clamp-2" data-i18n="actus.2.desc">
+                                        <p class="mt-2 font-subtitle  text-slate-700 clamp-2" data-i18n="actus.2.desc">
                                             Remises préférentielles pour les adhérents, conjoints et enfants</p>
                                     </div>
                                 </div>
@@ -312,7 +321,7 @@
                                         <h3 class="mt-2 text-xl font-semibold text-brand-deep"
                                             data-i18n="actus.3.title">Opération Omra 2025 - dispositions logistiques
                                         </h3>
-                                        <p class="mt-2 text-base text-slate-700 clamp-2" data-i18n="actus.3.desc">
+                                        <p class="mt-2 font-subtitle  text-slate-700 clamp-2" data-i18n="actus.3.desc">
                                             Publication des dispositions pour le déroulement de l'opération</p>
                                     </div>
                                 </div>
@@ -329,7 +338,7 @@
                                         <p class="text-sm font-semibold text-brand-blue">20/02/2025</p>
                                         <h3 class="mt-2 text-xl font-semibold text-brand-deep"
                                             data-i18n="actus.4.title">Programme de vacances et loisirs 2025</h3>
-                                        <p class="mt-2 text-base text-slate-700 clamp-2" data-i18n="actus.4.desc">
+                                        <p class="mt-2 font-subtitle  text-slate-700 clamp-2" data-i18n="actus.4.desc">
                                             Calendrier des activités et inscriptions ouvertes pour les adhérents</p>
                                     </div>
                                 </div>
@@ -346,7 +355,7 @@
                                         <p class="text-sm font-semibold text-brand-teal">12/02/2025</p>
                                         <h3 class="mt-2 text-xl font-semibold text-brand-deep"
                                             data-i18n="actus.5.title">Nouvelle convention de santé</h3>
-                                        <p class="mt-2 text-base text-slate-700 clamp-2" data-i18n="actus.5.desc">
+                                        <p class="mt-2 font-subtitle  text-slate-700 clamp-2" data-i18n="actus.5.desc">
                                             Avantages exclusifs pour les adhérents et leurs familles</p>
                                     </div>
                                 </div>
@@ -360,10 +369,10 @@
                                 </div>
                                 <div class="absolute bottom-8 left-0 right-0">
                                     <div class="actus-info rounded-none bg-white/75 backdrop-blur-md p-4">
-                                        <p class="text-sm font-semibold text-brand-blue">05/02/2025</p>
+                                        <p class=" text-sm font-semibold text-brand-blue">05/02/2025</p>
                                         <h3 class="mt-2 text-xl font-semibold text-brand-deep"
                                             data-i18n="actus.6.title">Appel à projets sociaux 2025</h3>
-                                        <p class="mt-2 text-base text-slate-700 clamp-2" data-i18n="actus.6.desc">Dépôt
+                                        <p class="mt-2 font-subtitle  text-slate-700 clamp-2" data-i18n="actus.6.desc">Dépôt
                                             des dossiers et calendrier des commissions</p>
                                     </div>
                                 </div>
@@ -378,21 +387,28 @@
 </section>
 
 <section id="adherent" class="mx-auto max-w-screen-2xl px-6 py-5">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-    
-    <a href="#" class="justify-self-end">
-      <img src="Extranet_files/Espace-1.jpg"
-           alt="Evenement"
-           class="h-80 object-cover" />
-    </a>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center animate-fadeUp">
+  
+<a href="#" class="relative justify-self-end overflow-hidden group">
+<img 
+  src="Extranet_files/Espace-1.jpg"
+  class="h-80 object-cover transition-all duration-500 
+         hover:scale-105 hover:blur-[1px]"
+>
+  <div class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+</a>
 
-    <a href="#" class="justify-self-start">
-      <img src="Extranet_files/Espace-2.jpg"
-           alt="Evenement"
-           class="h-80 object-cover" />
-    </a>
+  <a href="#" class="relative justify-self-start overflow-hidden group">
+<img 
+  src="Extranet_files/Espace-2.jpg"
+  class="h-80 object-cover transition-all duration-500 
+         hover:scale-105 hover:blur-[1px]"
+>
+  <div class="absolute inset-0 bg-black/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
-  </div>
+  </a>
+
+</div>
 </section>
 
      <section id="services" class="
@@ -400,9 +416,9 @@
             <div class="mx-auto max-w-screen-2xl px-6">
                 <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                     <div>
-                        <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
+                        <p class="font-subtitle  font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
                             data-i18n="services.label">Prestations</p>
-                        <h2 class="font-display text-4xl text-brand-deep" data-i18n="services.title">Tout un écosystème
+                        <h2 class="font-title font-bold text-4xl text-brand-deep" data-i18n="services.title">Tout un écosystème
                             de soutien</h2>
                     </div>
                 </div>
@@ -428,12 +444,12 @@
                 <div class="mx-auto max-w-screen-2xl  animate-fadeUp ">
                     <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                         <div>
-                            <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
+                            <p class="font-subtitle  font-semibold uppercase tracking-[0.3em] text-brand-blue"
                                 data-i18n="events.label">Evénements</p>
-                            <h2 class="font-display text-4xl text-brand-deep" data-i18n="events.title">Agenda solidaire
+                            <h2 class="font-title font-bold text-4xl text-brand-deep" data-i18n="events.title">Agenda solidaire
                             </h2>
                         </div>
-                        <p class="max-w-xl text-base text-slate-600" data-i18n="events.subtitle">Campagnes, rencontres,
+                        <p class="max-w-xl font-body text-slate-600" data-i18n="events.subtitle">Campagnes, rencontres,
                             initiatives sociales et actions terrain</p>
                     </div>
                     <div class="mt-10 grid gap-6 md:grid-cols-2">
@@ -454,7 +470,7 @@
                                     data-i18n="events.badge.new">Nouveau</span>
                             </div>
                            
-                            <p class="mt-2 text-base text-slate-600" data-i18n="events.1.desc">Collecte organisée le
+                            <p class="mt-2 font-subtitle  text-slate-600" data-i18n="events.1.desc">Collecte organisée le
                                 09/10/2023 à Rabat, grande salle du complexe DBAGH</p>
                                 
                         </article>
@@ -474,7 +490,7 @@
                                     class="rounded-full bg-brand-blue/10 px-3 py-1 text-sm font-semibold text-brand-blue"
                                     data-i18n="events.badge.new">Nouveau</span>
                             </div>
-                            <p class="mt-2 text-base text-slate-600" data-i18n="events.2.desc">Spécial logement du 26 au
+                            <p class="mt-2 font-subtitle  text-slate-600" data-i18n="events.2.desc">Spécial logement du 26 au
                                 28 octobre 2023 (Kénitra, Témara, Rabat)</p>
                                 
                         </article>
@@ -493,7 +509,7 @@
                                     class="rounded-full bg-brand-teal/10 px-3 py-1 text-sm font-semibold text-brand-teal"
                                     data-i18n="events.badge.new">Nouveau</span>
                             </div>
-                            <p class="mt-2 text-base text-slate-600" data-i18n="events.3.desc">Programme publié pour les
+                            <p class="mt-2 font-subtitle  text-slate-600" data-i18n="events.3.desc">Programme publié pour les
                                 enfants retenus et leurs parents</p>
                                  
                         </article></a>
@@ -512,7 +528,7 @@
                                     class="rounded-full bg-brand-blue/10 px-3 py-1 text-sm font-semibold text-brand-blue"
                                     data-i18n="events.badge.info">Info</span>
                             </div>
-                            <p class="mt-2 text-base text-slate-600" data-i18n="events.4.desc">Remises préférentielles à
+                            <p class="mt-2 font-subtitle  text-slate-600" data-i18n="events.4.desc">Remises préférentielles à
                                 Agadir pour adhérents et familles</p>
                                 
                         </article> </a>
@@ -525,9 +541,9 @@
         <section id="carte" class="mx-auto max-w-screen-2xl px-6 py-20 bg-cover bg-center">
             <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
                 <div class="space-y-4">
-                   <!-- <p class="text-base font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
+                   <!-- <p class="font-subtitle  font-semibold uppercase tracking-[0.3em] text-[rgb(20_130_184/var(--tw-text-opacity,1))]"
                         data-i18n="map.label">Carte du Maroc</p>-->
-                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="map.title">Présence nationale</h2>
+                    <h2 class="font-title font-bold text-4xl text-brand-deep" data-i18n="map.title">Présence nationale</h2>
                     <p class="text-slate-600">
                         <span data-i18n="map.desc">FOS-Agri accompagne ses bénéficiaires dans toutes les régions à
                             travers un réseau de délégations et de partenaires</span>
@@ -538,7 +554,7 @@
                                 <span id="region-dot" class="inline-block h-3 w-3 rounded-full bg-brand-teal/70 opacity-40"></span>
                                 <p id="region-title" class="text-sm font-semibold text-brand-deep">Selectionnez une region</p>
                             </div>
-                            <p id="region-text" class="mt-2 text-base text-slate-600">Cliquez sur une region de la carte pour afficher les details.</p>
+                            <p id="region-text" class="mt-2 font-subtitle  text-slate-600">Cliquez sur une region de la carte pour afficher les details.</p>
                         </div>
                     </div>
                 </div>
@@ -599,9 +615,9 @@
             <div class="mx-auto max-w-screen-2xl px-6">
                 <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                     <div>
-                        <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
+                        <p class="font-subtitle  font-semibold uppercase tracking-[0.3em] text-brand-blue"
                             data-i18n="partners.label">Partenaires</p>
-                        <h2 class="font-display text-4xl text-brand-deep" data-i18n="partners.title">Un réseau solide public et privé qui renforce l'impact de nos programmes
+                        <h2 class="font-title font-bold text-4xl text-brand-deep" data-i18n="partners.title">Un réseau solide public et privé qui renforce l'impact de nos programmes
                         </h2>
                     </div>
                 </div>
@@ -690,7 +706,7 @@
             <div>
                 <div class="flex items-center gap-3">
                     <img src="Extranet_files/logo.png" alt="FOS-Agri" class="h-32 w-32 object-contain brightness-0 invert">
-                    <p class="font-display text-xl">FOS-Agri</p>
+                    <p class="font-title font-bold text-xl">FOS-Agri</p>
                 </div>
                 <p class="mt-2 text-sm text-white/70" data-i18n="footer.desc">Fondation pour la promotion des œuvres
                     sociales du personnel du ministère de l'agriculture</p>
@@ -721,15 +737,15 @@
                     <div class="grid gap-4">
                         <div class="rounded-none bg-white p-2 shadow">
                             <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.phone">Téléphone</p>
-                            <p class="text-base text-slate-600">0537 66 55 40 / 0537 69 84 31</p>
+                            <p class="font-subtitle  text-slate-600">0537 66 55 40 / 0537 69 84 31</p>
                         </div>
                         <div class="rounded-none bg-white p-2 shadow">
                             <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.address">Adresse</p>
-                            <p class="text-base text-slate-600">461 Avenue Hassan II, Agdal - Rabat</p>
+                            <p class="font-subtitle  text-slate-600">461 Avenue Hassan II, Agdal - Rabat</p>
                         </div>
                         <div class="rounded-none bg-white p-2 shadow">
                             <p class="text-sm font-semibold text-brand-deep" data-i18n="contact.email">Email</p>
-                            <p class="text-base text-slate-600">FOS-Agri@FOS-Agri.ma</p>
+                            <p class="font-subtitle  text-slate-600">FOS-Agri@FOS-Agri.ma</p>
                         </div>
                     </div>
                 </div>

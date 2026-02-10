@@ -13,6 +13,9 @@
             fontFamily: {
                 sans: ["Inter", "sans-serif"],
                 display: ["Inter", "sans-serif"],
+                body: ["Poppins", "sans-serif"],      // pour le texte courant
+                subtitle: ["Lato", "sans-serif"],    // pour les sous-titres
+                title: ["Nunito", "sans-serif"],     // pour les titres / accroches
             },
             boxShadow: {
                 lift: "0 24px 60px rgba(10, 59, 55, 0.18)",

@@ -21,7 +21,7 @@ const services = [
     image: "Extranet_files/Prevoyance.png",
     span: "col-start-2 row-start-1 row-span-3",
     background: "#03443d",
-    link: "prevoyance.html"
+    link: "Assurance.html"
   },
   {
     id: 4,
@@ -76,16 +76,18 @@ if (servicesGrid) {
   services.forEach(service => {
     const isStaticTitle = service.id === 1;
 
+    // WRAPPER
     const wrapper = isStaticTitle
       ? document.createElement("div")
       : document.createElement("a");
 
-    if (!isStaticTitle && service.link) {
+    if (!isStaticTitle) {
       wrapper.href = service.link;
     }
 
     wrapper.className = `${service.span} block h-full`;
 
+    // CARD
     const card = document.createElement("div");
     card.style.backgroundColor = service.background;
 
@@ -95,25 +97,30 @@ if (servicesGrid) {
       card.style.backgroundPosition = "center";
     }
 
-    card.className =
-      "relative overflow-hidden rounded-2xl border border-gray-200 flex flex-col justify-between px-6 py-3 h-full transition-all duration-300";
-
-    // 🔒 BLOC TITRE
-    if (isStaticTitle) {
-      card.className =
-        "relative overflow-visible rounded-2xl border border-gray-200 flex flex-col items-center text-center px-6 py-3 h-full pt-20 cursor-default";
+    /* ==========================
+       🔒 BLOC STATIQUE (ID 1)
+    ========================== */
+if (isStaticTitle) {
+  card.className =
+    "relative overflow-visible rounded-2xl border border-gray-200 flex flex-col items-center text-center px-6 py-3 h-full pt-20 cursor-default select-none";
+card.classList.add("is-static");
 
       card.innerHTML = `
         <div class="absolute -top-12 left-1/2 -translate-x-1/2 z-20 w-24 h-24 flex items-center justify-center">
           <img src="${service.image}" class="rounded-full border-4 border-white" />
         </div>
-        <h3 class="text-3xl font-bold text-[#0f3c3c]">${service.title}</h3>
+        <h3 class=" font-subtitle  text-3xl font-bold text-[#0f3c3c]">
+          ${service.title}
+        </h3>
       `;
     }
 
-    // 🎯 ZOOM
+    /* ==========================
+       🎯 ZOOM (ID 2)
+    ========================== */
     else if (service.id === 2) {
-      card.classList.add("cursor-pointer", "hover:scale-[1.02]");
+      card.className =
+        "relative overflow-hidden rounded-2xl border border-gray-200 flex flex-col justify-between px-6 py-3 h-full transition-all duration-300 cursor-pointer hover:scale-[1.02]";
 
       card.innerHTML = `
         <div class="flex flex-col justify-end h-full text-white">
@@ -126,21 +133,55 @@ if (servicesGrid) {
       `;
     }
 
-    // 🔹 AUTRES CARTES
+    /* ==========================
+       🔹 AUTRES CARTES
+    ========================== */
     else {
-      card.classList.add("cursor-pointer", "hover:scale-[1.02]");
+      card.className =
+        "relative overflow-hidden rounded-2xl border border-gray-200 flex flex-col justify-between px-6 py-3 h-full transition-all duration-300 cursor-pointer hover:scale-[1.02]";
 
       card.innerHTML = `
-        <div class="flex justify-end mb-2">
-          <div class="p-2 rounded-full bg-white/20">
-            <i data-lucide="plus" class="w-5 h-5 text-white"></i>
-          </div>
+        <div class="flex justify-end mb-1">
+          <span class="p-2 rounded-full flex items-center justify-center
+            ${
+              [3,5,8].includes(service.id)
+                ? 'bg-[#e6c027]'
+                : [4,7].includes(service.id)
+                ? 'bg-[#0f3c3c]'
+                : service.id === 6
+                ? 'bg-white'
+                : 'bg-white/20'
+            }">
+            <i data-lucide="plus"
+              class="w-5 h-5 ${
+                service.id === 6
+                  ? 'text-[#0f3c3c]'
+                  : 'text-white'
+              }">
+            </i>
+          </span>
         </div>
 
         <div>
-          <img src="${service.image}" class="object-contain image-prestation mb-2" />
-          <h3 class="text-xl font-semibold mb-1 text-white">${service.title}</h3>
-          <p class="text-sm text-white/80">${service.description || ""}</p>
+          <div class="mb-1 inline-flex rounded-lg">
+            <img src="${service.image}" class="object-contain image-prestation" />
+          </div>
+
+          <h3 class="text-xl font-semibold mb-2 ${
+            [4,7,8].includes(service.id)
+              ? "text-[#0f3c3c]"
+              : "text-white"
+          }">
+            ${service.title}
+          </h3>
+
+          <p class="text-sm ${
+            [4,7,8].includes(service.id)
+              ? "text-[#0f3c3c]/80"
+              : "text-white/80"
+          }">
+            ${service.description || ""}
+          </p>
         </div>
       `;
     }
@@ -148,37 +189,6 @@ if (servicesGrid) {
     wrapper.appendChild(card);
     servicesGrid.appendChild(wrapper);
   });
+
+  lucide.createIcons();
 }
-
-// ==========================
-// ACCORDION OUVRIR / FERMER
-// ==========================
-window.toggleAccordion = function (id) {
-  const content = document.getElementById(`content-${id}`);
-  const icon = document.getElementById(`icon-${id}`);
-
-  if (!content || !icon) return;
-
-  const isHidden = content.classList.contains("hidden");
-
-  content.classList.toggle("hidden");
-  icon.textContent = isHidden ? "−" : "+";
-};
-
-// ==========================
-// ONGLET (TABS)
-// ==========================
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".tab-btn");
-  const contents = document.querySelectorAll(".tab-content");
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      contents.forEach(c => c.classList.add("hidden"));
-
-      tab.classList.add("active");
-      document.getElementById(tab.dataset.tab)?.classList.remove("hidden");
-    });
-  });
-});

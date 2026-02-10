@@ -18,6 +18,21 @@
             direction: rtl;
         }
 
+                    @layer base {
+            h1, h2, h3, h4 {
+                @apply font-title;
+            }
+
+            p, li, span {
+                @apply font-body;
+            }
+
+            small, .subtitle {
+                @apply font-subtitle;
+            }
+            }
+
+
         h1,
         h2,
         h3 {
@@ -1182,23 +1197,13 @@ border-radius: 5px !important;
   }
 }
 
-/* Optionnel : animation hover responsive */
+/* Animation hover (sauf bloc statique) */
 @media (hover: hover) {
-  #servicesGrid > * > div {
+  #servicesGrid > * > div:not(.is-static) {
     transition: transform 0.3s ease;
   }
-  #servicesGrid > *:hover > div {
+
+  #servicesGrid > *:hover > div:not(.is-static) {
     transform: scale(1.02);
-  }
-}
-
-
-// tailwind.config.js
-theme: {
-  extend: {
-    colors: {
-      "brand-teal": "#0f3c3c",
-      "brand-deep": "#03443d"
-    }
   }
 }
