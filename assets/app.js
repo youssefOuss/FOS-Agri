@@ -179,6 +179,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const mapSourceEl = document.getElementById("map");
         const mapSource = mapSourceEl?.getAttribute("data-map-source") || "assets/regions.json";
         const defaultRegionId = mapSourceEl?.getAttribute("data-map-default-id") || "rabat-sale-kenitra";
+        const contentField = mapSourceEl?.getAttribute("data-map-content-field") || "";
+        const contentIsHtml = mapSourceEl?.getAttribute("data-map-content") === "html";
 
         fetch(mapSource)
             .then((response) => response.json())
@@ -210,8 +212,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         shape.style.transformOrigin = "center";
                         shape.style.transform = "scale(1.03)";
 
-                        titleEl.textContent = region.title;
-                        textEl.textContent = region.text;
+                        titleEl.textContent = region.title || "";
+
+                        const htmlContent = contentField && typeof region[contentField] === "string"
+                            ? region[contentField]
+                            : "";
+                        if (contentIsHtml && htmlContent) {
+                            textEl.innerHTML = htmlContent;
+                        } else {
+                            textEl.textContent = region.text || "";
+                        }
                         if (extraTitleEl && extraTextEl) {
                             if (region.costumField) {
                                 extraTitleEl.textContent = region.costumField;

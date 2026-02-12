@@ -1,77 +1,88 @@
-[
+﻿[
     {
         "id":  "tanger-tetouan-al-hoceima",
         "title":  "Tanger-Tetouan-Al Hoceima",
         "text":  "Accueil et orientation des adherents, relais des services et actions sociales locales.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eAccueil et orientation des adherents, relais des services et actions sociales locales.\u003c/p\u003e"
     },
     {
         "id":  "oriental",
         "title":  "Oriental",
         "text":  "Accompagnement de proximite, informations sur les aides et les dispositifs disponibles.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eAccompagnement de proximite, informations sur les aides et les dispositifs disponibles.\u003c/p\u003e"
     },
     {
         "id":  "draa-tafilalet",
         "title":  "Draa-Tafilalet",
-        "text":  "Relais de proximite pour l'information, le suivi et l'accompagnement.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "text":  "Relais de proximite pour l\u0027information, le suivi et l\u0027accompagnement.",
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eRelais de proximite pour l\u0027information, le suivi et l\u0027accompagnement.\u003c/p\u003e"
     },
     {
         "id":  "souss-massa",
         "title":  "Souss-Massa",
         "text":  "Conseil local et suivi des demandes, avec un relais sur le territoire.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eConseil local et suivi des demandes, avec un relais sur le territoire.\u003c/p\u003e"
     },
     {
         "id":  "guelmim-oued-noun",
         "title":  "Guelmim-Oued Noun",
         "text":  "Information et orientation des adherents, appui aux demarches sociales.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cdiv class=\"space-y-3\"\u003e\n  \u003cp class=\"text-slate-600\"\u003eInformation et orientation des adherents, appui aux demarches sociales.\u003c/p\u003e\n  \u003cul class=\"list-disc pl-5 text-slate-600\"\u003e\n    \u003cli\u003eOrientation administrative\u003c/li\u003e\n    \u003cli\u003eAccompagnement des dossiers\u003c/li\u003e\n    \u003cli\u003eRelais regional\u003c/li\u003e\n  \u003c/ul\u003e\n  \u003cdiv class=\"inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3 py-1 text-xs font-semibold text-brand-blue\"\u003eCentre regional\u003c/div\u003e\n\u003c/div\u003e"
     },
     {
         "id":  "casablanca-settat",
         "title":  "Casablanca-Settat",
-        "text":  "Orientation et suivi des dossiers avec un relais local pour les beneficiaires.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "text":  "Orientation et suivi des dossiers avec \n un relais local pour les beneficiaires.",
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eOrientation et suivi des dossiers avec \n un relais local pour les beneficiaires.\u003c/p\u003e"
     },
     {
         "id":  "marrakech-safi",
         "title":  "Marrakech-Safi",
         "text":  "Accueil des adherents et information sur les programmes de soutien regionaux.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eAccueil des adherents et information sur les programmes de soutien regionaux.\u003c/p\u003e"
     },
     {
         "id":  "laayoune-sakia-el-hamra",
         "title":  "Laayoune-Sakia El Hamra",
         "text":  "Accompagnement de proximite et suivi des demandes locales.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eAccompagnement de proximite et suivi des demandes locales.\u003c/p\u003e"
     },
     {
         "id":  "dakhla-oued-eddahab",
         "title":  "Dakhla-Oued Ed-Dahab",
-        "text":  "Relais local pour l'acces aux services et informations sociales.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "text":  "Relais local pour l\u0027acces aux services et informations sociales.",
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eRelais local pour l\u0027acces aux services et informations sociales.\u003c/p\u003e"
     },
     {
         "id":  "rabat-sale-kenitra",
-        "costumField":"Rabat-Sale-Kenitra",
-        "description": "Point de contact regional pour le conseil, la coordination et l'acces aux services.",
+        "costumField":  "Rabat-Sale-Kenitra",
+        "description":  "Point de contact regional pour le conseil, la coordination et l\u0027acces aux services.",
         "title":  "Siége",
-        "text":  "Point de contact regional pour le conseil, la coordination et l'acces aux services.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
-
+        "text":  "Point de contact regional pour le conseil, la coordination et l\u0027acces aux services.",
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003ePoint de contact regional pour le conseil, la coordination et l\u0027acces aux services.\u003c/p\u003e"
     },
     {
         "id":  "fes-meknes",
         "title":  "Fes-Meknes",
         "text":  "Appui administratif et suivi des demandes sociales pour les beneficiaires de la region.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eAppui administratif et suivi des demandes sociales pour les beneficiaires de la region.\u003c/p\u003e"
     },
     {
         "id":  "beni-mellal-khenifra",
         "title":  "Beni Mellal-Khenifra",
         "text":  "Information de proximite et accompagnement dans les demarches sociales.",
-        "link" : "https://youssefouss.github.io/FOS-Agri/index.html"
+        "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
+        "content":  "\u003cp\u003eInformation de proximite et accompagnement dans les demarches sociales.\u003c/p\u003e"
     }
 ]
