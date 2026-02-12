@@ -1,0 +1,890 @@
+﻿<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOS-Agri | Extranet - Ministère de l'Agriculture</title>
+    <meta name="description"
+        content="FOS-Agri - Fondation pour la promotion des œuvres sociales du personnel du ministère de l'agriculture" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/styles.css" />
+        <link rel="stylesheet" href="../assets/styles-planning.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/tailwind.config.js"></script>
+    <script src="../script.js" type="module"></script>
+    <script src="../script-pages.js" type="module"></script>
+</head>
+
+<body class="bg-haze animated-bg text-slate-900 text-lg">
+    
+     <main class="relative overflow-hidden">
+        <div class="pointer-events-none absolute inset-0 -z-10">
+        </div>
+    <section class="relative overflow-hidden bg-cover bg-center" id="Home">
+
+        <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md transition-colors duration-300 
+         top-0 z-50 backdrop-blur border-b border-brand-teal/15">
+        <div class="mx-auto max-w-screen-2xl px-6  flex items-center justify-between">
+         <div class="flex items-center gap-3">
+                <a href="../index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
+                <div class="h-16 w-16 rounded-none bg-transparent grid place-items-center">
+                    <img src="../Extranet_files/logo.png" alt="FOS-Agri" class="h-16 w-16 object-contain">
+                </div>
+                </a>
+                <a href="../index.html" class="hover:none" data-i18n="nav.actus">
+                <div>
+                    <p class="font-title font-bold font-subtitle  leading-none">FOS-Agri</p>
+                </div>
+                  </a>
+            </div>
+
+    <nav class="hidden items-center gap-5 font-subtitle font-bold text-slate-700 md:flex md:text-lg">
+    <a href="../index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Accueil</a>
+    
+    <!-- Menu La Fondation avec sous-menu -->
+    <div class="relative group">
+        <a href="#" class="hover:text-brand-teal menuBtnNav cursor-pointer" data-i18n="nav.actus">
+            La Fondation
+        </a>
+        
+        <!-- Sous-menu La Fondation -->
+        <div class="absolute left-0 top-full mt-2 w-72 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-200 z-50">
+            <ul class="submenu py-2">
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Mot du Ministre
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Mot du Président
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Notre histoire
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Notre mission
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Nos valeurs
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Notre organisation
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Notre gouvernance
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <a href="../Adhesion.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">Adhésion</a>
+    <!-- Menu Prestations avec sous-menu -->
+    <div class="relative group">
+        <a href="#" class="hover:text-brand-teal menuBtnNav cursor-pointer" data-i18n="nav.events">
+            Prestations
+        </a>    
+        <!-- Sous-menu Prestations -->
+        <div class="absolute left-0 top-full mt-2 w-72 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-200 z-50">
+            <ul class="submenu py-2">
+                <!-- Item avec sous-sous-menu Niveau 2 -->
+                <li class="relative group/sub border-b border-gray-100 last:border-b-0">
+                    <a href="../prestations/Prevoyance.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors flex items-center justify-between">
+                        Prévoyance médico-sociale
+                        <svg class="w-4 h-4 transition-transform group-hover/sub:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <!-- Sous-menu Niveau 2 -->
+                    <div class="absolute left-full top-0 ml-2 w-64 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 border border-gray-200">
+                        <ul class="py-2">
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Prevoyance.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                    Centre médico-social
+                                </a>
+                            </li>
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Planning.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                    Planning et spécialité 
+                                </a>
+                            </li>
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Assurance.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                   Assurance maladie complémentaire
+                                </a>
+                            </li>
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Assistance.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                   Assistance médicale et transport sanitaire
+                                </a>
+                            </li>
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Aide.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                   Aide aux personnes aux besoins spécifiques
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Culture, loisirs, et voyages
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Formation et scolarisation
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Accès au Logement
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Appui au projets personnels
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                       Education et culture
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.mission">Réalisations</a>
+    <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.map">Avis et Annonces</a>
+    <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.contact">Contact</a>
+</nav>
+
+            <div class="flex items-center gap-3">
+<details class="relative hidden md:inline-flex">
+  <summary
+    class="list-none flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-3 py-1 text-sm font-medium text-slate-700 shadow-sm transition hover:border-brand-gold cursor-pointer">
+    <!-- Icône globe -->
+    <svg
+      class="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20" />
+      <path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20" />
+    </svg>
+
+    <span>FR</span>
+    <span class="text-lg">▾</span>
+  </summary>
+
+  <!-- Dropdown -->
+  <div
+    class="absolute right-0 top-11 w-28 rounded-lg border border-slate-200 bg-white p-1 text-sm shadow">
+    <a
+      href="../index.html"
+      class="block rounded px-3 py-2 hover:bg-slate-50">
+      Français
+    </a>
+    <a
+      href="../index-ar.html"
+      class="block rounded px-3 py-2 hover:bg-slate-50">
+      Arabe
+    </a>
+  </div>
+</details>
+
+
+    <a href="#" class="hidden rounded-full border border-brand-gold/40 px-4 py-1 font-subtitle  font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex" data-i18n="nav.signup">Espace Adhérent</a>
+
+               <!-- Bouton menu -->
+<button id="menuBtn" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 hover:bg-brand-teal/10 hover:border-brand-teal transition-all duration-300 md:hidden" aria-label="Ouvrir le menu">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+</button>
+
+
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+<div id="mobileMenu" class="hidden border-t border-brand-teal/10 bg-white px-6 py-4 md:hidden">
+    <div class="flex flex-col gap-2 font-subtitle font-medium text-slate-700">
+        
+        <a href="../index.html" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.actus">Accueil</a>
+        
+        <!-- Menu La Fondation avec sous-menu mobile -->
+        <div class="border-b border-gray-100">
+            <button class="w-full flex items-center justify-between py-3 hover:text-brand-teal transition-colors" onclick="toggleMobileSubmenu('fondation')">
+                <span data-i18n="nav.actus">La Fondation</span>
+                <svg id="fondation-icon" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div id="fondation-submenu" class="hidden pl-4 pb-2">
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Mot du Ministre</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Mot du Président</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Notre histoire</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Notre mission</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Nos valeurs</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Notre organisation</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Notre gouvernance</a>
+            </div>
+        </div>
+        
+        <a href="../Adhesion.html" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.services">Adhésion</a>
+        
+        <!-- Menu Prestations avec sous-menus mobile -->
+        <div class="border-b border-gray-100">
+            <button class="w-full flex items-center justify-between py-3 hover:text-brand-teal transition-colors" onclick="toggleMobileSubmenu('prestations')">
+                <span data-i18n="nav.events">Prestations</span>
+                <svg id="prestations-icon" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div id="prestations-submenu" class="hidden pl-4 pb-2">
+                
+                <!-- Prévoyance médico-sociale avec sous-sous-menu -->
+                <div class="border-l-2 border-gray-200 pl-3 mt-2">
+                    <button class="w-full flex items-center justify-between py-2 text-sm hover:text-brand-teal transition-colors" onclick="toggleMobileSubmenu('prevoyance')">
+                        <span>Prévoyance médico-sociale</span>
+                        <svg id="prevoyance-icon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="prevoyance-submenu" class="hidden pl-3 pb-2">
+                        <a href="../prestations/Prevoyance.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Centre médico-social</a>
+                        <a href="../prestations/Planning.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Planning et spécialité</a>
+                        <a href="../prestations/Assurance.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Assurance maladie complémentaire</a>
+                        <a href="../prestations/Assistance.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Assistance médicale et transport sanitaire</a>
+                        <a href="../prestations/Aide.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Aide aux personnes aux besoins spécifiques</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors mt-2">Culture, loisirs, et voyages</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Formation et scolarisation</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Accès au Logement</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Appui au projets personnels</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Education et culture</a>
+            </div>
+        </div>
+        
+        <a href="#" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.mission">Réalisations</a>
+        <a href="#" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.map">Avis et Annonces</a>
+        <a href="#" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.contact">Contact</a>
+    </div>
+</div>
+
+<div class="social-fixed">
+  <!-- Facebook -->
+  <a href="#" class="social-icon bg-[#1482b8]">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <!-- LinkedIn -->
+  <a href="#" class="social-icon bg-[#13887c]">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <!-- YouTube -->
+  <a href="#" class="social-icon bg-[#be333f]">
+    <i class="fab fa-youtube"></i>
+  </a>
+    </div>
+
+    </header>
+
+    </section>
+   
+      
+    
+
+
+   
+      <section id="mission" class="bg-white/70 pt-32 p-16 bg-cover bg-center">
+    <div class="grid md:items-center mx-auto max-w-screen-2xl px-6">
+            <div class="space-y-4 text-left sticky top-0 self-start pb-10 opacity-0 animate-slideLeft">
+                    <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
+                        data-i18n="mission.label">Centre Médico-Social
+</p>
+                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title"> Spécialités et Planning
+ </h2>
+                    <p class="text-slate-600">
+                        <span data-i18n="mission.desc">    Planning des consultations médicales au profit des adhérents de la Fondation pour la Promotion des Œuvres Sociales du Personnel du Ministère de l’Agriculture et de la Pêche Maritime - Département de l’Agriculture -          </span>
+                    </p>
+
+                </div>
+        <div class="space-y-4 text-left pb-10">
+
+            <div id="collapseSiven">
+                <div class="card-body p-4">
+                  
+
+    <div class="overflow-x-auto">
+                    <table class="min-w-full border border-gray-300 text-sm text-left">
+
+                          <thead>
+                    <tr>
+                        <th>Jours</th>
+                        <th  class="py-3 px-4 border text-center font-bold" colspan="3">LUNDI</th>
+                        <th class="py-3 px-4 border text-center font-bold" colspan="3">MARDI</th>
+                        <th class="py-3 px-4 border text-center font-bold" colspan="3">MERCREDI</th>
+                        <th class="py-3 px-4 border text-center font-bold" colspan="5">JEUDI</th>
+                        <th class="py-3 px-4 border text-center font-bold" colspan="3">VENDREDI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="specialty-row">
+                        <td>Spécialité</td>
+                        <!-- Lundi -->
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="" alt="Médecine Interne">
+                                </div>
+                                <span class="specialty-name">Médecine Interne</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3209/3209299.png" alt="Urologue">
+                                </div>
+                                <span class="specialty-name">Urologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913145.png" alt="ORL">
+                                </div>
+                                <span class="specialty-name">ORL</span>
+                            </div>
+                        </td>
+                        <!-- Mardi -->
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3094/3094837.png" alt="Gastro-entérologue">
+                                </div>
+                                <span class="specialty-name">Gastro-entérologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3209/3209299.png" alt="Urologue">
+                                </div>
+                                <span class="specialty-name">Urologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913145.png" alt="ORL">
+                                </div>
+                                <span class="specialty-name">ORL</span>
+                            </div>
+                        </td>
+                        <!-- Mercredi -->
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913161.png" alt="Allergo-Phytsio">
+                                </div>
+                                <span class="specialty-name">Allergo-Phytsio</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3209/3209321.png" alt="Gynécologue">
+                                </div>
+                                <span class="specialty-name">Gynécologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3209/3209299.png" alt="Urologue">
+                                </div>
+                                <span class="specialty-name">Urologue</span>
+                            </div>
+                        </td>
+                        <!-- Jeudi -->
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913108.png" alt="Dermatologue">
+                                </div>
+                                <span class="specialty-name">Dermatologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3094/3094820.png" alt="Endocrinologue">
+                                </div>
+                                <span class="specialty-name">Endocrinologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913133.png" alt="Cardiologue">
+                                </div>
+                                <span class="specialty-name">Cardiologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3209/3209299.png" alt="Urologue">
+                                </div>
+                                <span class="specialty-name">Urologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913145.png" alt="ORL">
+                                </div>
+                                <span class="specialty-name">ORL</span>
+                            </div>
+                        </td>
+                        <!-- Vendredi -->
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913133.png" alt="Traumatologue">
+                                </div>
+                                <span class="specialty-name">Traumatologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3209/3209299.png" alt="Urologue">
+                                </div>
+                                <span class="specialty-name">Urologue</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="specialty-content">
+                                <div class="icon-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913145.png" alt="ORL">
+                                </div>
+                                <span class="specialty-name">ORL</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="location-row">
+                        <td>Lieu</td>
+                        <!-- Lundi -->
+                        <td>📍 Bureau médico-social</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <!-- Mardi -->
+                        <td>📍 Bureau médico-social</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <!-- Mercredi -->
+                        <td>📍 Bureau médico-social</td>
+                        <td>📍 Bureau médico-social</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <!-- Jeudi -->
+                        <td>📍 Bureau médico-social</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <td>📍 Bureau médico-social</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <!-- Vendredi -->
+                        <td>🏥 Cabinet du médecin</td>
+                        <td>🏥 Cabinet du médecin</td>
+                        <td>🏥 Cabinet du médecin</td>
+                    </tr>
+                    <tr class="time-row">
+                        <td>Heure</td>
+                        <!-- Lundi -->
+                        <td>8h30</td>
+                        <td>11h</td>
+                        <td>12h</td>
+                        <!-- Mardi -->
+                        <td>9h</td>
+                        <td>11h</td>
+                        <td>12h</td>
+                        <!-- Mercredi -->
+                        <td>8h30</td>
+                        <td>09h30</td>
+                        <td>11h</td>
+                        <!-- Jeudi -->
+                        <td>8h30</td>
+                        <td>10h</td>
+                        <td>10h</td>
+                        <td>11h</td>
+                        <td>12h</td>
+                        <!-- Vendredi -->
+                        <td>9h</td>
+                        <td>11h</td>
+                        <td>12h</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		
+
+
+
+
+
+
+
+
+
+                       <div class="overflow-x-auto">
+                        <table class="min-w-full border border-gray-300 text-sm text-left">
+                            <thead class="bg-[#13887f] text-white">
+                                <tr>
+                                    <th class="py-3 px-4 border text-center font-bold bg-[#31644f]">Jours</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="3">LUNDI</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="3">MARDI</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="3">MERCREDI</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="5">JEUDI</th>
+                                    <th class="py-3 px-4 border text-center font-bold" colspan="3">VENDREDI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-[#1482b8]   text-white text-xs">
+                                    <td class="py-2 px-3 border text-center font-bold bg-[#31644f]">Spécialité</td>
+                                    <!-- Lundi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+                                            </svg>
+                                            <span>Médecine Interne</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+                                            </svg>
+                                            <span>ORL</span>
+                                        </div>
+                                    </td>
+                                    <!-- Mardi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+                                            </svg>
+                                            <span>Gastro-entérologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+                                            </svg>
+                                            <span>ORL</span>
+                                        </div>
+                                    </td>
+                                    <!-- Mercredi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                            </svg>
+                                            <span>Allergo-Phytsio</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                                            </svg>
+                                            <span>Gynécologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <!-- Jeudi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M17.73 12.02l3.98-3.98c.39-.39.39-1.02 0-1.41l-4.34-4.34c-.39-.39-1.02-.39-1.41 0l-3.98 3.98L8 2.29C7.8 2.1 7.55 2 7.29 2c-.25 0-.51.1-.7.29L2.25 6.63c-.39.39-.39 1.02 0 1.41l3.98 3.98L2.25 16c-.39.39-.39 1.02 0 1.41l4.34 4.34c.39.39 1.02.39 1.41 0l3.98-3.98 3.98 3.98c.2.2.45.29.71.29.26 0 .51-.1.7-.29l4.34-4.34c.39-.39.39-1.02 0-1.41l-3.98-3.98z"/>
+                                            </svg>
+                                            <span>Dermatologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                            </svg>
+                                            <span>Endocrinologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" opacity=".3"/>
+                                            </svg>
+                                            <span>Cardiologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+                                            </svg>
+                                            <span>ORL</span>
+                                        </div>
+                                    </td>
+                                    <!-- Vendredi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z"/>
+                                            </svg>
+                                            <span>Traumatologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span>Urologue</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-2 px-2 border text-center font-semibold">
+                                        <div class="flex flex-col items-center gap-1">
+                                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6h2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm0 12H6V10h12v10z"/>
+                                            </svg>
+                                            <span>ORL</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="bg-gray-100">
+                                    <td class="py-2 px-3 border text-center font-bold bg-[#31644f] text-white">Lieu</td>
+                                    <!-- Lundi -->
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <!-- Mardi -->
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <!-- Mercredi -->
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <!-- Jeudi -->
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Bureau médico-social</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <!-- Vendredi -->
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                    <td class="py-2 px-2 border text-xs">Cabinet du médecin</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="py-2 px-3 border text-center font-bold bg-[#31644f] text-white">Heure</td>
+                                    <!-- Lundi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">8h30</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">12h</td>
+                                    <!-- Mardi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">9h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">12h</td>
+                                    <!-- Mercredi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">8h30</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">09h30</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <!-- Jeudi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">8h30</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">10h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">10h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">12h</td>
+                                    <!-- Vendredi -->
+                                    <td class="py-2 px-2 border text-center font-semibold">9h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">11h</td>
+                                    <td class="py-2 px-2 border text-center font-semibold">12h</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br>
+                    <h3 class="text-xl font-semibold mb-2">Au niveau régional</h3>
+                    <p class="font-bold">Veuillez contacter le relais régional concerné.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+    
+    
+    </main>
+<footer class="bg-brand-deep text-white" style="background-color: #03443d;">
+        <div class="mx-auto grid max-w-screen-2xl gap-8 px-4 py-6 md:grid-cols-4">
+            <div>
+                <div class="flex items-center gap-3">
+                    <img src="../Extranet_files/logo.png" alt="FOS-Agri" class="h-32 w-32 object-contain brightness-0 invert">
+                    <p class="font-title font-bold text-xl">FOS-Agri</p>
+                </div>
+                <p class="mt-2 text-sm text-white/70" data-i18n="footer.desc">Fondation pour la promotion des œuvres
+                    sociales du personnel du ministère de l'agriculture</p>
+            </div>
+            <div class="text-center py-10 ">
+                <p class="text-sm font-semibold " data-i18n="footer.linksTitle">Liens utiles</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                    <li data-i18n="footer.link1">Appels d'offres</li>
+                    <li data-i18n="footer.link2">FAQ</li>
+                    <li data-i18n="footer.link3">Newsletter</li>
+                </ul></div>
+
+
+                  <div class="text-center py-10 ">
+                
+                 <p class="text-sm font-semibold" data-i18n="footer.quickTitle">Accès rapide</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                    <li data-i18n="footer.quick1">Portail agent</li>
+                    <li data-i18n="footer.quick2">Programme social</li>
+                    <li data-i18n="footer.quick3">Actualités</li>
+                </ul>
+                
+            </div>
+           
+
+     <!---->
+
+<div class="space-y-4 pt-6">
+    <div class="grid gap-1">
+        <!-- Téléphone -->
+      <div class="rounded-none  p-1 flex items-center gap-3">
+            <div class="bg-white/20 p-1 rounded-full flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+            </div>
+            <div class="flex-1">
+                <p class="font-body  text-white/90">0537 66 55 40 / 0537 69 84 31</p>
+            </div>
+        </div>
+        
+        <!-- Adresse -->
+        <div class="rounded-none  p-1 flex items-center gap-3">
+            <div class="bg-white/20 p-1 rounded-full flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+            </div>
+            <div class="flex-1">
+                <p class="font-body text-white/90">461 Avenue Hassan II, Agdal - Rabat</p>
+            </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="rounded-none  p-1  flex items-center gap-3">
+            <div class="bg-white/20 p-1 rounded-full flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </div>
+            <div class="flex-1">
+                <p class="font-body text-white/90">FOS-Agri@FOS-Agri.ma</p>
+            </div>
+        </div>
+    </div>
+</div>
+     <!---->
+        </div>
+        <div class="border-t border-white/10 py-4 text-center text-sm text-white/60" data-i18n="footer.copy">Copyright
+            2025 FOS-Agri - Ministère de l'Agriculture</div>
+    </footer>
+    <button id="backToTop"
+        class="back-to-top fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-brand-gold text-white shadow-glow transition hover:-translate-y-1"
+        aria-label="Retour en haut">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5"></path>
+            <path d="M5 12l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <script src="assets/app.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+

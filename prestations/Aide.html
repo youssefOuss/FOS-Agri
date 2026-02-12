@@ -1,0 +1,514 @@
+﻿<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FOS-Agri | Extranet - Ministère de l'Agriculture</title>
+    <meta name="description"
+        content="FOS-Agri - Fondation pour la promotion des œuvres sociales du personnel du ministère de l'agriculture" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/tailwind.config.js"></script>
+    <script src="../script.js" type="module"></script>
+    <script src="../script-pages.js" type="module"></script>
+
+</head>
+
+<body class="bg-haze animated-bg text-slate-900 text-lg">
+
+
+     <main class="relative overflow-hidden">
+        <div class="pointer-events-none absolute inset-0 -z-10">
+        </div>
+    <section class="relative overflow-hidden bg-cover bg-center" id="Home">
+
+        <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md transition-colors duration-300 
+         top-0 z-50 backdrop-blur border-b border-brand-teal/15">
+        <div class="mx-auto max-w-screen-2xl px-6  flex items-center justify-between">
+         <div class="flex items-center gap-3">
+                <a href="../index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">
+                <div class="h-16 w-16 rounded-none bg-transparent grid place-items-center">
+                    <img src="../Extranet_files/logo.png" alt="FOS-Agri" class="h-16 w-16 object-contain">
+                </div>
+                </a>
+                <a href="../index.html" class="hover:none" data-i18n="nav.actus">
+                <div>
+                    <p class="font-title font-bold font-subtitle  leading-none">FOS-Agri</p>
+                </div>
+                  </a>
+            </div>
+
+    <nav class="hidden items-center gap-5 font-subtitle font-bold text-slate-700 md:flex md:text-lg">
+    <a href="../index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Accueil</a>
+    
+    <!-- Menu La Fondation avec sous-menu -->
+    <div class="relative group">
+        <a href="#" class="hover:text-brand-teal menuBtnNav cursor-pointer" data-i18n="nav.actus">
+            La Fondation
+        </a>
+        
+        <!-- Sous-menu La Fondation -->
+        <div class="absolute left-0 top-full mt-2 w-72 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-200 z-50">
+            <ul class="submenu py-2">
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Mot du Ministre
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Mot du Président
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Notre histoire
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Notre mission
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Nos valeurs
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Notre organisation
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Notre gouvernance
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <a href="../Adhesion.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.services">Adhésion</a>
+    <!-- Menu Prestations avec sous-menu -->
+    <div class="relative group">
+        <a href="#" class="hover:text-brand-teal menuBtnNav cursor-pointer" data-i18n="nav.events">
+            Prestations
+        </a>    
+        <!-- Sous-menu Prestations -->
+        <div class="absolute left-0 top-full mt-2 w-72 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-200 z-50">
+            <ul class="submenu py-2">
+                <!-- Item avec sous-sous-menu Niveau 2 -->
+                <li class="relative group/sub border-b border-gray-100 last:border-b-0">
+                    <a href="../prestations/Prevoyance.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors flex items-center justify-between">
+                        Prévoyance médico-sociale
+                        <svg class="w-4 h-4 transition-transform group-hover/sub:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <!-- Sous-menu Niveau 2 -->
+                    <div class="absolute left-full top-0 ml-2 w-64 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 border border-gray-200">
+                        <ul class="py-2">
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Prevoyance.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                    Centre médico-social
+                                </a>
+                            </li>
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Planning.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                    Planning et spécialité 
+                                </a>
+                            </li>
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Assurance.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                   Assurance maladie complémentaire
+                                </a>
+                            </li>
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Assistance.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                   Assistance médicale et transport sanitaire
+                                </a>
+                            </li>
+                            <li class="border-b border-gray-100 last:border-b-0">
+                                <a href="../prestations/Aide.html" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                                   Aide aux personnes aux besoins spécifiques
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Culture, loisirs, et voyages
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Formation et scolarisation
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Accès au Logement
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                        Appui au projets personnels
+                    </a>
+                </li>
+                <li class="border-b border-gray-100 last:border-b-0">
+                    <a href="#" class="block px-5 py-3 text-sm hover:bg-brand-teal hover:text-white transition-colors">
+                       Education et culture
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.mission">Réalisations</a>
+    <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.map">Avis et Annonces</a>
+    <a href="#" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.contact">Contact</a>
+</nav>
+
+            <div class="flex items-center gap-3">
+<details class="relative hidden md:inline-flex">
+  <summary
+    class="list-none flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-3 py-1 text-sm font-medium text-slate-700 shadow-sm transition hover:border-brand-gold cursor-pointer">
+    <!-- Icône globe -->
+    <svg
+      class="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20" />
+      <path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20" />
+    </svg>
+
+    <span>FR</span>
+    <span class="text-lg">▾</span>
+  </summary>
+
+  <!-- Dropdown -->
+  <div
+    class="absolute right-0 top-11 w-28 rounded-lg border border-slate-200 bg-white p-1 text-sm shadow">
+    <a
+      href="../index.html"
+      class="block rounded px-3 py-2 hover:bg-slate-50">
+      Français
+    </a>
+    <a
+      href="../index-ar.html"
+      class="block rounded px-3 py-2 hover:bg-slate-50">
+      Arabe
+    </a>
+  </div>
+</details>
+
+
+    <a href="#" class="hidden rounded-full border border-brand-gold/40 px-4 py-1 font-subtitle  font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex" data-i18n="nav.signup">Espace Adhérent</a>
+
+               <!-- Bouton menu -->
+<button id="menuBtn" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 hover:bg-brand-teal/10 hover:border-brand-teal transition-all duration-300 md:hidden" aria-label="Ouvrir le menu">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+</button>
+
+
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+<div id="mobileMenu" class="hidden border-t border-brand-teal/10 bg-white px-6 py-4 md:hidden">
+    <div class="flex flex-col gap-2 font-subtitle font-medium text-slate-700">
+        
+        <a href="../index.html" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.actus">Accueil</a>
+        
+        <!-- Menu La Fondation avec sous-menu mobile -->
+        <div class="border-b border-gray-100">
+            <button class="w-full flex items-center justify-between py-3 hover:text-brand-teal transition-colors" onclick="toggleMobileSubmenu('fondation')">
+                <span data-i18n="nav.actus">La Fondation</span>
+                <svg id="fondation-icon" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div id="fondation-submenu" class="hidden pl-4 pb-2">
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Mot du Ministre</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Mot du Président</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Notre histoire</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Notre mission</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Nos valeurs</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Notre organisation</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Notre gouvernance</a>
+            </div>
+        </div>
+        
+        <a href="../Adhesion.html" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.services">Adhésion</a>
+        
+        <!-- Menu Prestations avec sous-menus mobile -->
+        <div class="border-b border-gray-100">
+            <button class="w-full flex items-center justify-between py-3 hover:text-brand-teal transition-colors" onclick="toggleMobileSubmenu('prestations')">
+                <span data-i18n="nav.events">Prestations</span>
+                <svg id="prestations-icon" class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div id="prestations-submenu" class="hidden pl-4 pb-2">
+                
+                <!-- Prévoyance médico-sociale avec sous-sous-menu -->
+                <div class="border-l-2 border-gray-200 pl-3 mt-2">
+                    <button class="w-full flex items-center justify-between py-2 text-sm hover:text-brand-teal transition-colors" onclick="toggleMobileSubmenu('prevoyance')">
+                        <span>Prévoyance médico-sociale</span>
+                        <svg id="prevoyance-icon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="prevoyance-submenu" class="hidden pl-3 pb-2">
+                        <a href="../prestations/Prevoyance.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Centre médico-social</a>
+                        <a href="../prestations/Planning.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Planning et spécialité</a>
+                        <a href="../prestations/Assurance.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Assurance maladie complémentaire</a>
+                        <a href="../prestations/Assistance.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Assistance médicale et transport sanitaire</a>
+                        <a href="../prestations/Aide.html" class="block py-2 text-xs hover:text-brand-teal transition-colors">Aide aux personnes aux besoins spécifiques</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors mt-2">Culture, loisirs, et voyages</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Formation et scolarisation</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Accès au Logement</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Appui au projets personnels</a>
+                <a href="#" class="block py-2 text-sm hover:text-brand-teal transition-colors">Education et culture</a>
+            </div>
+        </div>
+        
+        <a href="#" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.mission">Réalisations</a>
+        <a href="#" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.map">Avis et Annonces</a>
+        <a href="#" class="py-3 hover:text-brand-teal transition-colors" data-i18n="nav.contact">Contact</a>
+    </div>
+</div>
+
+<div class="social-fixed">
+  <!-- Facebook -->
+  <a href="#" class="social-icon bg-[#1482b8]">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <!-- LinkedIn -->
+  <a href="#" class="social-icon bg-[#13887c]">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <!-- YouTube -->
+  <a href="#" class="social-icon bg-[#be333f]">
+    <i class="fab fa-youtube"></i>
+  </a>
+    </div>
+
+    </header>
+
+    </section>
+   
+      
+  
+    <main class="relative overflow-hidden">
+
+        <section id="mission" class="bg-white/70  p-4 pt-32  bg-cover bg-center">
+            <div class="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-center mx-auto max-w-screen-2xl px-6">
+                <div class="space-y-4 text-left sticky top-0 self-start pb-10 opacity-0 animate-slideLeft">
+                    <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
+                        data-i18n="mission.label">Prévoyance médico-sociale
+</p>
+                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title">Aide aux personnes aux besoins spécifiques
+ </h2>
+                    <p class="text-slate-600">
+                        <span data-i18n="mission.desc">  La FOS-Agri a mis en place un programme d’aide aux enfants des adhérents en situations d’handicap présentant des besoins spécifiques, et ce en contribuant à la prise en charge de leurs besoins particuliers à travers une aide dont le montant varie en fonction du nombre d’enfants à besoins spécifiques par adhérent (1 enfant : 2000 dh; 2 enfants : 3000 dh).          </span>
+                    </p>
+
+                </div>
+                <div class="grid gap-6 opacity-0 animate-slideRight">
+
+     <div class="bg-white shadow-md p-4 hover:shadow-lg transition w-full h-[280px] rounded-lg overflow-hidden">
+    <div class="w-full h-48 md:h-56 lg:h-64 rounded-lg overflow-hidden">
+        <img src="../Extranet_files/medico/Aide.jpg" class="w-full h-full object-cover" alt="">
+    </div>
+</div>
+
+
+                 
+                </div>
+            </div>
+        </section>
+      
+                <section id="mission" class="bg-white/70 py-2  pb-20  bg-cover bg-center">
+            <div class="grid md:items-center mx-auto max-w-screen-2xl px-6 animate-fadeUp">
+                <div class="space-y-4 text-left sticky top-0 self-start pb-10 opacity-0 animate-slideLeft">
+      
+          
+      <div class="grid gap-4">
+
+<ul class="onglet flex gap-6 border-b">
+  <li><button class="tab-btn active" data-tab="tab1">Bénéficiaires</button></li>
+  <li><button class="tab-btn" data-tab="tab2"> Inscription et modalités</button></li>
+  <li><button class="tab-btn" data-tab="tab3"> Pièces à fournir</button></li>
+
+</ul>
+
+<!-- SECTIONS -->
+<div id="tab1" class="tab-content"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                           <!-- <p class="font-semibold text-brand-deep" data-i18n="mission.card1.title">Loisirs et voyages</p>-->
+                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
+Tous les enfants des adhérents de la FOS-Agri étant en situation d’handicap (moteur, mental..), justifiée par une attestation d’handicap délivrée par les autorités publiques compétentes et n’exerçant aucune activité génératrice de revenu.
+                                        </p>
+                        </div></div>
+<div id="tab2" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                         
+                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
+
+                             Inscription en ligne.<br/>
+Toutes les demandes respectant les conditions sont acceptées.
+                           
+</p>
+    </div></div>
+<div id="tab3" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                   
+    <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
+        - Copie du dossier médical de l'intéressé <br/>
+- Copie du formulaire relative au type d’handicap, portant l’avis de la commission médicale provinciale<br/>
+- Copie du ticket modérateur de la CNOPS ou CNSS ou tout autre organisme de prévoyance
+     </p>
+        </div></div>
+
+    <div id="tab4" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">           
+    <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
+Toutes les prestations garanties sont détaillées dans la notice ci jointe
+    </p>
+     </div></div>
+      <div id="tab5" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
+                   
+     <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
+     Pour déposer un dossier en ligne, utilisez le lien suivant :
+        https://amc.sahamassurance.ma/
+    </p>
+     </div></div>
+
+      <div id="tab6" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">          
+      <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
+Pour toute réclamation, l’adhérent peut contacter, par téléphone, le service client dédié pour la gestion des réclamations au 05.22.42.06.06
+       </p>
+     </div></div>         
+                    </div>
+                </div>
+     
+            </div>
+        </section>
+
+    </main>
+
+<footer class="bg-brand-deep text-white" style="background-color: #03443d;">
+        <div class="mx-auto grid max-w-screen-2xl gap-8 px-4 py-6 md:grid-cols-4">
+            <div>
+                <div class="flex items-center gap-3">
+                    <img src="../Extranet_files/logo.png" alt="FOS-Agri" class="h-32 w-32 object-contain brightness-0 invert">
+                    <p class="font-title font-bold text-xl">FOS-Agri</p>
+                </div>
+                <p class="mt-2 text-sm text-white/70" data-i18n="footer.desc">Fondation pour la promotion des œuvres
+                    sociales du personnel du ministère de l'agriculture</p>
+            </div>
+            <div class="text-center py-10 ">
+                <p class="text-sm font-semibold " data-i18n="footer.linksTitle">Liens utiles</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                    <li data-i18n="footer.link1">Appels d'offres</li>
+                    <li data-i18n="footer.link2">FAQ</li>
+                    <li data-i18n="footer.link3">Newsletter</li>
+                </ul></div>
+
+
+                  <div class="text-center py-10 ">
+                
+                 <p class="text-sm font-semibold" data-i18n="footer.quickTitle">Accès rapide</p>
+                <ul class="mt-3 space-y-2 text-sm text-white/70">
+                    <li data-i18n="footer.quick1">Portail agent</li>
+                    <li data-i18n="footer.quick2">Programme social</li>
+                    <li data-i18n="footer.quick3">Actualités</li>
+                </ul>
+                
+            </div>
+           
+
+     <!---->
+
+<div class="space-y-4 pt-6">
+    <div class="grid gap-1">
+        <!-- Téléphone -->
+      <div class="rounded-none  p-1 flex items-center gap-3">
+            <div class="bg-white/20 p-1 rounded-full flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+            </div>
+            <div class="flex-1">
+                <p class="font-body  text-white/90">0537 66 55 40 / 0537 69 84 31</p>
+            </div>
+        </div>
+        
+        <!-- Adresse -->
+        <div class="rounded-none  p-1 flex items-center gap-3">
+            <div class="bg-white/20 p-1 rounded-full flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+            </div>
+            <div class="flex-1">
+                <p class="font-body text-white/90">461 Avenue Hassan II, Agdal - Rabat</p>
+            </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="rounded-none  p-1  flex items-center gap-3">
+            <div class="bg-white/20 p-1 rounded-full flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </div>
+            <div class="flex-1">
+                <p class="font-body text-white/90">FOS-Agri@FOS-Agri.ma</p>
+            </div>
+        </div>
+    </div>
+</div>
+     <!---->
+        </div>
+        <div class="border-t border-white/10 py-4 text-center text-sm text-white/60" data-i18n="footer.copy">Copyright
+            2025 FOS-Agri - Ministère de l'Agriculture</div>
+    </footer>
+    <button id="backToTop"
+        class="back-to-top fixed bottom-6 right-6 z-50 grid h-12 w-12 place-items-center rounded-full bg-brand-gold text-white shadow-glow transition hover:-translate-y-1"
+        aria-label="Retour en haut">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5"></path>
+            <path d="M5 12l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <script src="assets/app.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+

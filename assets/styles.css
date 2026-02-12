@@ -1019,7 +1019,7 @@ margin: 0px !important;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background: #ffffff61  !important;
+  /*  background: #ffffff61  !important;*/
     padding: 5px 5px 5px 0px !important;
     border-radius: 0 5px 5px 0;
 }

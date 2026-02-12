@@ -21,7 +21,7 @@ const services = [
     image: "Extranet_files/Prevoyance.png",
     span: "col-start-2 row-start-1 row-span-3",
     background: "#03443d",
-    link: "Assurance.html"
+    link: "prestations/Prevoyance.html"
   },
   {
     id: 4,
