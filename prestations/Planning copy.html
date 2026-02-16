@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../assets/styles.css" />
+        <link rel="stylesheet" href="../assets/styles-planning.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -17,15 +18,15 @@
     <script src="../assets/tailwind.config.js"></script>
     <script src="../script.js" type="module"></script>
     <script src="../script-pages.js" type="module"></script>
-
 </head>
 
 <body class="bg-haze animated-bg text-slate-900 text-lg">
-
+    
      <main class="relative overflow-hidden">
         <div class="pointer-events-none absolute inset-0 -z-10">
         </div>
     <section class="relative overflow-hidden bg-cover bg-center" id="Home">
+
         <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md transition-colors duration-300 
          top-0 z-50 backdrop-blur border-b border-brand-teal/15">
         <div class="mx-auto max-w-screen-2xl px-6  flex items-center justify-between">
@@ -41,13 +42,16 @@
                 </div>
                   </a>
             </div>
+
     <nav class="hidden items-center gap-5 font-subtitle font-bold text-slate-700 md:flex md:text-lg">
     <a href="../index.html" class="hover:text-brand-teal menuBtnNav" data-i18n="nav.actus">Accueil</a>
+    
     <!-- Menu La Fondation avec sous-menu -->
     <div class="relative group">
         <a href="#" class="hover:text-brand-teal menuBtnNav cursor-pointer" data-i18n="nav.actus">
             La Fondation
         </a>
+        
         <!-- Sous-menu La Fondation -->
         <div class="absolute left-0 top-full mt-2 w-72 bg-white shadow-xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-200 z-50">
             <ul class="submenu py-2">
@@ -209,6 +213,7 @@
   </div>
 </details>
 
+
     <a href="#" class="hidden rounded-full border border-brand-gold/40 px-4 py-1 font-subtitle  font-semibold text-brand-deep transition hover:border-brand-gold hover:text-brand-teal md:inline-flex" data-i18n="nav.signup">Espace Adhérent</a>
 
                <!-- Bouton menu -->
@@ -217,7 +222,9 @@
         <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
     </svg>
 </button>
-         </div>
+
+
+            </div>
         </div>
 
         <!-- Menu mobile -->
@@ -302,114 +309,269 @@
     <i class="fab fa-youtube"></i>
   </a>
     </div>
+
     </header>
+
     </section>
+   
+      
+    
 
-    <main class="relative overflow-hidden">
-        <section id="mission" class="bg-white/70  p-4 pt-32  bg-cover bg-center">
-            <div class="grid gap-10 md:grid-cols-[1.3fr_0.7fr] md:items-center mx-auto max-w-screen-2xl px-6">
-                <div class="space-y-4 text-left sticky top-0 self-start pb-10 opacity-0 animate-slideLeft">
+
+   
+      <section id="mission" class="bg-white/70 pt-32 p-16 bg-cover bg-center">
+    <div class="grid md:items-center mx-auto max-w-screen-2xl px-6">
+            <div class="space-y-4 text-left sticky top-0 self-start pb-10 opacity-0 animate-slideLeft">
                     <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
-                        data-i18n="mission.label">Prévoyance médico-sociale
+                        data-i18n="mission.label">Centre Médico-Social
 </p>
-                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title">Assistance Médicale et Transport Sanitaire
-
+                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title"> Spécialités et Planning
  </h2>
                     <p class="text-slate-600">
-                        <span data-i18n="mission.desc">   La FOS-Agri soutient ses adhérents pendant les moments difficiles à travers le service d’Assistance Médicale et Transport Sanitaire contracté avec la compagnie Wafa IMA Assistance.
-Cette assistance porte sur une large gamme de garanties, en cas d’événements imprévisibles et urgents (accident, maladie, décès…) et également dans le cas de voyages à l’étranger à travers notamment l'évacuation sanitaire pour les pathologies non traitables au Maroc ainsi que la conciergerie médicale.            </span>
+                        <span data-i18n="mission.desc">    Planning des consultations médicales au profit des adhérents de la Fondation pour la Promotion des Œuvres Sociales du Personnel du Ministère de l’Agriculture et de la Pêche Maritime - Département de l’Agriculture -          </span>
                     </p>
 
                 </div>
-                <div class="grid gap-6 opacity-0 animate-slideRight">
+        <div class="space-y-4 text-left pb-10">
 
-     <div class="bg-white shadow-md p-4 hover:shadow-lg transition w-full h-[280px] rounded-lg overflow-hidden">
-    <div class="w-full h-48 md:h-56 lg:h-64 rounded-lg overflow-hidden">
-        <img src="../Extranet_files/medico/Assistance.jpg" class="w-full h-full object-cover" alt="">
-    </div>
-</div>              
+            <div id="collapseSiven">
+                <div class="card-body p-4">
+                  
+
+                    
+                <!-- Indicateur de scroll -->
+                <div class="scroll-indicator">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Faire défiler horizontalement</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+                <!-- Planning Table -->
+                <div class="planning-container">
+                    <table class="planning-table">
+                        <thead>
+                            <tr>
+                                <th>Jours</th>
+                                <th colspan="3">LUNDI</th>
+                                <th colspan="3">MARDI</th>
+                                <th colspan="3">MERCREDI</th>
+                                <th colspan="5">JEUDI</th>
+                                <th colspan="3">VENDREDI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="specialty-row">
+                                <td>Spécialité</td>
+                                <!-- Lundi -->
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3043/3043448.png" alt="Médecine Interne">
+                                        </div>
+                                        <span class="specialty-name">Médecine Interne</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3215/3215884.png" alt="Urologue">
+                                        </div>
+                                        <span class="specialty-name">Urologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/2945/2945517.png" alt="ORL">
+                                        </div>
+                                        <span class="specialty-name">ORL</span>
+                                    </div>
+                                </td>
+                                <!-- Mardi -->
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/2995/2995338.png" alt="Gastro-entérologue">
+                                        </div>
+                                        <span class="specialty-name">Gastro-entérologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3215/3215884.png" alt="Urologue">
+                                        </div>
+                                        <span class="specialty-name">Urologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/2945/2945517.png" alt="ORL">
+                                        </div>
+                                        <span class="specialty-name">ORL</span>
+                                    </div>
+                                </td>
+                                <!-- Mercredi -->
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/2879/2879359.png" alt="Allergo-Phytsio">
+                                        </div>
+                                        <span class="specialty-name">Allergo-Phytsio</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3063/3063130.png" alt="Gynécologue">
+                                        </div>
+                                        <span class="specialty-name">Gynécologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3215/3215884.png" alt="Urologue">
+                                        </div>
+                                        <span class="specialty-name">Urologue</span>
+                                    </div>
+                                </td>
+                                <!-- Jeudi -->
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/2936/2936602.png" alt="Dermatologue">
+                                        </div>
+                                        <span class="specialty-name">Dermatologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3082/3082060.png" alt="Endocrinologue">
+                                        </div>
+                                        <span class="specialty-name">Endocrinologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3003/3003307.png" alt="Cardiologue">
+                                        </div>
+                                        <span class="specialty-name">Cardiologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3215/3215884.png" alt="Urologue">
+                                        </div>
+                                        <span class="specialty-name">Urologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/2945/2945517.png" alt="ORL">
+                                        </div>
+                                        <span class="specialty-name">ORL</span>
+                                    </div>
+                                </td>
+                                <!-- Vendredi -->
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3265/3265649.png" alt="Traumatologue">
+                                        </div>
+                                        <span class="specialty-name">Traumatologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3215/3215884.png" alt="Urologue">
+                                        </div>
+                                        <span class="specialty-name">Urologue</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="specialty-content">
+                                        <div class="icon-wrapper">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/2945/2945517.png" alt="ORL">
+                                        </div>
+                                        <span class="specialty-name">ORL</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="location-row">
+                                <td>Lieu</td>
+                                <!-- Lundi -->
+                                <td><i class="fas fa-map-marker-alt" style="color: #13887f;"></i> Bureau méd.-social</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <!-- Mardi -->
+                                <td><i class="fas fa-map-marker-alt" style="color: #13887f;"></i> Bureau méd.-social</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <!-- Mercredi -->
+                                <td><i class="fas fa-map-marker-alt" style="color: #13887f;"></i> Bureau méd.-social</td>
+                                <td><i class="fas fa-map-marker-alt" style="color: #13887f;"></i> Bureau méd.-social</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <!-- Jeudi -->
+                                <td><i class="fas fa-map-marker-alt" style="color: #13887f;"></i> Bureau méd.-social</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <td><i class="fas fa-map-marker-alt" style="color: #13887f;"></i> Bureau méd.-social</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <!-- Vendredi -->
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                                <td><i class="fas fa-stethoscope" style="color: #1482b8;"></i> Cabinet méd.</td>
+                            </tr>
+                            <tr class="time-row">
+                                <td>Heure</td>
+                                <!-- Lundi -->
+                                <td>8h30</td>
+                                <td>11h</td>
+                                <td>12h</td>
+                                <!-- Mardi -->
+                                <td>9h</td>
+                                <td>11h</td>
+                                <td>12h</td>
+                                <!-- Mercredi -->
+                                <td>8h30</td>
+                                <td>09h30</td>
+                                <td>11h</td>
+                                <!-- Jeudi -->
+                                <td>8h30</td>
+                                <td>10h</td>
+                                <td>10h</td>
+                                <td>11h</td>
+                                <td>12h</td>
+                                <!-- Vendredi -->
+                                <td>9h</td>
+                                <td>11h</td>
+                                <td>12h</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+                    
+
+                  <br>
+                    <h3 class="text-xl font-semibold mb-2">Au niveau régional</h3>
+                    <p class="font-bold">Veuillez contacter le relais régional concerné.</p>
                 </div>
             </div>
-        </section>
-      
-                <section id="mission" class="bg-white/70 py-2  pb-20  bg-cover bg-center">
-            <div class="grid md:items-center mx-auto max-w-screen-2xl px-6 animate-fadeUp">
-                <div class="space-y-4 text-left sticky top-0 self-start pb-10 opacity-0 animate-slideLeft">
-      
-          
-     <div class="grid gap-6">
-
-      <!-- Bloc 1 -->
-      <div class="rounded-none border border-brand-teal/15 bg-white/80 p-5 shadow">
-        <h3 class="text-2xl font-semibold text-brand-deep mb-2">
-          Bénéficiaires
-        </h3>
-        <p class="text-base text-slate-600">
-   L'adhérent, le(s) conjoint(s) de l'adhérents et leurs enfants tant qu'ils n'ont pas atteint l'âge de 21 ans ou de 26 ans s'ils poursuivent leurs études (moyennant le certificat de scolarité).
-        </p>
-
-        
-      </div>
-
-      <!-- Bloc 2 -->
-      <div class="rounded-none border border-brand-teal/15 bg-white/80 p-5 shadow">
-        <h3 class="text-2xl font-semibold text-brand-deep mb-2">
-           Prestations garanties par l’AMTS
-        </h3>
-        <p class="text-base text-slate-600">
-Toutes les prestations garanties sont détaillées dans la brochure ci jointe.        </p>
-      </div>
-
-      <!-- Bloc 3 -->
-      <div class="rounded-none border border-brand-teal/15 bg-white/80 p-5 shadow">
-        <h3 class="text-2xl font-semibold text-brand-deep mb-2">
-          Procédure de l'octroi des allocations de décès et la prime de naissance par Wafa IMA 
-        </h3>
-        <p class="text-base text-slate-600">
-       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-      </div>
-
-      <!-- Bloc 4 -->
-      <div class="rounded-none border border-brand-teal/15 bg-white/80 p-5 shadow">
-        <h3 class="text-2xl font-semibold text-brand-deep mb-2">
-         Attestation en cas de déplacement à l'étranger
-        </h3>
-        <p class="text-base text-slate-600">
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.        </p>
-      </div>
-
-      <!-- Bloc 5 -->
-      <div class="rounded-none border border-brand-teal/15 bg-white/80 p-5 shadow">
-        <h3 class="text-2xl font-semibold text-brand-deep mb-2">
-         L'Assurance de Voyage WAFA IMA ASSISTANCE  
-        </h3>
-        <p class="text-base text-slate-600">
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-        </p>
-      </div>
-
-      <!-- Bloc 6 -->
-      <div class="rounded-none border border-brand-teal/15 bg-white/80 p-5 shadow">
-        <h3 class="text-2xl font-semibold text-brand-deep mb-2">
-         Contact
-        </h3>
-        <p class="text-base text-slate-600">
-Pour toute information : 05 22 58 29 00 <br/>
-DEMANDE D’ASSISTANCE MEDICALE : 05 29 07 51 00
-        </p>
-      </div>
-
+        </div>
     </div>
-                </div>
-     
-            </div>
-        </section>
-
+</section>
     </main>
-
 <footer class="bg-brand-deep text-white" style="background-color: #03443d;">
         <div class="mx-auto grid max-w-screen-2xl gap-8 px-4 py-6 md:grid-cols-4">
             <div>
@@ -428,7 +590,9 @@ DEMANDE D’ASSISTANCE MEDICALE : 05 29 07 51 00
                     <li data-i18n="footer.link3">Newsletter</li>
                 </ul></div>
 
+
                   <div class="text-center py-10 ">
+                
                  <p class="text-sm font-semibold" data-i18n="footer.quickTitle">Accès rapide</p>
                 <ul class="mt-3 space-y-2 text-sm text-white/70">
                     <li data-i18n="footer.quick1">Portail agent</li>

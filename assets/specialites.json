@@ -64,20 +64,24 @@
     },
     {
         "id":  "rabat-sale-kenitra",
-        "costumField":  "Rabat-Sale-Kenitra",
-        "description":  "Point de contact regional pour le conseil, la coordination et l\u0027acces aux services.",
-        "title":  "Siége",
+        "title":  "Rabat-Sale-Kenitra",
         "text":  "Point de contact regional pour le conseil, la coordination et l\u0027acces aux services.",
         "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
-        "content":  "\u003cp\u003ePoint de contact regional pour le conseil, la coordination et l\u0027acces aux services.\u003c/p\u003e"
+  "content": "\u003cdiv id=\"region-text\" class=\"mt-2 font-subtitle text-slate-600\"\u003e\n\u003cstyle\u003e\n  .specialty-section { \n    margin-bottom: 1.5rem; \n  }\n  \n  .specialty-section h2 { \n    font-size: 1rem; \n    font-weight: 600; \n    color: #1e293b; \n    margin-bottom: 1rem;\n    text-decoration: underline;\n    text-underline-offset: 4px;\n  }\n  \n  .specialty-section p { \n    color: #4b5563; \n    padding: 0;\n    margin: 0;\n    font-size: 0.9375rem;\n    line-height: 1.6;\n  }\n  \n  .section-header { \n    font-size: 1rem; \n    font-weight: 600; \n    color: #1e293b; \n    margin: 0 0 1rem;\n    text-decoration: underline;\n    text-underline-offset: 4px;\n  }\n  \n  .partnerships-list { \n    display: flex; \n    flex-direction: column; \n    gap: 0;\n    margin: 0;\n    padding: 0 0 0 1.25rem;\n    list-style: disc;\n  }\n  \n  .partnership-item { \n    color: #4b5563;\n    padding: 0.375rem 0;\n    font-size: 0.9375rem;\n    line-height: 1.6;\n    transition: color 0.2s ease;\n  }\n  \n  .partnership-item::marker {\n    color: #4b5563;\n    font-size: 0.875rem;\n  }\n  \n  .partnership-item:hover {\n    color: #1f2937;\n  }\n\u003c/style\u003e\n\u003cdiv style=\"padding: 0 1rem; margin-top: 1rem;\"\u003e\n  \u003cdiv class=\"specialty-section\"\u003e\n    \u003ch2\u003eSpécialité\u003c/h2\u003e\n    \u003cp\u003eDocteur IBNABDALLAH Mohamed\u003c/p\u003e\n  \u003c/div\u003e\n  \n  \u003ch2 class=\"section-header\"\u003eConventions et partenariats médicaux\u003c/h2\u003e\n  \u003cul class=\"partnerships-list\"\u003e\n    \u003cli class=\"partnership-item\"\u003eLaboratoires d'analyses\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eCabinets de Radiologie\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eCentre de soins dentaire\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003ePharmacies\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eCliniques\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eAchat de matériel médico-chirurgical et paramédical\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eOpticiens\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eMédecins à tarif préférentiels\u003c/li\u003e\n  \u003c/ul\u003e\n\u003c/div\u003e\n\u003c/div\u003e"
+
+
     },
     {
         "id":  "fes-meknes",
         "title":  "Fes-Meknes",
         "text":  "Appui administratif et suivi des demandes sociales pour les beneficiaires de la region.",
         "link":  "https://youssefouss.github.io/FOS-Agri/index.html",
-        "content":  "\u003cp\u003eAppui administratif et suivi des demandes sociales pour les beneficiaires de la region.\u003c/p\u003e"
-    },
+        
+
+  "content": "\u003cdiv id=\"region-text\" class=\"mt-2 font-subtitle text-slate-600\"\u003e\n\u003cstyle\u003e\n  .specialty-section { \n    margin-bottom: 1.5rem; \n  }\n  \n  .specialty-section h2 { \n    font-size: 1rem; \n    font-weight: 600; \n    color: #1e293b; \n    margin-bottom: 1rem;\n    text-decoration: underline;\n    text-underline-offset: 4px;\n  }\n  \n  .specialty-section p { \n    color: #4b5563; \n    padding: 0;\n    margin: 0;\n    font-size: 0.9375rem;\n    line-height: 1.6;\n  }\n  \n  .section-header { \n    font-size: 1rem; \n    font-weight: 600; \n    color: #1e293b; \n    margin: 0 0 1rem;\n    text-decoration: underline;\n    text-underline-offset: 4px;\n  }\n  \n  .partnerships-list { \n    display: flex; \n    flex-direction: column; \n    gap: 0;\n    margin: 0;\n    padding: 0 0 0 1.25rem;\n    list-style: disc;\n  }\n  \n  .partnership-item { \n    color: #4b5563;\n    padding: 0.375rem 0;\n    font-size: 0.9375rem;\n    line-height: 1.6;\n    transition: color 0.2s ease;\n  }\n  \n  .partnership-item::marker {\n    color: #4b5563;\n    font-size: 0.875rem;\n  }\n  \n  .partnership-item:hover {\n    color: #1f2937;\n  }\n\u003c/style\u003e\n\u003cdiv style=\"padding: 0 1rem; margin-top: 1rem;\"\u003e\n  \u003cdiv class=\"specialty-section\"\u003e\n    \u003ch2\u003eSpécialité\u003c/h2\u003e\n    \u003cp\u003eDocteur IBNABDALLAH Mohamed\u003c/p\u003e\n  \u003c/div\u003e\n  \n  \u003ch2 class=\"section-header\"\u003eConventions et partenariats médicaux\u003c/h2\u003e\n  \u003cul class=\"partnerships-list\"\u003e\n    \u003cli class=\"partnership-item\"\u003eLaboratoires d'analyses\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eCabinets de Radiologie\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eCentre de soins dentaire\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003ePharmacies\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eCliniques\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eAchat de matériel médico-chirurgical et paramédical\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eOpticiens\u003c/li\u003e\n    \u003cli class=\"partnership-item\"\u003eMédecins à tarif préférentiels\u003c/li\u003e\n  \u003c/ul\u003e\n\u003c/div\u003e\n\u003c/div\u003e"
+
+
+  },
     {
         "id":  "beni-mellal-khenifra",
         "title":  "Beni Mellal-Khenifra",
