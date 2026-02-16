@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 linkEl = document.createElement("a");
                 linkEl.id = "region-link";
                 linkEl.className = "mt-4 inline-flex items-center justify-center rounded-full border border-brand-teal/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-deep transition hover:bg-brand-teal/10 hidden";
-                linkEl.target = "_blank";
+                linkEl.target = "_self";
                 linkEl.rel = "noopener";
                 linkEl.textContent = "Visiter la page";
             }

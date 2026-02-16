@@ -26,8 +26,7 @@ const services = [
   {
     id: 4,
     title: "Accès au logement",
-        description: "Accompagner nos adhérents dans leurs projets de logement",
-
+    description: "Accompagner nos adhérents dans leurs projets de logement",
     image: "Extranet_files/prers04.png",
     span: "col-start-2 row-start-4 row-span-3",
     background: "#e2e2e2",
@@ -36,8 +35,7 @@ const services = [
   {
     id: 5,
     title: "Culture, loisirs et voyages",
-        description: "Accès aux prestations loisirs et bien-être",
-
+    description: "Accès aux prestations loisirs et bien-être",
     image: "Extranet_files/prers07.png",
     span: "col-start-3 row-start-1 row-span-3",
     background: "#1482b8",
@@ -46,8 +44,7 @@ const services = [
   {
     id: 6,
     title: "Appui au Projets Personnels",
-        description: "Accompagnement des projets personnels",
-
+    description: "Accompagnement des projets personnels",
     image: "Extranet_files/prers05.png",
     span: "col-start-3 row-start-4 row-span-3",
     background: "#77a290",
@@ -56,8 +53,7 @@ const services = [
   {
     id: 7,
     title: "Formation et scolarisation",
-        description: "Encourager l’excellence scolaire",
-
+    description: "Encourager l’excellence scolaire",
     image: "Extranet_files/prers03.png",
     span: "col-start-4 row-start-1 row-span-2",
     background: "#b0d6e0",
@@ -66,8 +62,7 @@ const services = [
   {
     id: 8,
     title: "Education et culture",
-        description: "Bénéficier des partenariats éducatifs",
-
+    description: "Bénéficier des partenariats éducatifs",
     image: "Extranet_files/prers06.png",
     span: "col-start-4 row-start-3 row-span-4",
     background: "#7c6d5a",
