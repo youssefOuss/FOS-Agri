@@ -780,3 +780,106 @@
                 font-size: 1.1rem;
             }
         }
+
+
+
+          /* Styles pour les sous-accordéons */
+
+            .specialty-section .sub-accordion-header, .specialty-section .sub-accordion-item  {
+    background-color: #5ca2c6;
+    border-color: #5ca2c6 !important;
+}
+
+
+ .specialty-section .sub-accordion-header:hover {
+    background-color: #2e70a0db;
+}
+
+ .specialty-section  .sub-accordion-item.active .sub-accordion-header {
+    background-color: #08415e;
+    color: white;
+}
+
+
+
+            .sub-accordion-item {
+                margin: 8px 0;
+                border: 1px solid #e0e0e0;
+                border-radius: 6px;
+                overflow: hidden;
+                background-color: #fff;
+            }
+            
+            .sub-accordion-header {
+                padding: 14px 18px;
+                cursor: pointer;
+                background-color: #f8f9fa;
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: all 0.3s ease;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .sub-accordion-header:hover {
+                background-color: #e3f2fd;
+            }
+            
+            .sub-accordion-header::after {
+                content: '▼';
+                font-size: 0.8rem;
+                transition: transform 0.3s ease;
+                color: #03443d;
+            }
+            
+            .sub-accordion-item.active .sub-accordion-header {
+                background-color: #03443d;
+                color: white;
+            }
+            
+            .sub-accordion-item.active .sub-accordion-header .discount {
+                 background-color: #f8f9fa;
+            }
+
+
+            .sub-accordion-item.active .sub-accordion-header::after {
+                transform: rotate(180deg);
+                color: white;
+            }
+            
+            .sub-accordion-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .sub-accordion-item.active .sub-accordion-content {
+                max-height: 500px;
+            }
+            
+            .sub-accordion-body {
+                padding: 16px 18px;
+                background-color: #fafafa;
+                border-top: 1px solid #e0e0e0;
+            }
+            
+            .sub-accordion-body .contact-info {
+                display: block;
+                color: #555;
+                line-height: 1.6;
+                margin-top: 4px;
+            }
+            
+            .sub-accordion-body .contact-info strong {
+                color: #03443d;
+                font-weight: 600;
+            }
+            
+            /* Masquer les anciens styles de liste */
+            .accordion-body > ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }

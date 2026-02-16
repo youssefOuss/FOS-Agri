@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../assets/styles.css" />
+            <link rel="stylesheet" href="../assets/styles-planning.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -17,6 +18,50 @@
     <script src="../assets/tailwind.config.js"></script>
     <script src="../script.js" type="module"></script>
     <script src="../script-pages.js" type="module"></script>
+   <script>
+        // Fonction pour les accordéons principaux et sous-accordéons
+        function initAccordions() {
+            // Ouvrir tous les accordéons principaux par défaut
+            document.querySelectorAll('.accordion-item:not(.sub-accordion-item)').forEach(item => {
+                item.classList.add('active');
+            });
+            
+            // Ouvrir tous les sous-accordéons par défaut
+            document.querySelectorAll('.sub-accordion-item').forEach(item => {
+                item.classList.add('active');
+            });
+            
+            // Gestion des accordéons principaux
+            const accordionHeaders = document.querySelectorAll('.accordion-header:not(.sub-accordion-header)');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const accordionItem = this.parentElement;
+                    
+                    // Toggle l'accordéon cliqué
+                    accordionItem.classList.toggle('active');
+                });
+            });
+            
+            // Gestion des sous-accordéons
+            const subAccordionHeaders = document.querySelectorAll('.sub-accordion-header');
+            
+            subAccordionHeaders.forEach(header => {
+                header.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const subAccordionItem = this.parentElement;
+                    
+                    // Toggle le sous-accordéon cliqué
+                    subAccordionItem.classList.toggle('active');
+                });
+            });
+        }
+        
+        // Initialiser les accordéons au chargement de la page
+        document.addEventListener('DOMContentLoaded', initAccordions);
+        </script>
+
 
 </head>
 
@@ -310,13 +355,9 @@
     <i class="fab fa-youtube"></i>
   </a>
     </div>
-
     </header>
-
     </section>
-   
-      
-  
+
     <main class="relative overflow-hidden">
 
         <section id="mission" class="bg-white/70  p-4 pt-32  bg-cover bg-center">
@@ -324,25 +365,13 @@
                 <div class="space-y-4 text-left sticky top-0 self-start pb-10 opacity-0 animate-slideLeft">
                     <p class="text-base font-semibold uppercase tracking-[0.3em] text-brand-blue"
                         data-i18n="mission.label">Prévoyance médico-sociale
-</p>
-                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title">Aide aux personnes aux besoins spécifiques
- </h2>
-                    <p class="text-slate-600">
-                        <span data-i18n="mission.desc">  La FOS-Agri a mis en place un programme d’aide aux enfants des adhérents en situations d’handicap présentant des besoins spécifiques, et ce en contribuant à la prise en charge de leurs besoins particuliers à travers une aide dont le montant varie en fonction du nombre d’enfants à besoins spécifiques par adhérent (1 enfant : 2000 dh; 2 enfants : 3000 dh).          </span>
                     </p>
+                    <h2 class="font-display text-6xl text-brand-deep" data-i18n="mission.title">Conventions et partenariats médicaux
+                     </h2>
+             
 
                 </div>
-                <div class="grid gap-6 opacity-0 animate-slideRight">
 
-     <div class="bg-white shadow-md p-4 hover:shadow-lg transition w-full h-[280px] rounded-lg overflow-hidden">
-    <div class="w-full h-48 md:h-56 lg:h-64 rounded-lg overflow-hidden">
-        <img src="../Extranet_files/medico/Aide.jpg" class="w-full h-full object-cover" alt="">
-    </div>
-</div>
-
-
-                 
-                </div>
             </div>
         </section>
       
@@ -352,63 +381,62 @@
       
           
       <div class="grid gap-4">
+    <div style="padding: 0 1rem; margin-top: 1rem;">
+                                <!-- Section Spécialité -->
+                           <div class="specialty-section">
+                                    <h2>Spécialité</h2>
+                                    
+                                    <div class="sub-accordion-item">
+                                        <div class="sub-accordion-header">
+                                            Docteur DBAB Mohamed
+                                        </div>
+                                        <div class="sub-accordion-content">
+                                            <div class="sub-accordion-body">
+                                                <span class="contact-info">
+                                                    <strong>Adresse :</strong> 4 Rue Omar Ben Chamsi (Ex rue Acora) Hamria, Meknès
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
 
-<ul class="onglet flex gap-6 border-b">
-  <li><button class="tab-btn active" data-tab="tab1">Bénéficiaires</button></li>
-  <li><button class="tab-btn" data-tab="tab2"> Inscription et modalités</button></li>
-  <li><button class="tab-btn" data-tab="tab3"> Pièces à fournir</button></li>
+                                <!-- Titre Conventions -->
+                                <h2 class="section-header">Conventions et partenariats médicaux</h2>
 
-</ul>
+                                <div class="accordion-container">
+                                    <!-- Laboratoires d'analyses -->
+                                    <div class="accordion-item">
+                                        <div class="accordion-header">
+                                            Laboratoire d’Analyses
+                                        </div>
+                                        <div class="accordion-content">
+                                            <div class="accordion-body">
+                                                
+                                                <div class="sub-accordion-item">
+                                                    <div class="sub-accordion-header">
+                                                        	Laboratoire d’Analyses Médicales Biougnach<span class="discount">Remise de 40%</span>
+                                                    </div>
+                                                    <div class="sub-accordion-content">
+                                                        <div class="sub-accordion-body">
+                                                            <span class="contact-info">
+                                                                <strong>Adresse :</strong> 8, rue Al Khawarizmy - AV Moulay Abdellah RDC - Meknès<br>
+                                                                <strong>Tél :</strong> 05 35 52 17 17
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-<!-- SECTIONS -->
-<div id="tab1" class="tab-content"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
-                           <!-- <p class="font-semibold text-brand-deep" data-i18n="mission.card1.title">Loisirs et voyages</p>-->
-                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
-Tous les enfants des adhérents de la FOS-Agri étant en situation d’handicap (moteur, mental..), justifiée par une attestation d’handicap délivrée par les autorités publiques compétentes et n’exerçant aucune activité génératrice de revenu.
-                                        </p>
-                        </div></div>
-<div id="tab2" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
-                         
-                            <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
 
-                             Inscription en ligne.<br/>
-Toutes les demandes respectant les conditions sont acceptées.
-                           
-</p>
-    </div></div>
-<div id="tab3" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
-                   
-    <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
-        - Copie du dossier médical de l'intéressé <br/>
-- Copie du formulaire relative au type d’handicap, portant l’avis de la commission médicale provinciale<br/>
-- Copie du ticket modérateur de la CNOPS ou CNSS ou tout autre organisme de prévoyance
-     </p>
-        </div></div>
-
-    <div id="tab4" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">           
-    <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
-Toutes les prestations garanties sont détaillées dans la notice ci jointe
-    </p>
-     </div></div>
-      <div id="tab5" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">
-                   
-     <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
-     Pour déposer un dossier en ligne, utilisez le lien suivant :
-        https://amc.sahamassurance.ma/
-    </p>
-     </div></div>
-
-      <div id="tab6" class="tab-content hidden"><div class="rounded-none border border-brand-teal/15 bg-white/80 p-4 shadow">          
-      <p class="text-base text-slate-600" data-i18n="mission.card1.desc">
-Pour toute réclamation, l’adhérent peut contacter, par téléphone, le service client dédié pour la gestion des réclamations au 05.22.42.06.06
-       </p>
-     </div></div>         
+                                </div>
+                            </div>       
                     </div>
                 </div>
-     
             </div>
         </section>
-
     </main>
 
 <footer class="bg-brand-deep text-white" style="background-color: #03443d;">
@@ -428,17 +456,13 @@ Pour toute réclamation, l’adhérent peut contacter, par téléphone, le servi
                     <li data-i18n="footer.link2">FAQ</li>
                     <li data-i18n="footer.link3">Newsletter</li>
                 </ul></div>
-
-
                   <div class="text-center py-10 ">
-                
                  <p class="text-sm font-semibold" data-i18n="footer.quickTitle">Accès rapide</p>
                 <ul class="mt-3 space-y-2 text-sm text-white/70">
                     <li data-i18n="footer.quick1">Portail agent</li>
                     <li data-i18n="footer.quick2">Programme social</li>
                     <li data-i18n="footer.quick3">Actualités</li>
-                </ul>
-                
+                </ul>               
             </div>
            
 
@@ -454,7 +478,7 @@ Pour toute réclamation, l’adhérent peut contacter, par téléphone, le servi
                 </svg>
             </div>
             <div class="flex-1">
-                <p class="font-body text-sm  text-white/90">0537 66 55 40 / 0537 69 84 31</p>
+                <p class="font-body text-sm text-white/90">0537 66 55 40 / 0537 69 84 31</p>
             </div>
         </div>
         
@@ -504,7 +528,6 @@ Pour toute réclamation, l’adhérent peut contacter, par téléphone, le servi
 
     <script src="../assets/app.js"></script>
 </body>
-
 </html>
 
 
